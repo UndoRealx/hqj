@@ -1,0 +1,6 @@
+com\hqjcloud\provider\service\Impl\CityServiceImpl.class
+com\hqjcloud\provider\mapper\base\CityMapper.class
+com\hqjcloud\provider\HqjCloudCommonApplication.class
+com\hqjcloud\provider\service\CityService.class
+com\hqjcloud\provider\mapper\CityExMapper.class
+com\hqjcloud\provider\web\rpc\CityFeignClient.class

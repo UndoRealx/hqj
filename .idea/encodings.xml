@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" addBOMForNewFiles="with NO BOM">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hqjcloud-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-base" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-config" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-core" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-data" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-swagger" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-util" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hqjcloud-discovery" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hqjcloud-eureka" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hqjcloud-feign" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hqjcloud-gateway" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hqjcloud-monitor" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hqjcloud-provider" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hqjcloud-provider-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hqjcloud-provider-api/hqjcloud-provider-common-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hqjcloud-provider-api/hqjcloud-provider-common-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hqjcloud-zipkin" charset="UTF-8" />
+  </component>
+</project>

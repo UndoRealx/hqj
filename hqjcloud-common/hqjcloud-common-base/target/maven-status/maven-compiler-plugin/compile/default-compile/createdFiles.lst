@@ -1,0 +1,3 @@
+com\hqjcloud\base\enums\ErrorCodeEnum.class
+com\hqjcloud\base\constant\GlobalConstant.class
+com\hqjcloud\base\exception\BusinessException.class

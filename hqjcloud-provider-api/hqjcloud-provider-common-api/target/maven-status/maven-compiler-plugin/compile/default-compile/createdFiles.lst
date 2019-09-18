@@ -1,0 +1,6 @@
+com\hqjcloud\provider\service\hystrix\CityFeignHystrix.class
+com\hqjcloud\provider\service\ImageService.class
+com\hqjcloud\provider\domain\CityEntity.class
+com\hqjcloud\provider\service\FileService.class
+com\hqjcloud\provider\service\CityFeignApi.class
+com\hqjcloud\provider\service\MailService.class
