@@ -1,0 +1,15 @@
+server:
+  port: 8010
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: hqjcloud-provider-common
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://root:root@localhost:8761/eureka/
+  instance:
+    ip-address: true
+    instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${server.port}

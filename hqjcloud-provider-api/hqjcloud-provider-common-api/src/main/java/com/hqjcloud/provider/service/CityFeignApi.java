@@ -32,6 +32,7 @@ public interface CityFeignApi {
     *@Date 2019/9/12
     *@Time 9:07
     */
+
     @PostMapping(value = "/api/city/getCityList")
     public List<CityEntity> getCityList(Long pid);
 

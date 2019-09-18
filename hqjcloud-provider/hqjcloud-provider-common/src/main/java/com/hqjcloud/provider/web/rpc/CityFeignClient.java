@@ -5,6 +5,7 @@ import com.hqjcloud.provider.domain.CityEntity;
 import com.hqjcloud.provider.service.CityFeignApi;
 import com.hqjcloud.provider.service.CityService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,6 +32,7 @@ public class CityFeignClient implements CityFeignApi {
     private CityService cityService;
 
     @Override
+    @ApiOperation(value = "首页", notes = "首页")
     public List<CityEntity> getCityList(Long pid)
     {
       return  cityService.getCityList(pid);

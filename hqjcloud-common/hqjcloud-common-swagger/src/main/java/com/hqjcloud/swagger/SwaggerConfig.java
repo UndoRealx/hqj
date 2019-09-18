@@ -36,7 +36,7 @@ import java.util.Map;
 @EnableSwagger2
 public class SwaggerConfig{
 
-    @Value("${swagger.is.enable ?: false}")
+    @Value("${swagger.is.enable ?: true}")
     private boolean swagger_is_enable;
 
     @Bean
@@ -44,15 +44,15 @@ public class SwaggerConfig{
 
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
-                .enable(swagger_is_enable)
+                //.enable(swagger_is_enable)
                 .select()
                 //加了ApiOperation注解的类，生成接口文档
                 .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
                 //包下的类，生成接口文档
-                //.apis(RequestHandlerSelectors.basePackage("com.baby.*.controller"))
+                //.apis(RequestHandlerSelectors.basePackage("com.hqjcloud"))
                 //.paths(PathSelectors.any())
-                .build()
-                .globalOperationParameters(getOperationParameters());
+                .build();
+                //.globalOperationParameters(getOperationParameters());
     }
 
     private ApiInfo apiInfo() {

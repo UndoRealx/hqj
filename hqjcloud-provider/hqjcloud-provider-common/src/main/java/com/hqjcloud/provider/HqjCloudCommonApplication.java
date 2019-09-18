@@ -2,9 +2,13 @@ package com.hqjcloud.provider;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
+
+/*import org.springframework.cloud.netflix.hystrix.EnableHystrix;*/
+
+
 
 /**
  * @ProjectName: hqjcloud
@@ -19,10 +23,10 @@ import org.springframework.cloud.netflix.feign.EnableFeignClients;
  * @Version: 1.0
  */
 
-@EnableHystrix
+/*@EnableHystrix*/
 @EnableFeignClients
 @EnableDiscoveryClient
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages =("com.hqjcloud.swagger"))
 public class HqjCloudCommonApplication {
     public static void main(String[] args) {
         SpringApplication.run(HqjCloudCommonApplication.class, args);

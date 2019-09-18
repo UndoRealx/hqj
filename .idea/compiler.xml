@@ -16,6 +16,7 @@
         <module name="hqjcloud-eureka" />
         <module name="hqjcloud-feign" />
         <module name="hqjcloud-gateway" />
+        <module name="hqjcloud-generator-common" />
         <module name="hqjcloud-monitor" />
         <module name="hqjcloud-provider-common" />
         <module name="hqjcloud-provider-common-api" />
