@@ -15,44 +15,6 @@
         <module>hqjcloud-generator-common</module>
     </modules>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.version>4.1.6.RELEASE</spring.version>
-        <!-- MyBatis Generator -->
-        <!-- Java接口和实体类 -->
-        <targetJavaProject>${basedir}/src/main/java</targetJavaProject>
-        <targetMapperPackage>com.hqjcloud.common.mapper</targetMapperPackage>
-        <targetModelPackage>com.hqjcloud.common.domain</targetModelPackage>
-        <!-- XML生成路径 -->
-        <targetResourcesProject>${basedir}/src/main/resources</targetResourcesProject>
-        <targetXMLPackage>mapper</targetXMLPackage>
-    </properties>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.mybatis.generator</groupId>
-                <artifactId>mybatis-generator-maven-plugin</artifactId>
-                <version>1.3.2</version>
-                <configuration>
-                    <configurationFile>${basedir}/src/main/resources/generator/generatorConfig-A.xml</configurationFile>
-                    <overwrite>true</overwrite>
-                    <verbose>true</verbose>
-                </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>mysql</groupId>
-                        <artifactId>mysql-connector-java</artifactId>
-                        <version>5.1.39</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>tk.mybatis</groupId>
-                        <artifactId>mapper</artifactId>
-                        <version>3.3.9</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>
