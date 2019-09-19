@@ -1,5 +1,8 @@
 package com.hqjcloud.common.main;
 
+import org.mybatis.generator.api.PluginAdapter;
+import org.mybatis.generator.api.ShellRunner;
+
 import java.util.List;
 
 /**

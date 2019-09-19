@@ -1,0 +1,24 @@
+package ${package}.dto.request.${moduleName};
+
+
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+import javax.validation.constraints.NotBlank;
+
+
+
+/**
+ * ${comments}
+ *
+ * @author ${author}
+ * @email ${email}
+ * @date ${datetime}
+ */
+@Data
+public class ${className}ModifyReq extends  ${className}CreateReq {
+
+    @NotBlank(message = "${pk.attrname}不能为空")
+    @ApiModelProperty(value = "${pk.attrname}",required = true)
+    public ${pk.attrType} ${pk.attrname};
+
+}

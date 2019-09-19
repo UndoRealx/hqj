@@ -1,0 +1,18 @@
+package ${package}.Mapper.${sourceName}Source.${moduleName};
+
+import com.erp.common.MyMapper;
+import com.erp.entity.${moduleName}.${className}Bean;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Component;
+/**
+ * ${comments}
+ * 
+ * @author ${author}
+ * @email ${email}
+ * @date ${datetime}
+ */
+@Component
+@Mapper
+public interface ${className}Mapper extends MyMapper<${className}Bean> {
+	
+}

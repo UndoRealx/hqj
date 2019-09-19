@@ -1,0 +1,14 @@
+com\hqjcloud\generator\base\utils\PageUtils.class
+com\hqjcloud\generator\base\service\SysGeneratorService.class
+com\hqjcloud\generator\base\utils\DateUtils.class
+com\hqjcloud\generator\base\entity\ColumnEntity.class
+com\hqjcloud\generator\base\utils\RRException.class
+com\hqjcloud\generator\base\utils\Query.class
+com\hqjcloud\generator\base\dao\SysGeneratorDao.class
+com\hqjcloud\generator\base\controller\SysGeneratorController.class
+com\hqjcloud\generator\base\utils\Constant.class
+com\hqjcloud\generator\base\entity\TableEntity.class
+com\hqjcloud\generator\base\utils\R.class
+com\hqjcloud\generator\base\utils\RRExceptionHandler.class
+com\hqjcloud\generator\base\utils\GenUtils.class
+com\hqjcloud\generator\base\GeneratorApplication.class

@@ -1,0 +1,7 @@
+package ${package}.service.${moduleName};
+import ${package}.entity.${moduleName}.${className}Bean;
+import ${package}.service.IService;
+
+public interface ${className}Service extends IService<${className}Bean,${pk.attrType}> {
+
+}

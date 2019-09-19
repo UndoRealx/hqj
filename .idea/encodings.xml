@@ -14,6 +14,7 @@
     <file url="file://$PROJECT_DIR$/hqjcloud-feign" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hqjcloud-gateway" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hqjcloud-generator" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-base" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-common" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hqjcloud-monitor" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hqjcloud-provider" charset="UTF-8" />

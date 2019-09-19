@@ -1,0 +1,116 @@
+package ${package}.modules.${moduleName};
+
+import ${package}.common.utils.ApiResult;
+import ${package}.common.utils.DateUtils;
+import ${package}.common.xss.SQLFilter;
+import ${package}.dto.reponse.${moduleName}.${className}Rep;
+import ${package}.dto.request.${moduleName}.${className}CreateReq;
+import ${package}.dto.request.${moduleName}.${className}ModifyReq;
+import ${package}.entity.${moduleName}.${className}Bean;
+import ${package}.service.${moduleName}.${className}Service;
+
+import com.github.pagehelper.PageInfo;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
+import tk.mybatis.mapper.entity.Example;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * ${comments}
+ * 
+ * @author ${author}
+ * @email ${email}
+ * @date ${datetime}
+ */
+@RestController
+@RequestMapping(value = "/${moduleName}/${pathName}", produces = MediaType.APPLICATION_JSON_VALUE) //配置返回值 application/json
+@Api(description = "${comments}")
+public class ${className}Controller {
+	@Autowired
+	private ${className}Service ${classname}Service;
+
+
+    @ApiOperation(value = "新增")
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    @RequiresPermissions("${moduleName}:${pathName}:create")
+    public ApiResult create(${className}CreateReq data)
+    {
+			${className}Bean entity=new ${className}Bean();
+
+			${classname}Service.insert(entity);
+			return ApiResult.Success("操作成功!");
+    }
+
+    @ApiOperation(value = "修改")
+    @RequestMapping(value = "/modify", method = RequestMethod.POST)
+    @RequiresPermissions("${moduleName}:${pathName}:modify")
+    public  ApiResult modify(${className}ModifyReq data)
+    {
+        Example example = new Example(${className}Bean.class);
+        example.createCriteria().andEqualTo("${pk.attrname}",data.${pk.attrname});
+
+            ${className}Bean entity=${classname}Service.queryOneByExample(example);
+
+
+
+			${classname}Service.updateByPrimaryKey(entity);
+        return ApiResult.Success("操作成功!");
+    }
+
+
+    @ApiOperation(value = "删除")
+    @RequestMapping(value = "/del", method = RequestMethod.GET)
+    @RequiresPermissions("${moduleName}:${pathName}:del")
+    public ApiResult del(${pk.attrType} ${pk.attrname})
+    {
+			${classname}Service.deleteByPrimaryKey(${pk.attrname});
+        return ApiResult.Success("删除成功!");
+    }
+
+    @ApiOperation(value = "获取单条")
+    @RequestMapping(value = "/info", method = RequestMethod.GET)
+    @RequiresPermissions("${moduleName}:${pathName}:info")
+    public  ApiResult info(${pk.attrType} ${pk.attrname})
+    {
+        Example example = new Example(${className}Bean.class);
+        example.createCriteria().andEqualTo("${pk.attrname}",${pk.attrname});
+            ${className}Bean entity= ${classname}Service.queryOneByExample(example);
+        return ApiResult.Success(entity);
+    }
+
+    @ApiOperation(value = "分页获取")
+    @RequestMapping(value = "/list",method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
+    @ApiImplicitParams(
+            {
+                    @ApiImplicitParam(paramType = "query", name = "page", value = "第几页", dataType = "String"),
+                    @ApiImplicitParam(paramType ="query", name = "size", value = "每页显示条数", dataType = "String")
+            })
+    @ResponseBody()
+    @RequiresPermissions("${moduleName}:${pathName}:list")
+    public ApiResult<List<${className}Rep>> Get${className}List(
+            @RequestParam(required = false,defaultValue = "1") Integer page,
+            @RequestParam(required = false,defaultValue = "15") Integer size) {
+
+        Example example = new Example(${className}Bean.class);
+        Example.Criteria criteria = example.createCriteria();
+
+        PageInfo<${className}Bean> pageInfo = ${classname}Service.queryPageListByExample(example,page,size);
+
+        List<${className}Rep> list = new ArrayList<>();
+        for(${className}Bean bean:pageInfo.getList())
+        {
+				${className}Rep item = new ${className}Rep();
+            BeanUtils.copyProperties(bean,item);
+            list.add(item);
+        }
+
+        return ApiResult.Success(pageInfo.getTotal(),list);
+    }
+}

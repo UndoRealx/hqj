@@ -1,0 +1,26 @@
+package ${package}.dto.request.${moduleName};
+
+import java.util.Date;
+import lombok.Data;
+import io.swagger.annotations.ApiModelProperty;
+
+
+/**
+ * ${comments}
+ *
+ * @author ${author}
+ * @email ${email}
+ * @date ${datetime}
+ */
+@Data
+public class ${className}CreateReq {
+
+    #foreach ($column in $columns)
+
+        //@NotBlank(message = "${column.comments}不能为空")
+        @ApiModelProperty(value = "$column.comments")//, required = true
+        public $column.attrType $column.attrname;
+
+
+    #end
+}
