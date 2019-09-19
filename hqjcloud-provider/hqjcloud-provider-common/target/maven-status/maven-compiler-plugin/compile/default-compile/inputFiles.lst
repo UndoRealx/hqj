@@ -1,6 +1,9 @@
 E:\mywork\Demo\Cloud\hqjcloud\hqjcloud-provider\hqjcloud-provider-common\src\main\java\com\hqjcloud\provider\mapper\base\CityMapper.java
 E:\mywork\Demo\Cloud\hqjcloud\hqjcloud-provider\hqjcloud-provider-common\src\main\java\com\hqjcloud\provider\HqjCloudCommonApplication.java
+E:\mywork\Demo\Cloud\hqjcloud\hqjcloud-provider\hqjcloud-provider-common\src\main\java\com\hqjcloud\provider\domain\AaTrade.java
 E:\mywork\Demo\Cloud\hqjcloud\hqjcloud-provider\hqjcloud-provider-common\src\main\java\com\hqjcloud\provider\service\CityService.java
 E:\mywork\Demo\Cloud\hqjcloud\hqjcloud-provider\hqjcloud-provider-common\src\main\java\com\hqjcloud\provider\web\rpc\CityFeignClient.java
 E:\mywork\Demo\Cloud\hqjcloud\hqjcloud-provider\hqjcloud-provider-common\src\main\java\com\hqjcloud\provider\service\Impl\CityServiceImpl.java
+E:\mywork\Demo\Cloud\hqjcloud\hqjcloud-provider\hqjcloud-provider-common\src\main\java\com\hqjcloud\provider\domain\AaTradeExample.java
+E:\mywork\Demo\Cloud\hqjcloud\hqjcloud-provider\hqjcloud-provider-common\src\main\java\com\hqjcloud\provider\mapper\base\AaTradeMapper.java
 E:\mywork\Demo\Cloud\hqjcloud\hqjcloud-provider\hqjcloud-provider-common\src\main\java\com\hqjcloud\provider\mapper\CityExMapper.java
