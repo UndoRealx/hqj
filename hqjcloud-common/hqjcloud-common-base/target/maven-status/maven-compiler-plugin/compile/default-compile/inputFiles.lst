@@ -1,3 +1,5 @@
 E:\mywork\Demo\Cloud\hqjcloud\hqjcloud-common\hqjcloud-common-base\src\main\java\com\hqjcloud\base\exception\BusinessException.java
-E:\mywork\Demo\Cloud\hqjcloud\hqjcloud-common\hqjcloud-common-base\src\main\java\com\hqjcloud\base\enums\ErrorCodeEnum.java
+E:\mywork\Demo\Cloud\hqjcloud\hqjcloud-common\hqjcloud-common-base\src\main\java\com\hqjcloud\base\ApiResultEntity.java
+E:\mywork\Demo\Cloud\hqjcloud\hqjcloud-common\hqjcloud-common-base\src\main\java\com\hqjcloud\base\enums\StateCode.java
+E:\mywork\Demo\Cloud\hqjcloud\hqjcloud-common\hqjcloud-common-base\src\main\java\com\hqjcloud\base\exception\GlobalExceptionHandler.java
 E:\mywork\Demo\Cloud\hqjcloud\hqjcloud-common\hqjcloud-common-base\src\main\java\com\hqjcloud\base\constant\GlobalConstant.java

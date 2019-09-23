@@ -2,6 +2,7 @@
 <project version="4">
   <component name="Encoding" addBOMForNewFiles="with NO BOM">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hqjcloud-articlesystem" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hqjcloud-common" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-base" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-config" charset="UTF-8" />
@@ -14,6 +15,7 @@
     <file url="file://$PROJECT_DIR$/hqjcloud-feign" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hqjcloud-gateway" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hqjcloud-generator" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-article" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-base" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-common" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hqjcloud-monitor" charset="UTF-8" />

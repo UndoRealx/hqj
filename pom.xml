@@ -195,6 +195,7 @@
          <module>hqjcloud-discovery</module>
          <module>hqjcloud-feign</module>
         <module>hqjcloud-generator</module>
+        <module>hqjcloud-articlesystem</module>
     </modules>
 
     <!-- 阿里云maven仓库 -->

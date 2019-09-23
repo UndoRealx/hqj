@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="hqjcloud-articlesystem" />
         <module name="hqjcloud-common-base" />
         <module name="hqjcloud-common-config" />
         <module name="hqjcloud-common-core" />
@@ -16,6 +17,7 @@
         <module name="hqjcloud-eureka" />
         <module name="hqjcloud-feign" />
         <module name="hqjcloud-gateway" />
+        <module name="hqjcloud-generator-article" />
         <module name="hqjcloud-generator-base" />
         <module name="hqjcloud-generator-common" />
         <module name="hqjcloud-monitor" />

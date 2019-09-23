@@ -5,20 +5,257 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46518fc4-d66a-40dd-a9ce-6fb5519e0b66" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/ArticleApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/controller/ArticleClassController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/controller/ArticleController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/controller/IndexController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/controller/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/controller/TagController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/mapper/ArticleClassExMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/mapper/ArticleClassRelationExMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/mapper/ArticleTagRelationExMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/mapper/TagExMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/service/ArticleClassService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/service/ArticleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/service/Impl/ArticleClassServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/service/Impl/ArticleServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/service/Impl/TagServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/service/TagService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/mapper/ArticleClassExMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/mapper/ArticleClassRelationExMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/mapper/ArticleTagRelationMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/mapper/TagExMapper,xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/css/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/css/public.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/images/alipay.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/images/close.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/images/code.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/images/face.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/images/fly.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/images/git.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/images/layui.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/images/login_bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/images/mayun.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/images/userface1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/images/userface2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/images/userface3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/images/userface4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/images/userface5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/images/wechat.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/js/address.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/js/bodyTab.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/js/cache.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/js/cacheUserInfo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/js/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/js/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/json/address.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/json/images.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/json/linkList.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/json/linkLogo.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/json/logs.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/json/navs.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/json/newsImg.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/json/newsList.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/json/systemParameter.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/json/userGrade.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/json/userList.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/json/userface.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/css/layui.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/css/layui.mobile.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/css/modules/code.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/css/modules/laydate/default/laydate.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/css/modules/layer/default/icon-ext.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/css/modules/layer/default/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/css/modules/layer/default/layer.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/css/modules/layer/default/loading-0.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/css/modules/layer/default/loading-1.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/css/modules/layer/default/loading-2.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/font/iconfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/font/iconfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/font/iconfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/font/iconfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/0.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/1.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/10.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/11.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/12.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/13.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/14.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/15.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/16.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/17.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/18.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/19.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/2.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/20.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/21.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/22.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/23.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/24.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/25.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/26.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/27.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/28.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/29.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/3.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/30.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/31.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/32.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/33.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/34.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/35.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/36.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/37.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/38.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/39.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/4.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/40.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/41.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/42.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/43.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/44.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/45.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/46.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/47.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/48.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/49.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/5.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/50.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/51.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/52.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/53.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/54.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/55.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/56.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/57.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/58.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/59.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/6.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/60.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/61.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/62.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/63.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/64.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/65.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/66.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/67.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/68.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/69.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/7.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/70.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/71.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/8.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/images/face/9.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/lay/modules/carousel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/lay/modules/code.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/lay/modules/element.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/lay/modules/flow.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/lay/modules/form.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/lay/modules/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/lay/modules/laydate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/lay/modules/layedit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/lay/modules/layer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/lay/modules/laypage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/lay/modules/laytpl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/lay/modules/mobile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/lay/modules/table.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/lay/modules/tree.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/lay/modules/upload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/lay/modules/util.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/layui.all.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/layui/layui.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/templates/article/newsAdd.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/templates/article/newsAdd.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/templates/article/newsList.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/templates/article/newsList.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/templates/main.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/templates/page/404.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/templates/page/doc/addressDoc.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/templates/page/doc/bodyTabDoc.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/templates/page/doc/navDoc.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/templates/page/img/images.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/templates/page/img/images.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/templates/page/login/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/templates/page/login/login.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/templates/page/systemSetting/basicParameter.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/templates/page/systemSetting/basicParameter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/templates/page/systemSetting/icons.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/templates/page/systemSetting/icons.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/templates/page/systemSetting/linkList.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/templates/page/systemSetting/linkList.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/templates/page/systemSetting/linksAdd.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/templates/page/systemSetting/logs.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/templates/page/systemSetting/logs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/templates/user/changePwd.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/templates/user/user.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/templates/user/userAdd.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/templates/user/userAdd.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/templates/user/userGrade.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/templates/user/userInfo.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/templates/user/userInfo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/templates/user/userList.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/templates/user/userList.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-base/src/main/java/com/hqjcloud/base/ApiResultEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-base/src/main/java/com/hqjcloud/base/enums/StateCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-base/src/main/java/com/hqjcloud/base/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-data/src/main/java/com/hqjcloud/data/BasePageList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-data/src/main/java/com/hqjcloud/data/BaseService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-data/src/main/java/com/hqjcloud/data/util/PageUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-swagger/src/main/main.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-article/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-article/src/main/java/com/hqjcloud/article/main/PaginationPlugin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-article/src/main/resources/config.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-article/src/main/resources/generator/generatorConfig-A.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-article/src/main/resources/generator/generatorConfig-B.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-article/target/classes/com/hqjcloud/common/main/PaginationPlugin.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-article/target/classes/config.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-article/target/classes/generator/generatorConfig-A.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-article/target/classes/generator/generatorConfig-B.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-article/target/hqjcloud-generator-common-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-article/target/maven-archiver/pom.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-article/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-article/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-article/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/src/main/java/com/hqjcloud/provider/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hqjcloud-eureka/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/hqjcloud-eureka/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hqjcloud-eureka/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/hqjcloud-eureka/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hqjcloud-eureka/target/classes/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/hqjcloud-eureka/target/classes/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-base/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-base/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-base/src/main/java/com/hqjcloud/base/enums/ErrorCodeEnum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-base/src/main/java/com/hqjcloud/base/exception/BusinessException.java" beforeDir="false" afterPath="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-base/src/main/java/com/hqjcloud/base/exception/BusinessException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-base/target/classes/com/hqjcloud/base/enums/ErrorCodeEnum.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-base/target/classes/com/hqjcloud/base/exception/BusinessException.class" beforeDir="false" afterPath="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-base/target/classes/com/hqjcloud/base/exception/BusinessException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-base/target/hqjcloud-common-base-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-base/target/hqjcloud-common-base-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-base/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-base/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-base/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-base/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-base/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-base/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-data/src/main/java/com/hqjcloud/data/BaseMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-data/src/main/java/com/hqjcloud/data/BaseMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-data/target/classes/com/hqjcloud/data/BaseMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-data/target/classes/com/hqjcloud/data/BaseMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-swagger/src/main/java/com/hqjcloud/swagger/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-swagger/src/main/java/com/hqjcloud/swagger/SwaggerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-swagger/target/classes/com/hqjcloud/swagger/SwaggerConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-swagger/target/classes/com/hqjcloud/swagger/SwaggerConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-swagger/target/hqjcloud-common-swagger-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-swagger/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-swagger/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-swagger/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-swagger/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-base/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-base/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-base/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-base/target/classes/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/src/main/java/com/hqjcloud/provider/HqjCloudCommonApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/src/main/java/com/hqjcloud/provider/HqjCloudCommonApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/target/classes/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/target/classes/com/hqjcloud/provider/HqjCloudCommonApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/target/classes/com/hqjcloud/provider/HqjCloudCommonApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/target/hqjcloud-provider-common.jar" beforeDir="false" afterPath="$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/target/hqjcloud-provider-common.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/target/hqjcloud-provider-common.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/target/hqjcloud-provider-common.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/target/hqjcloud-provider-common.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/target/hqjcloud-provider-common.jar.original" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -45,11 +282,16 @@
     <ignored path="$PROJECT_DIR$/hqjcloud-generator/target/" />
     <ignored path="$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-common/target/" />
     <ignored path="$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-base/target/" />
+    <ignored path="$PROJECT_DIR$/hqjcloud-articlesystem/target/" />
+    <ignored path="$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-article/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="FavoritesManager">
     <favorites_list name="hqjcloud" />
@@ -57,30 +299,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hqjcloud-eureka/pom.xml">
-          <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+        <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/controller/IndexController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="17" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/pom.xml">
-          <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="34" column="54" lean-forward="true" selection-start-line="34" selection-start-column="54" selection-end-line="34" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/src/main/java/com/hqjcloud/provider/HqjCloudCommonApplication.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="21" column="19" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="19" />
+            <state relative-caret-position="289">
+              <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -89,28 +311,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/src/main/resources/application.yml">
+        <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/controller/TagController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/src/main/resources/mapper/base/AaTradeMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="35" column="44" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hqjcloud-eureka/src/main/java/com/hqjcloud/eureka/HqjCloudEurekaApplication.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="19" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
+            <state relative-caret-position="187">
+              <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -119,36 +323,75 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/src/main/resources/mapper/CityExMapper.xml">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/controller/UserController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hqjcloud-eureka/src/main/resources/application.yml">
+        <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/controller/ArticleController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+            <state relative-caret-position="-102">
+              <caret line="29" column="32" lean-forward="true" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/controller/ArticleClassController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="21" column="11" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/hqjcloud-eureka/src/main/resources/bootstrap.yml">
+        <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/templates/article/newsList.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="35" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
+            <state relative-caret-position="153">
+              <caret line="9" column="31" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="31" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-base/src/main/java/com/hqjcloud/generator/base/utils/GenUtils.java">
+        <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/json/newsList.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="65" column="58" selection-start-line="65" selection-start-column="58" selection-end-line="65" selection-end-column="58" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="289">
+              <caret line="17" column="9" lean-forward="true" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/templates/article/newsList.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="433">
+              <caret line="52" column="40" selection-start-line="52" selection-start-column="40" selection-end-line="52" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/templates/article/newsAdd.html">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/templates/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1224">
+              <caret line="72" column="21" selection-start-line="72" selection-start-column="21" selection-end-line="72" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -160,6 +403,7 @@
       <list>
         <option value="Enum" />
         <option value="FxmlFile" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -182,9 +426,25 @@
       <find>config</find>
       <find>@EnableDiscoveryClient</find>
       <find>EnableFeignClients</find>
+      <find>Hqj</find>
+      <find>articleclassService</find>
+      <find>ArticleClass</find>
+      <find>mobile</find>
+      <find>main</find>
+      <find>static</find>
+      <find>main.htm</find>
+      <find>json</find>
+      <find>main.html</find>
+      <find>user</find>
+      <find>toHtml</find>
+      <find>&quot;/*&quot;</find>
+      <find>news</find>
+      <find>newsList.html</find>
     </findStrings>
     <replaceStrings>
       <replace />
+      <replace>articleService</replace>
+      <replace>Article</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -193,57 +453,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/src/main/java/com/hqjcloud/provider/mapper/base/CityMapper.java" />
-        <option value="$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/src/main/java/com/hqjcloud/provider/mapper/CityMapper.java" />
-        <option value="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-data/src/main/java/com/hqjcloud/data/BaseMapper.java" />
-        <option value="$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/src/main/java/com/hqjcloud/provider/mapper/CityExMapper.java" />
-        <option value="$PROJECT_DIR$/hqjcloud-gateway/pom.xml" />
-        <option value="$PROJECT_DIR$/hqjcloud-discovery/pom.xml" />
-        <option value="$PROJECT_DIR$/hqjcloud-feign/pom.xml" />
-        <option value="$PROJECT_DIR$/hqjcloud-monitor/pom.xml" />
-        <option value="$PROJECT_DIR$/hqjcloud-zipkin/pom.xml" />
-        <option value="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-config/pom.xml" />
-        <option value="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-base/pom.xml" />
-        <option value="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-core/pom.xml" />
-        <option value="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-util/pom.xml" />
-        <option value="$PROJECT_DIR$/hqjcloud-provider-api/pom.xml" />
-        <option value="$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/src/main/java/com/hqjcloud/provider/service/CityService.java" />
-        <option value="$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/src/main/java/com/hqjcloud/provider/service/Impl/CityServiceImpl.java" />
-        <option value="$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/src/main/resources/Application.yml" />
-        <option value="$PROJECT_DIR$/hqjcloud-common/pom.xml" />
-        <option value="$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/src/main/java/com/hqjcloud/provider/web/rpc/CityFeignClient.java" />
-        <option value="$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/src/main/java/com/hqjcloud/provider/config/SwaggerConfig.java" />
-        <option value="$PROJECT_DIR$/hqjcloud-provider-api/hqjcloud-provider-common-api/pom.xml" />
-        <option value="$PROJECT_DIR$/hqjcloud-eureka/pom.xml" />
-        <option value="$PROJECT_DIR$/hqjcloud-provider-api/hqjcloud-provider-common-api/src/main/java/com/hqjcloud/provider/service/CityFeignApi.java" />
         <option value="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-swagger/src/main/java/com/hqjcloud/swagger/SwaggerConfig.java" />
-        <option value="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-swagger/pom.xml" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-data/pom.xml" />
-        <option value="$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-common/src/main/resources/config.properties" />
-        <option value="$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-common/src/main/resources/generator/generatorConfig-A.xml" />
-        <option value="$PROJECT_DIR$/hqjcloud-generator/pom.xml" />
-        <option value="$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-common/src/main/java/com/hqjcloud/common/main/PaginationPlugin.java" />
-        <option value="$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-common/src/main/resources/generator/generatorConfig-B.xml" />
-        <option value="$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-common/pom.xml" />
-        <option value="$PROJECT_DIR$/hqjcloud-provider/pom.xml" />
-        <option value="$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-base/pom.xml" />
-        <option value="$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-base/src/main/java/com/hqjcloud/generator/base/dao/SysGeneratorDao.java" />
-        <option value="$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-base/src/main/java/com/hqjcloud/generator/base/entity/ColumnEntity.java" />
-        <option value="$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-base/src/main/java/com/hqjcloud/generator/base/entity/TableEntity.java" />
-        <option value="$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-base/src/main/java/com/hqjcloud/generator/base/utils/Constant.java" />
-        <option value="$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-base/src/main/java/com/hqjcloud/generator/base/service/SysGeneratorService.java" />
-        <option value="$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-base/src/main/java/com/hqjcloud/generator/base/controller/SysGeneratorController.java" />
-        <option value="$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-base/src/main/resources/generator.properties" />
-        <option value="$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-base/src/main/java/com/hqjcloud/generator/base/utils/GenUtils.java" />
-        <option value="$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-base/src/main/java/com/hqjcloud/generator/base/GeneratorApplication.java" />
-        <option value="$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-base/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-base/src/main/resources/mapper/SysGeneratorDao.xml" />
-        <option value="$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/src/main/java/com/hqjcloud/provider/HqjCloudCommonApplication.java" />
-        <option value="$PROJECT_DIR$/hqjcloud-eureka/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/pom.xml" />
-        <option value="$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/hqjcloud-eureka/src/main/resources/bootstrap.yml" />
+        <option value="$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/src/main/java/com/hqjcloud/provider/HqjCloudCommonApplication.java" />
+        <option value="$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/src/main/java/com/hqjcloud/provider/controller/LoginController.java" />
+        <option value="$PROJECT_DIR$/hqjcloud-provider/pom.xml" />
+        <option value="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/ArticleApplication.java" />
+        <option value="$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-article/src/main/resources/generator/generatorConfig-B.xml" />
+        <option value="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-base/src/main/java/com/hqjcloud/base/enums/ErrorCodeEnum.java" />
+        <option value="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-base/src/main/java/com/hqjcloud/base/exception/BusinessException.java" />
+        <option value="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-data/src/main/java/com/hqjcloud/data/BaseMapper.java" />
+        <option value="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/mapper/ArticleExMapper.java" />
+        <option value="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/mapper/ArticleExMapper.xml" />
+        <option value="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-base/src/main/java/com/hqjcloud/base/enums/StateCode.java" />
+        <option value="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-base/src/main/java/com/hqjcloud/base/ApiResultEntity.java" />
+        <option value="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-base/src/main/java/com/hqjcloud/base/exception/GlobalExceptionHandler.java" />
+        <option value="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-data/src/main/java/com/hqjcloud/data/BasePageList.java" />
+        <option value="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-data/src/main/java/com/hqjcloud/data/util/PageUtil.java" />
+        <option value="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/service/Impl/ArticleServiceImpl.java" />
+        <option value="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-data/src/main/java/com/hqjcloud/data/BaseService.java" />
+        <option value="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-data/src/main/java/com/hqjcloud/data/util/BaseServiceImpl.java" />
+        <option value="$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-data/src/main/java/com/hqjcloud/data/BaseServiceImpl.java" />
+        <option value="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/service/ArticleService.java" />
+        <option value="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/mapper/base/ArticleMapper.xml" />
+        <option value="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/mapper/ArticleClassExMapper.java" />
+        <option value="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/mapper/ArticleClassExMapper.xml" />
+        <option value="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/mapper/TagExMapper.java" />
+        <option value="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/mapper/TagExMapper,xml" />
+        <option value="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/mapper/ArticleClassRelationExMapper.java" />
+        <option value="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/mapper/ArticleClassRelationExMapper.xml" />
+        <option value="$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-base/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/controller/HqjArticleclassController.java" />
+        <option value="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/service/Impl/TagServiceImpl.java" />
+        <option value="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/service/TagService.java" />
+        <option value="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/service/ArticleClassService.java" />
+        <option value="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/service/Impl/ArticleClassServiceImpl.java" />
+        <option value="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/mapper/ArticleTagRelationMapper.xml" />
+        <option value="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/mapper/ArticleTagRelationMapper.java" />
+        <option value="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/web/layui/index.html" />
+        <option value="$PROJECT_DIR$/hqjcloud-articlesystem/pom.xml" />
+        <option value="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/js/index.js" />
+        <option value="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/templates/index.html" />
+        <option value="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/controller/LoginController.java" />
+        <option value="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/controller/IndexController.java" />
+        <option value="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/json/navs.json" />
+        <option value="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/controller/BaseController.java" />
+        <option value="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/controller/ArticleClassController.java" />
+        <option value="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/controller/TagController.java" />
+        <option value="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/controller/ArticleController.java" />
+        <option value="$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/templates/article/newsList.js" />
       </list>
     </option>
   </component>
@@ -266,11 +526,12 @@
       <expand>
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="hqjcloud" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="hqjcloud-common-base" type="9519ce18:MavenProjectsStructure$ProjectNode" />
         </path>
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="hqjcloud-generator" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="hqjcloud-common-base" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
         </path>
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
@@ -304,6 +565,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -314,60 +576,25 @@
             <path>
               <item name="hqjcloud" type="b2602c69:ProjectViewProjectNode" />
               <item name="hqjcloud" type="462c0819:PsiDirectoryNode" />
-              <item name="hqjcloud-eureka" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-articlesystem" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="hqjcloud" type="b2602c69:ProjectViewProjectNode" />
               <item name="hqjcloud" type="462c0819:PsiDirectoryNode" />
-              <item name="hqjcloud-eureka" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-articlesystem" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="hqjcloud" type="b2602c69:ProjectViewProjectNode" />
               <item name="hqjcloud" type="462c0819:PsiDirectoryNode" />
-              <item name="hqjcloud-eureka" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hqjcloud" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hqjcloud" type="462c0819:PsiDirectoryNode" />
-              <item name="hqjcloud-eureka" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hqjcloud" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hqjcloud" type="462c0819:PsiDirectoryNode" />
-              <item name="hqjcloud-provider" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hqjcloud" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hqjcloud" type="462c0819:PsiDirectoryNode" />
-              <item name="hqjcloud-provider" type="462c0819:PsiDirectoryNode" />
-              <item name="hqjcloud-provider-common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hqjcloud" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hqjcloud" type="462c0819:PsiDirectoryNode" />
-              <item name="hqjcloud-provider" type="462c0819:PsiDirectoryNode" />
-              <item name="hqjcloud-provider-common" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hqjcloud" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hqjcloud" type="462c0819:PsiDirectoryNode" />
-              <item name="hqjcloud-provider" type="462c0819:PsiDirectoryNode" />
-              <item name="hqjcloud-provider-common" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-articlesystem" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="hqjcloud" type="b2602c69:ProjectViewProjectNode" />
               <item name="hqjcloud" type="462c0819:PsiDirectoryNode" />
-              <item name="hqjcloud-provider" type="462c0819:PsiDirectoryNode" />
-              <item name="hqjcloud-provider-common" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-articlesystem" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -375,8 +602,26 @@
             <path>
               <item name="hqjcloud" type="b2602c69:ProjectViewProjectNode" />
               <item name="hqjcloud" type="462c0819:PsiDirectoryNode" />
-              <item name="hqjcloud-provider" type="462c0819:PsiDirectoryNode" />
-              <item name="hqjcloud-provider-common" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-articlesystem" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="article" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hqjcloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hqjcloud" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-articlesystem" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="article" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hqjcloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hqjcloud" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-articlesystem" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
@@ -384,7 +629,201 @@
             <path>
               <item name="hqjcloud" type="b2602c69:ProjectViewProjectNode" />
               <item name="hqjcloud" type="462c0819:PsiDirectoryNode" />
-              <item name="hqjcloud-zipkin" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-articlesystem" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hqjcloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hqjcloud" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-articlesystem" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="json" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hqjcloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hqjcloud" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-articlesystem" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hqjcloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hqjcloud" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-articlesystem" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="article" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hqjcloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hqjcloud" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hqjcloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hqjcloud" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-common" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-common-base" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hqjcloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hqjcloud" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-common" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-common-base" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hqjcloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hqjcloud" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-common" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-common-base" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hqjcloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hqjcloud" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-common" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-common-base" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hqjcloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hqjcloud" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-common" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-common-base" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="base" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hqjcloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hqjcloud" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-common" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-common-data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hqjcloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hqjcloud" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-common" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-common-data" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hqjcloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hqjcloud" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-common" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-common-data" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hqjcloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hqjcloud" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-common" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-common-data" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hqjcloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hqjcloud" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-common" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-common-data" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hqjcloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hqjcloud" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-common" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-common-data" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hqjcloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hqjcloud" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-generator" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hqjcloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hqjcloud" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-generator" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-generator-base" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hqjcloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hqjcloud" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-generator" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-generator-base" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hqjcloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hqjcloud" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-generator" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-generator-base" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hqjcloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hqjcloud" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-generator" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-generator-base" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hqjcloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hqjcloud" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-generator" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-generator-base" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="base" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hqjcloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hqjcloud" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-generator" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-generator-base" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hqjcloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hqjcloud" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-provider" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hqjcloud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hqjcloud" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-provider" type="462c0819:PsiDirectoryNode" />
+              <item name="hqjcloud-provider-common" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="hqjcloud" type="b2602c69:ProjectViewProjectNode" />
@@ -396,7 +835,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -408,23 +846,31 @@
     <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1568879151335" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1569228955635" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.3627451" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\mywork\Demo\Cloud\hqjcloud\hqjcloud-articlesystem\src\main\resources\templates" />
+      <recent name="E:\mywork\Demo\Cloud\hqjcloud\hqjcloud-articlesystem\src\main\java\com\hqjcloud\article\controller" />
+      <recent name="E:\mywork\Demo\Cloud\hqjcloud\hqjcloud-generator" />
+      <recent name="E:\mywork\Demo\Cloud\hqjcloud\hqjcloud-articlesystem\src\main\resources" />
+      <recent name="E:\mywork\Demo\Cloud\hqjcloud\hqjcloud-generator\hqjcloud-generator-base\src\main\resources" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.hqjcloud.article.controller" />
       <recent name="com.hqjcloud.provider.config" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\mywork\Demo\Cloud\hqjcloud\hqjcloud-generator\hqjcloud-generator-base\src\main\resources" />
-      <recent name="E:\mywork\Demo\Cloud\hqjcloud\hqjcloud-generator\hqjcloud-generator-base\src\main\java\com\hqjcloud\generator\base\utils" />
-      <recent name="E:\mywork\Demo\Cloud\hqjcloud\hqjcloud-provider\hqjcloud-provider-common\src\main\resources" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\mywork\Demo\Cloud\hqjcloud\hqjcloud-articlesystem\src\main\resources\templates" />
+      <recent name="E:\mywork\Demo\Cloud\hqjcloud\hqjcloud-articlesystem\src\main\resources\static" />
+      <recent name="E:\mywork\Demo\Cloud\hqjcloud\hqjcloud-articlesystem\src\main\resources\templates\layui" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -439,16 +885,10 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.HqjCloudCommonApplication">
-    <configuration name="PaginationPlugin" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.hqjcloud.common.main.PaginationPlugin" />
-      <module name="hqjcloud-generator-common" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.hqjcloud.common.main.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+  <component name="RunManager" selected="Spring Boot.ArticleApplication">
+    <configuration name="ArticleApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="hqjcloud-articlesystem" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.hqjcloud.article.ArticleApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -478,14 +918,9 @@
     <list>
       <item itemvalue="Spring Boot.HqjCloudEurekaApplication" />
       <item itemvalue="Spring Boot.HqjCloudCommonApplication" />
-      <item itemvalue="Application.PaginationPlugin" />
       <item itemvalue="Spring Boot.GeneratorApplication" />
+      <item itemvalue="Spring Boot.ArticleApplication" />
     </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.PaginationPlugin" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -503,12 +938,16 @@
       <workItem from="1568596838833" duration="6055000" />
       <workItem from="1568703384397" duration="6607000" />
       <workItem from="1568711470755" duration="8484000" />
-      <workItem from="1568773823119" duration="28016000" />
+      <workItem from="1568773823119" duration="28543000" />
+      <workItem from="1568880035235" duration="25058000" />
+      <workItem from="1569206042667" duration="329000" />
+      <workItem from="1569206864825" duration="11396000" />
+      <workItem from="1569229007038" duration="2810000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72219000" />
+    <option name="totallyTimeSpent" value="112339000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -523,7 +962,7 @@
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49939394" visible="true" weight="0.1945629" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49939394" visible="true" weight="0.20309168" />
       <window_info id="Structure" order="1" sideWeight="0.50060606" side_tool="true" weight="0.26066098" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -533,8 +972,43 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.27006507" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.39696312" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3286334" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39696312" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32936078" />
+      <window_info anchor="bottom" id="Spring" order="7" weight="0.32936078" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32827735" />
+      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.11050921" />
+      <window_info anchor="bottom" id="Database Changes" order="12" />
+      <window_info anchor="bottom" id="Version Control" order="13" weight="0.329718" />
+      <window_info anchor="bottom" id="Messages" order="14" weight="0.3286334" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" visible="true" weight="0.17697228" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="Bean Validation" order="9" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49939394" visible="true" weight="0.19669509" />
+      <window_info id="Structure" order="1" sideWeight="0.50060606" side_tool="true" weight="0.26066098" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" sideWeight="0.50060606" side_tool="true" weight="0.26066098" />
+      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.27006507" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39696312" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32936078" />
@@ -556,443 +1030,390 @@
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info anchor="right" id="Bean Validation" order="9" />
-    </layout>
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/src/main/java/com/hqjcloud/provider/web/rpc/CityFeignClient.java</url>
-          <line>37</line>
+      <default-breakpoints>
+        <breakpoint enabled="true" type="javascript-exception">
           <properties />
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://E:/Maven/m2/io/springfox/springfox-spring-web/2.3.1/springfox-spring-web-2.3.1.jar!/springfox/documentation/spring/web/plugins/ApiSelectorBuilder.class</url>
-          <line>25</line>
-          <properties />
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-common/src/main/java/com/hqjcloud/common/main/PaginationPlugin.java</url>
-          <line>34</line>
-          <properties />
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://E:/Maven/m2/org/mybatis/generator/mybatis-generator-core/1.3.6/mybatis-generator-core-1.3.6.jar!/org/mybatis/generator/api/ShellRunner.class</url>
-          <line>59</line>
-          <properties />
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-      </breakpoints>
+        </breakpoint>
+      </default-breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-data/pom.xml">
-      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+    <entry file="file://$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-data/src/main/java/com/hqjcloud/data/BaseService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="36" column="10" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="10" />
+        <state relative-caret-position="748">
+          <caret line="44" column="7" selection-start-line="44" selection-start-column="7" selection-end-line="44" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/src/main/java/com/hqjcloud/provider/domain/test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="36" lean-forward="true" selection-start-column="8" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/src/main/java/com/hqjcloud/provider/mapper/CityExMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="29" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/src/main/java/com/hqjcloud/provider/mapper/base/CityMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-common/pom.xml">
-      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="47" column="14" selection-start-line="47" selection-start-column="10" selection-end-line="51" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/src/main/java/com/hqjcloud/provider/web/rpc/CityFeignClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/Maven/m2/org/mybatis/mybatis/3.4.2/mybatis-3.4.2.jar!/org/apache/ibatis/annotations/Param.class">
+    <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/mapper/base/ArticleMapper.xml" />
+    <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/mapper/base/ArticleMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/src/main/java/com/hqjcloud/provider/domain/AaTradeExample.java">
+    <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/mapper/base/ArticleClassMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-34">
-          <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
+        <state relative-caret-position="68">
+          <caret line="7" column="35" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+    <entry file="file://$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-data/src/main/java/com/hqjcloud/data/BaseMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="63" column="12" selection-start-line="63" selection-start-column="12" selection-end-line="63" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hqjcloud-provider/pom.xml">
-      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/src/main/java/com/hqjcloud/provider/domain/AaTrade.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/src/main/java/com/hqjcloud/provider/mapper/base/AaTradeMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="48" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
+        <state relative-caret-position="306">
+          <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/src/main/java/com/hqjcloud/provider/service/Impl/CityServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/mapper/base/TagMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="40" column="5" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
+        <state relative-caret-position="68">
+          <caret line="7" column="26" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/mapper/TagExMapper,xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="9" lean-forward="true" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/mapper/base/ArticleClassRelationMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="43" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/mapper/ArticleClassExMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="9" lean-forward="true" selection-end-line="4" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/mapper/ArticleClassRelationExMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="9" lean-forward="true" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/mapper/base/ArticleTagRelationMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="41" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/mapper/ArticleExMapper.xml" />
+    <entry file="file://$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-base/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="46" selection-start-line="12" selection-start-column="46" selection-end-line="12" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/beans/ArticleClassRelation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="33" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/beans/Tag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-272">
+          <caret line="2" column="16" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/service/Impl/TagServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="32" column="46" lean-forward="true" selection-start-line="32" selection-start-column="46" selection-end-line="32" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#966#967#0" expanded="true" />
-            <element signature="e#1017#1018#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-common/src/main/resources/generator/generatorConfig-A.xml">
+    <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/service/ArticleService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="9" column="37" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
+        <state relative-caret-position="394">
+          <caret line="29" column="95" lean-forward="true" selection-start-line="21" selection-start-column="1" selection-end-line="29" selection-end-column="95" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-common/src/main/resources/generator/generatorConfig-B.xml">
+    <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/service/TagService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-157">
-          <caret line="13" column="33" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
+        <state relative-caret-position="370">
+          <caret line="28" column="90" lean-forward="true" selection-start-line="20" selection-start-column="2" selection-end-line="28" selection-end-column="90" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/mapper/ArticleExMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/mapper/ArticleClassExMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="6" selection-start-line="18" selection-end-line="18" selection-end-column="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/mapper/ArticleClassRelationExMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="45" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/mapper/ArticleTagRelationMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="9" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/controller/HqjArticleclassrelationController.java" />
+    <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/service/ArticleClassService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="26" column="24" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hqjcloud-common/hqjcloud-common-base/src/main/java/com/hqjcloud/base/ApiResultEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="49" column="34" selection-start-line="49" selection-start-column="34" selection-end-line="49" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/templates/layui/index.html" />
+    <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/service/Impl/ArticleClassServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/mapper/ArticleTagRelationExMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/mapper/TagExMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="19" column="28" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/lang/ClassLoader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2051">
-          <caret line="1090" column="36" selection-start-line="1090" selection-start-column="25" selection-end-line="1090" selection-end-column="36" />
+        <state relative-caret-position="176">
+          <caret line="435" selection-start-line="435" selection-end-line="435" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-common/src/main/java/com/hqjcloud/common/main/PaginationPlugin.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/net/URLClassLoader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="37" selection-start-line="37" selection-end-line="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="788">
+          <caret line="380" selection-start-line="380" selection-end-line="380" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://E:/Maven/m2/org/mybatis/generator/mybatis-generator-core/1.3.6/mybatis-generator-core-1.3.6.jar!/org/mybatis/generator/api/ShellRunner.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="90" selection-start-line="90" selection-end-line="90" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/Maven/m2/org/mybatis/generator/mybatis-generator-core/1.3.6/mybatis-generator-core-1.3.6.jar!/org/mybatis/generator/internal/NullProgressCallback.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/Maven/m2/org/mybatis/generator/mybatis-generator-core/1.3.6/mybatis-generator-core-1.3.6.jar!/org/mybatis/generator/api/MyBatisGenerator.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="141" column="76" selection-start-line="141" selection-start-column="76" selection-end-line="141" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hqjcloud-generator/pom.xml">
-      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-base/pom.xml">
-      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-base/src/main/java/com/hqjcloud/generator/base/entity/ColumnEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="97" selection-start-line="97" selection-end-line="97" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-base/src/main/java/com/hqjcloud/generator/base/entity/TableEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="68" selection-start-line="68" selection-end-line="68" />
-          <folding>
-            <element signature="e#655#656#0" expanded="true" />
-            <element signature="e#678#679#0" expanded="true" />
-            <element signature="e#724#725#0" expanded="true" />
-            <element signature="e#757#758#0" expanded="true" />
-            <element signature="e#854#855#0" expanded="true" />
-            <element signature="e#885#886#0" expanded="true" />
-            <element signature="e#916#917#0" expanded="true" />
-            <element signature="e#932#933#0" expanded="true" />
-            <element signature="e#1031#1032#0" expanded="true" />
-            <element signature="e#1052#1053#0" expanded="true" />
-            <element signature="e#1167#1168#0" expanded="true" />
-            <element signature="e#1190#1191#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-base/src/main/java/com/hqjcloud/generator/base/utils/Constant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-base/src/main/java/com/hqjcloud/generator/base/service/SysGeneratorService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="56" column="22" selection-start-line="56" selection-start-column="22" selection-end-line="56" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#619#620#0" expanded="true" />
-            <element signature="e#664#665#0" expanded="true" />
-            <element signature="e#724#725#0" expanded="true" />
-            <element signature="e#775#776#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-base/src/main/java/com/hqjcloud/generator/base/controller/SysGeneratorController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="50" selection-start-line="50" selection-end-line="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-base/src/main/resources/views/main.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-common/src/main/resources/config.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="92" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/Maven/m2/commons-io/commons-io/2.5/commons-io-2.5.jar!/org/apache/commons/io/IOUtils.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="122" lean-forward="true" selection-start-line="122" selection-end-line="122" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-base/src/main/resources/static/js/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-990" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-base/src/main/resources/static/js/generator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-633" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-base/src/main/resources/static/js/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="28" lean-forward="true" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-base/src/main/resources/views/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1428" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-base/src/main/java/com/hqjcloud/generator/base/dao/SysGeneratorDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="8" selection-start-column="8" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-base/src/main/java/com/hqjcloud/generator/base/GeneratorApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="22" lean-forward="true" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-base/src/main/resources/mapper/SysGeneratorDao.xml">
+    <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/json/logs.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
-          <caret line="12" column="37" lean-forward="true" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
+          <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-base/src/main/resources/views/generator.html">
+    <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/pom.xml">
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="66" column="21" lean-forward="true" selection-start-line="66" selection-start-column="21" selection-end-line="66" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/templates/page/login/login.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="25" lean-forward="true" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/controller/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
-          <caret line="16" column="59" selection-start-line="16" selection-start-column="59" selection-end-line="16" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-base/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="24" column="9" lean-forward="true" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-base/src/main/resources/generator.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="17" lean-forward="true" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-base/src/main/java/com/hqjcloud/generator/base/utils/GenUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="65" column="58" selection-start-line="65" selection-start-column="58" selection-end-line="65" selection-end-column="58" />
+          <caret line="24" column="51" selection-start-line="24" selection-start-column="51" selection-end-line="24" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/src/main/resources/mapper/base/AaTradeMapper.xml">
+    <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/service/Impl/ArticleServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="35" column="44" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hqjcloud-generator/hqjcloud-generator-base/src/main/resources/template/Controller.java.vm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="48" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hqjcloud-eureka/src/main/java/com/hqjcloud/eureka/HqjCloudEurekaApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="19" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
+        <state relative-caret-position="176">
+          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/src/main/resources/mapper/CityExMapper.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/src/main/java/com/hqjcloud/provider/HqjCloudCommonApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="21" column="19" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/pom.xml">
-      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="34" column="54" lean-forward="true" selection-start-line="34" selection-start-column="54" selection-end-line="34" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hqjcloud-provider/hqjcloud-provider-common/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hqjcloud-eureka/pom.xml">
-      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="17" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hqjcloud-eureka/src/main/resources/application.yml">
+    <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/controller/BaseController.java" />
+    <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/json/navs.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+          <caret line="5" column="37" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hqjcloud-eureka/src/main/resources/bootstrap.yml">
+    <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/templates/main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="27" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/templates/article/newsAdd.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1224">
+          <caret line="72" column="21" selection-start-line="72" selection-start-column="21" selection-end-line="72" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/controller/ArticleClassController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
-          <caret line="12" column="35" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
+          <caret line="21" column="11" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/controller/IndexController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/controller/TagController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/java/com/hqjcloud/article/controller/ArticleController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-102">
+          <caret line="29" column="32" lean-forward="true" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/static/json/newsList.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="9" lean-forward="true" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/templates/article/newsList.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="52" column="40" selection-start-line="52" selection-start-column="40" selection-end-line="52" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hqjcloud-articlesystem/src/main/resources/templates/article/newsList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="31" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -1048,7 +1469,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>hqjcloud-generator-base</last-edited>
+          <last-edited>hqjcloud-articlesystem</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

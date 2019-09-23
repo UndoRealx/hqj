@@ -1,5 +1,7 @@
 package com.hqjcloud.data;
 
+import org.apache.ibatis.annotations.Param;
+
 import java.util.List;
 
 /**
@@ -15,5 +17,5 @@ import java.util.List;
  * @Version: 1.0
  */
 public interface BaseMapper<T> {
-
+    public  List<T> getByPage(@Param("page") int page, @Param("size") int size);
 }
