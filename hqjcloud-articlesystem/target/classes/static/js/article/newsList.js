@@ -9,32 +9,70 @@ layui.use(['form','layer','laydate','table','laytpl'],function(){
     //新闻列表
     var tableIns = table.render({
         elem: '#newsList',
-        url : '../static/json/newsList.json',
+        url : 'getByPage',
         cellMinWidth : 95,
         page : true,
         height : "full-125",
         limit : 20,
         limits : [10,15,20,25],
         id : "newsListTable",
+        request: {
+            pageName: 'page' //页码的参数名称，默认：page
+            ,limitName: 'size' //每页数据量的参数名，默认：limit
+        },response:{
+             statusName: 'code' //数据状态的字段名称，默认：code
+            ,statusCode: 0 //成功的状态码，默认：0
+            ,countName: 'count' //数据总数的字段名称，默认：count
+            ,dataName: 'data' //数据列表的字段名称，默认：data
+        },
         cols : [[
             {type: "checkbox", fixed:"left", width:50},
             {field: 'longid', title: 'ID', width:60, align:"center"},
             {field: 'arttitle', title: '文章标题', width:350},
             {field: 'addauthor', title: '发布者', align:'center'},
-            {field: 'artstatus', title: '发布状态',  align:'center',templet:"#newsStatus"},
+            {field: 'artStatusName', title: '发布状态',  align:'center',templet:"#artstatus"},
             {field: 'visitcnt', title: '阅读次数', align:'center'},
             {field: 'istop', title: '是否置顶', align:'center', templet:function(d){
-                return '<input type="checkbox" name="istop" lay-filter="istop" lay-skin="switch" lay-text="是|否" '+d.istop+'>'
+                return '<input type="checkbox" name="istop" value='+d.istop+' lay-filter="istop" lay-skin="switch" lay-text="是|否" '+d.istop+'>'
             }},
-            {field: 'pubtime', title: '发布时间', align:'center', minWidth:110, templet:function(d){
-                return d.newsTime.substring(0,10);
-            }},
+            {field: 'pubTimes', title: '发布时间', align:'center', minWidth:110, templet:function(d){
+                    return d.pubTimes.substring(0,10);
+                }},
             {title: '操作', width:170, templet:'#newsListBar',fixed:"right",align:"center"}
         ]]
     });
 
     //是否置顶
     form.on('switch(istop)', function(data){
+        console.log(data.value);
+       /* $.ajax(
+            {
+                url:"/article/top",
+                type:'post',
+                data:{longid:openid},
+                beforeSend:function () {
+                    this.layerIndex = layer.load(0, { shade: [0.5, '#393D49'] });
+                },
+                success:function(result){
+                    console.log(result);
+                    if(data.status == 'error'){
+                        layer.msg(data.msg,{icon: 5});//失败的表情
+                        return;
+                    }else{
+                        if(result.code) {
+                            if (data.elem.checked) {
+                                layer.msg("置顶成功！");
+                            } else {
+                                layer.msg("取消置顶成功！");
+                            }
+                        }
+                    }
+                },
+                complete: function () {
+                    layer.close(this.layerIndex);
+                }
+            }
+        )*/
         var index = layer.msg('修改中，请稍候',{icon: 16,time:false,shade:0.8});
         setTimeout(function(){
             layer.close(index);
@@ -64,6 +102,7 @@ layui.use(['form','layer','laydate','table','laytpl'],function(){
 
     //添加文章
     function addNews(edit){
+        console.log(111);
         var index = layui.layer.open({
             title : "添加文章",
             type : 2,
@@ -75,7 +114,7 @@ layui.use(['form','layer','laydate','table','laytpl'],function(){
                     body.find(".abstract").val(edit.abstract);
                     body.find(".thumbImg").attr("src",edit.newsImg);
                     body.find("#news_content").val(edit.content);
-                    body.find(".newsStatus select").val(edit.newsStatus);
+                    body.find(".artstatus select").val(edit.artstatus);
                     body.find(".openness input[name='openness'][title='"+edit.newsLook+"']").prop("checked","checked");
                     body.find(".newsTop input[name='newsTop']").prop("checked",edit.newsTop);
                     form.render();
@@ -94,6 +133,7 @@ layui.use(['form','layer','laydate','table','laytpl'],function(){
         })
     }
     $(".addNews_btn").click(function(){
+        console.log('add');
         addNews();
     })
 

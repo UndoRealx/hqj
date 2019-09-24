@@ -4,6 +4,9 @@ server:
     context-path: /
 
 spring:
+  devtools:
+    restart:
+      additional-paths: src/main/java,src/main/resources
   thymeleaf:
     cache: false
     suffix: .html
@@ -19,10 +22,21 @@ spring:
         content:
           enabled: true
           paths: /**
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
   application:
     name: @pom.artifactId@
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.1.175:3306/articleSystem?useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://192.168.1.175:3306/ArticleSystem?useUnicode=true&characterEncoding=UTF-8
     username: root
     password: wuqian
+mybatis:
+  config-location: classpath:mybatis-config.xml
+  mapper-locations: classpath:mapper/*.xml,mapper/**/*.xml
+  type-aliases-package: com.hqjcloud.article.beans
+#pagehelper分页插件
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql

@@ -2,6 +2,8 @@ package com.hqjcloud.article.controller;
 
 import com.hqjcloud.article.beans.Article;
 import com.hqjcloud.article.beans.ArticleExample;
+import com.hqjcloud.article.common.Layui;
+import com.hqjcloud.article.common.TimeUtil;
 import com.hqjcloud.article.service.ArticleService;
 import com.hqjcloud.base.ApiResultEntity;
 import com.hqjcloud.base.enums.StateCode;
@@ -38,6 +40,22 @@ public class ArticleController {
 
     }
 
+    @ResponseBody
+    @ApiOperation(value = "置顶")
+    @RequestMapping(value = "/top", method = RequestMethod.POST)
+    public ApiResultEntity top(Long longid,int isTop) {
+
+        Article article=articleService.getById(longid);
+        if(null==article)
+        {
+            return ApiResultEntity.returnResult(StateCode.NODATAEXIST.get());
+        }
+        article.setIstop(Byte.parseByte(String.valueOf(isTop)));
+        article.setModifytime(TimeUtil.GetDate());
+        articleService.modify(article);
+        return ApiResultEntity.successResult(StateCode.success.get());
+    }
+
     @ApiOperation(value = "新增")
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public ApiResultEntity create(@RequestBody Article data) {
@@ -70,6 +88,7 @@ public class ArticleController {
         return ApiResultEntity.successResult(article);
     }
 
+    @ResponseBody
     @GetMapping(value = "/getByPage")
     @ApiOperation(value = "分页获取", notes = "分页获取")
     @ApiImplicitParams(
@@ -77,11 +96,16 @@ public class ArticleController {
                     @ApiImplicitParam(paramType = "query", name = "page", value = "第几页", dataType = "Integer"),
                     @ApiImplicitParam(paramType ="query", name = "size", value = "每页显示条数", dataType = "Integer")
             })
-    public ApiResultEntity getByPage(@RequestParam(required = false,defaultValue = "1") Integer page,
-                                     @RequestParam(required = false,defaultValue = "15") Integer size)
+    public Layui getByPage(@RequestParam(required = false,defaultValue = "1") String key,
+                           @RequestParam(required = false,defaultValue = "1") Integer page,
+                           @RequestParam(required = false,defaultValue = "15") Integer size)
     {
         ArticleExample example = new ArticleExample();
         ArticleExample.Criteria criteria = example.createCriteria();
+        if(key!=null||key.trim().isEmpty()==false)
+        {
+            criteria.andArttitleLike(key);
+        }
         example.setOrderByClause("longid desc");
         return articleService.queryPageListByExample(example,page,size);
     }
