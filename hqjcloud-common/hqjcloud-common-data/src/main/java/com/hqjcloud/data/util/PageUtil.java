@@ -2,6 +2,8 @@ package com.hqjcloud.data.util;
 
 import com.hqjcloud.data.BasePageList;
 
+import java.util.List;
+
 /**
  * @ProjectName: hqjcloud
  * @Package: com.hqjcloud.data.util
@@ -22,6 +24,15 @@ public class PageUtil {
         pageList.setPageSize(pageInfo.getPageSize());
         pageList.setTotal(pageInfo.getTotal());
         pageList.setList(pageInfo.getList());
+        return pageList;
+    }
+
+    public static BasePageList returnPageList(com.github.pagehelper.PageInfo pageInfo, List<?> newList) {
+        BasePageList pageList = new BasePageList();
+        pageList.setPageNum(pageInfo.getPageNum());
+        pageList.setPageSize(pageInfo.getPageSize());
+        pageList.setTotal(pageInfo.getTotal());
+        pageList.setList(newList);
         return pageList;
     }
 }
