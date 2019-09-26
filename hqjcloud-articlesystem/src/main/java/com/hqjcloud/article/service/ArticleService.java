@@ -1,8 +1,6 @@
 package com.hqjcloud.article.service;
 
-import com.hqjcloud.article.beans.Article;
-import com.hqjcloud.article.beans.ArticleExample;
-import com.hqjcloud.article.common.Layui;
+import com.hqjcloud.base.ApiResultEntity;
 
 
 /**
@@ -27,5 +25,5 @@ public interface ArticleService {
 
     public  Article getById(Long longid);
 
-    public Layui queryPageListByExample(ArticleExample example, int page, int size);
+    public ApiResultEntity queryPageListByExample(ArticleExample example, int page, int size);
 }

@@ -1,7 +1,5 @@
 package com.hqjcloud.article.controller;
 
-import com.hqjcloud.article.beans.Article;
-import com.hqjcloud.article.common.Layui;
 import com.hqjcloud.article.common.TimeUtil;
 import com.hqjcloud.article.service.ArticleService;
 import com.hqjcloud.base.ApiResultEntity;
@@ -115,7 +113,7 @@ public class ArticleController {
                     @ApiImplicitParam(paramType = "query", name = "page", value = "第几页", dataType = "Integer"),
                     @ApiImplicitParam(paramType ="query", name = "size", value = "每页显示条数", dataType = "Integer")
             })
-    public Layui getByPage(@RequestParam(required = false,defaultValue = "1") String key,
+    public ApiResultEntity getByPage(@RequestParam(required = false,defaultValue = "1") String key,
                            @RequestParam(required = false,defaultValue = "1") Integer page,
                            @RequestParam(required = false,defaultValue = "15") Integer size)
     {

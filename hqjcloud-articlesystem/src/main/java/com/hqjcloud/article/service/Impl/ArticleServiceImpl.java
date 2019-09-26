@@ -2,12 +2,12 @@ package com.hqjcloud.article.service.Impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.hqjcloud.article.beans.Article;
-import com.hqjcloud.article.beans.ArticleExample;
-import com.hqjcloud.article.common.Layui;
 import com.hqjcloud.article.dto.repose.ArticleRep;
 import com.hqjcloud.article.mapper.ArticleExMapper;
 import com.hqjcloud.article.service.ArticleService;
+import com.hqjcloud.base.ApiResultEntity;
+import com.hqjcloud.base.enums.StateCode;
+import com.hqjcloud.data.util.PageUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -54,7 +54,7 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public Layui queryPageListByExample(ArticleExample example, int page, int size) {
+    public ApiResultEntity queryPageListByExample(ArticleExample example, int page, int size) {
         PageHelper.startPage(page, size, true);// 设置分页参数
         // 查询数据
         List<Article> lists = articleExMapper.selectByExample(example);
@@ -66,6 +66,6 @@ public class ArticleServiceImpl implements ArticleService {
             BeanUtils.copyProperties(bean,item);
             list.add(item);
         }
-        return Layui.data(pageInfo.getTotal(),list);
+        return ApiResultEntity.returnResult(StateCode.success.get(), PageUtil.returnPageList(pageInfo,list));
     }
 }
