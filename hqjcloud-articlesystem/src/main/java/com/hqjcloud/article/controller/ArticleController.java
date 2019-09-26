@@ -1,7 +1,6 @@
 package com.hqjcloud.article.controller;
 
 import com.hqjcloud.article.beans.Article;
-import com.hqjcloud.article.beans.ArticleExample;
 import com.hqjcloud.article.common.Layui;
 import com.hqjcloud.article.common.TimeUtil;
 import com.hqjcloud.article.service.ArticleService;
@@ -43,8 +42,12 @@ public class ArticleController {
     @ResponseBody
     @ApiOperation(value = "置顶")
     @RequestMapping(value = "/top", method = RequestMethod.POST)
-    public ApiResultEntity top(Long longid,int isTop) {
+    public ApiResultEntity top(Long longid,Integer isTop) {
 
+        if(null==longid||isTop==null)
+        {
+            return ApiResultEntity.returnResult(StateCode.ILLEGALREQUESTPARAMETER.get());
+        }
         Article article=articleService.getById(longid);
         if(null==article)
         {
@@ -67,16 +70,28 @@ public class ArticleController {
     @RequestMapping(value = "/modify", method = RequestMethod.PUT)
     public  ApiResultEntity modify(@RequestBody Article data)
     {
-        articleService.add(data);
+        articleService.modify(data);
         return ApiResultEntity.successResult(StateCode.success.get());
     }
 
 
+    @ResponseBody
     @ApiOperation(value = "删除")
     @RequestMapping(value = "/del", method = RequestMethod.DELETE)
-    public ApiResultEntity del(Long longid)
+    public ApiResultEntity del(@RequestParam(value="longid", required=true) String  longid)
     {
-        articleService.del(longid);
+        if(null==longid)
+        {
+            return ApiResultEntity.returnResult(StateCode.ILLEGALREQUESTPARAMETER.get());
+        }
+        Article article=articleService.getById(Long.parseLong(longid));
+        if(null==article)
+        {
+            return ApiResultEntity.returnResult(StateCode.NODATAEXIST.get());
+        }
+        article.setArtstatus(100);
+        article.setModifytime(TimeUtil.GetDate());
+        articleService.modify(article);
         return ApiResultEntity.successResult(StateCode.success.get());
     }
 
@@ -84,6 +99,10 @@ public class ArticleController {
     @RequestMapping(value = "/info", method = RequestMethod.GET)
     public  ApiResultEntity info(Long longid)
     {
+        if(null==longid)
+        {
+            return ApiResultEntity.returnResult(StateCode.ILLEGALREQUESTPARAMETER.get());
+        }
         Article article=articleService.getById(longid);
         return ApiResultEntity.successResult(article);
     }

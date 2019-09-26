@@ -2,11 +2,8 @@ package com.hqjcloud.article.service.Impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.hqjcloud.article.beans.Article;
-import com.hqjcloud.article.beans.ArticleExample;
 import com.hqjcloud.article.beans.Tag;
 import com.hqjcloud.article.beans.TagExample;
-import com.hqjcloud.article.mapper.ArticleExMapper;
 import com.hqjcloud.article.mapper.TagExMapper;
 import com.hqjcloud.article.service.TagService;
 import com.hqjcloud.base.ApiResultEntity;

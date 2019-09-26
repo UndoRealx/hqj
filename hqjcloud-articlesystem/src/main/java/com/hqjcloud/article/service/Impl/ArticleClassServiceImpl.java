@@ -2,14 +2,10 @@ package com.hqjcloud.article.service.Impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.hqjcloud.article.beans.Article;
 import com.hqjcloud.article.beans.ArticleClass;
 import com.hqjcloud.article.beans.ArticleClassExample;
-import com.hqjcloud.article.beans.ArticleExample;
 import com.hqjcloud.article.mapper.ArticleClassExMapper;
-import com.hqjcloud.article.mapper.ArticleExMapper;
 import com.hqjcloud.article.service.ArticleClassService;
-import com.hqjcloud.article.service.ArticleService;
 import com.hqjcloud.base.ApiResultEntity;
 import com.hqjcloud.base.enums.StateCode;
 import com.hqjcloud.data.util.PageUtil;

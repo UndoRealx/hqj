@@ -1,6 +1,5 @@
 package com.hqjcloud.article.mapper;
 
-import com.hqjcloud.article.beans.Article;
 import com.hqjcloud.article.beans.Tag;
 import com.hqjcloud.article.mapper.base.TagMapper;
 import com.hqjcloud.data.BaseMapper;

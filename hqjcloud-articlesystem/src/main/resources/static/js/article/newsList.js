@@ -1,9 +1,13 @@
-layui.use(['form','layer','laydate','table','laytpl'],function(){
+layui.config({
+    base : '../../static/js/'
+});
+layui.use(['form','layer','laydate','table','laytpl','layRequest'],function(){
     var form = layui.form,
         layer = parent.layer === undefined ? layui.layer : top.layer,
         $ = layui.jquery,
         laydate = layui.laydate,
         laytpl = layui.laytpl,
+        req=layui.layRequest,
         table = layui.table;
 
     //新闻列表
@@ -33,7 +37,7 @@ layui.use(['form','layer','laydate','table','laytpl'],function(){
             {field: 'artStatusName', title: '发布状态',  align:'center',templet:"#artstatus"},
             {field: 'visitcnt', title: '阅读次数', align:'center'},
             {field: 'istop', title: '是否置顶', align:'center', templet:function(d){
-                return '<input type="checkbox" name="istop" value='+d.istop+' lay-filter="istop" lay-skin="switch" lay-text="是|否" '+d.istop+'>'
+                return '<input type="checkbox" name="istop" value='+d.longid+' lay-filter="istop" lay-skin="switch" lay-text="是|否" '+d.istop+'>'
             }},
             {field: 'pubTimes', title: '发布时间', align:'center', minWidth:110, templet:function(d){
                     return d.pubTimes.substring(0,10);
@@ -44,44 +48,12 @@ layui.use(['form','layer','laydate','table','laytpl'],function(){
 
     //是否置顶
     form.on('switch(istop)', function(data){
-        console.log(data.value);
-       /* $.ajax(
-            {
-                url:"/article/top",
-                type:'post',
-                data:{longid:openid},
-                beforeSend:function () {
-                    this.layerIndex = layer.load(0, { shade: [0.5, '#393D49'] });
-                },
-                success:function(result){
-                    console.log(result);
-                    if(data.status == 'error'){
-                        layer.msg(data.msg,{icon: 5});//失败的表情
-                        return;
-                    }else{
-                        if(result.code) {
-                            if (data.elem.checked) {
-                                layer.msg("置顶成功！");
-                            } else {
-                                layer.msg("取消置顶成功！");
-                            }
-                        }
-                    }
-                },
-                complete: function () {
-                    layer.close(this.layerIndex);
-                }
-            }
-        )*/
-        var index = layer.msg('修改中，请稍候',{icon: 16,time:false,shade:0.8});
-        setTimeout(function(){
-            layer.close(index);
-            if(data.elem.checked){
-                layer.msg("置顶成功！");
-            }else{
-                layer.msg("取消置顶成功！");
-            }
-        },500);
+        var chk=data.elem.checked;
+        var data={longid:data.value,isTop:chk?1:0};
+        req.post("/article/top",data,function (res) {
+             console.log("执行成功！");
+            layer.msg("操作成功!");
+        });
     })
 
     //搜索【此功能需要后台配合，所以暂时没有动态效果演示】
@@ -167,13 +139,12 @@ layui.use(['form','layer','laydate','table','laytpl'],function(){
         if(layEvent === 'edit'){ //编辑
             addNews(data);
         } else if(layEvent === 'del'){ //删除
+            console.log(data);
             layer.confirm('确定删除此文章？',{icon:3, title:'提示信息'},function(index){
-                // $.get("删除文章接口",{
-                //     newsId : data.newsId  //将需要删除的newsId作为参数传入
-                // },function(data){
+                req.del("/article/del",{longid:data.longid,_method:'DELETE'},function (res) {
+                    console.log("执行成功！");
                     tableIns.reload();
-                    layer.close(index);
-                // })
+                });
             });
         } else if(layEvent === 'look'){ //预览
             layer.alert("此功能需要前台展示，实际开发中传入对应的必要参数进行文章内容页面访问")
