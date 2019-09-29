@@ -4,12 +4,12 @@ layui.define(['element','jquery'],function(exports) {
 
 //封装AJAX请求
     function ajax(type, url, data, successCallBack) {
-        var index = layer.msg('正在处理中，请稍候', {icon: 16, time: false, shade: 0.8});
+       // var index = layer.msg('正在处理中，请稍候', {icon: 16, time: false, shade: 0.8});
         //var index = layer.load(0,  { shade: [0.5, '#393D49'] });
         $.ajax({
             //添加请求头
-            /*  headers: {
-                  'Token': $.cookie("token"),
+   /*           headers: {
+                 /!* 'Token': $.cookie("token"),*!/
                   "Content-Type": "application/json;charset=UTF-8"
               },*/
             url: url,
@@ -18,7 +18,7 @@ layui.define(['element','jquery'],function(exports) {
             type: type, //请求方式
             async: false, //是否异步请求
             timeout: 30000, //超时时间：30秒
-            cache: false,// 配置为false时，表示不从浏览器缓存中获取数据，调试时可以看到，发Get请求时，会自动加上时间戳
+            //cache: false,// 配置为false时，表示不从浏览器缓存中获取数据，调试时可以看到，发Get请求时，会自动加上时间戳
             crossDomain: true == !(document.all),
             beforeSend: function () {
 
@@ -46,9 +46,9 @@ layui.define(['element','jquery'],function(exports) {
                 }
             },
             complete: function (XMLHttpRequest, textStatus) {
-                setTimeout(function () {
+               /* setTimeout(function () {
                     layer.close(index);
-                }, 500);
+                }, 500);*/
             },
             error: function (XMLHttpRequest, textStatus) {
                 /*         console.log(XMLHttpRequest.status);

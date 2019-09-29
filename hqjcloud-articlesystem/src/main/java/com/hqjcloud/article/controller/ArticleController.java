@@ -1,6 +1,11 @@
 package com.hqjcloud.article.controller;
 
+import com.hqjcloud.article.beans.Article;
+import com.hqjcloud.article.beans.ArticleClassRelation;
+import com.hqjcloud.article.beans.ArticleExample;
 import com.hqjcloud.article.common.TimeUtil;
+import com.hqjcloud.article.dto.request.ArticleReq;
+import com.hqjcloud.article.service.ArticleClassRelationService;
 import com.hqjcloud.article.service.ArticleService;
 import com.hqjcloud.base.ApiResultEntity;
 import com.hqjcloud.base.enums.StateCode;
@@ -10,6 +15,8 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 /**
@@ -31,6 +38,8 @@ public class ArticleController {
     @Autowired
     private ArticleService articleService;
 
+    @Autowired
+    private ArticleClassRelationService articleClassRelationService;
 
     @RequestMapping("/*")
     public void toHtml(){
@@ -64,11 +73,12 @@ public class ArticleController {
         return ApiResultEntity.successResult(StateCode.success.get());
     }
 
+    @ResponseBody
     @ApiOperation(value = "修改")
-    @RequestMapping(value = "/modify", method = RequestMethod.PUT)
-    public  ApiResultEntity modify(@RequestBody Article data)
+    @RequestMapping(value = "/manage", method = RequestMethod.POST)
+    public  ApiResultEntity manage(ArticleReq data) throws Exception
     {
-        articleService.modify(data);
+        articleService.manage(data);
         return ApiResultEntity.successResult(StateCode.success.get());
     }
 
@@ -93,9 +103,10 @@ public class ArticleController {
         return ApiResultEntity.successResult(StateCode.success.get());
     }
 
+    @ResponseBody
     @ApiOperation(value = "获取单条")
     @RequestMapping(value = "/info", method = RequestMethod.GET)
-    public  ApiResultEntity info(Long longid)
+    public  ApiResultEntity info(@RequestParam("longid") Long longid)
     {
         if(null==longid)
         {
@@ -113,18 +124,42 @@ public class ArticleController {
                     @ApiImplicitParam(paramType = "query", name = "page", value = "第几页", dataType = "Integer"),
                     @ApiImplicitParam(paramType ="query", name = "size", value = "每页显示条数", dataType = "Integer")
             })
-    public ApiResultEntity getByPage(@RequestParam(required = false,defaultValue = "1") String key,
+    public ApiResultEntity getByPage(@RequestParam(required = false,defaultValue = "") String key,
                            @RequestParam(required = false,defaultValue = "1") Integer page,
                            @RequestParam(required = false,defaultValue = "15") Integer size)
     {
         ArticleExample example = new ArticleExample();
         ArticleExample.Criteria criteria = example.createCriteria();
-        if(key!=null||key.trim().isEmpty()==false)
+        criteria.andArtstatusNotEqualTo(100);//已删除不显示
+        if(key!=null&&key.trim().isEmpty()==false)
         {
             criteria.andArttitleLike(key);
         }
         example.setOrderByClause("longid desc");
         return articleService.queryPageListByExample(example,page,size);
+    }
+    
+    
+    
+    /**
+    *@Description 根据文章ID 获取该文章的分类
+    *@Param  * @param longid
+    *@Return com.hqjcloud.base.ApiResultEntity
+    *@Author lic
+    *@Date 2019/9/26
+    *@Time 14:01
+    */
+    @ResponseBody
+    @ApiOperation(value = "根据文章ID 获取该文章的分类")
+    @RequestMapping(value = "/getArticleClassById", method = RequestMethod.GET)
+    public  ApiResultEntity getArticleClassById(@RequestParam("longid") Long longid)
+    {
+        if(null==longid)
+        {
+            return ApiResultEntity.returnResult(StateCode.ILLEGALREQUESTPARAMETER.get());
+        }
+        List<ArticleClassRelation> list=articleClassRelationService.getByArticleId(longid);
+        return ApiResultEntity.successResult(list);
     }
 
 }

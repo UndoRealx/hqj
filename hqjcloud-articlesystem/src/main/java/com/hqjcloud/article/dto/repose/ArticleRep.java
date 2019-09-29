@@ -1,5 +1,6 @@
 package com.hqjcloud.article.dto.repose;
 
+import com.hqjcloud.article.beans.Article;
 import com.hqjcloud.article.common.ArtStatusEnum;
 import com.hqjcloud.article.common.TimeUtil;
 

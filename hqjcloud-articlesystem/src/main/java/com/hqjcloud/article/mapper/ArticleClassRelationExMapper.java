@@ -3,7 +3,6 @@ package com.hqjcloud.article.mapper;
 
 import com.hqjcloud.article.beans.ArticleClassRelation;
 import com.hqjcloud.article.mapper.base.ArticleClassRelationMapper;
-
 import com.hqjcloud.data.BaseMapper;
 
 /**

@@ -5,11 +5,16 @@ import com.hqjcloud.article.beans.ArticleClassExample;
 import com.hqjcloud.article.service.ArticleClassService;
 import com.hqjcloud.base.ApiResultEntity;
 import com.hqjcloud.base.enums.StateCode;
-import io.swagger.annotations.*;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 /**
@@ -73,5 +78,14 @@ public class ArticleClassController {
         ArticleClassExample.Criteria criteria = example.createCriteria();
         example.setOrderByClause("longid desc");
         return articleclassService.queryPageListByExample(example,page,size);
+    }
+
+    @ResponseBody
+    @ApiOperation(value = "获取所有上架的分类")
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    public  ApiResultEntity list()
+    {
+        List<ArticleClass> list=articleclassService.list(1);
+        return ApiResultEntity.successResult(list);
     }
 }

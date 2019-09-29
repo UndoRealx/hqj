@@ -60,4 +60,16 @@ public class ArticleClassServiceImpl implements ArticleClassService {
         PageInfo<ArticleClass> pageInfo=new PageInfo<ArticleClass>(lists);
         return ApiResultEntity.returnResult(StateCode.success.get(), PageUtil.returnPageList(pageInfo));
     }
+
+    @Override
+    public List<ArticleClass> list(int classStatus) {
+        ArticleClassExample example = new ArticleClassExample();
+        ArticleClassExample.Criteria criteria = example.createCriteria();
+        if(classStatus!=-1) {
+            criteria.andStatusEqualTo(Byte.parseByte(String.valueOf(classStatus)));
+        }
+        example.setOrderByClause("sort asc");
+        List<ArticleClass> lists = mapper.selectByExample(example);
+        return lists;
+    }
 }

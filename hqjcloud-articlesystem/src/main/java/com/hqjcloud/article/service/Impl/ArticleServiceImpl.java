@@ -2,8 +2,13 @@ package com.hqjcloud.article.service.Impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.hqjcloud.article.beans.Article;
+import com.hqjcloud.article.beans.ArticleExample;
+import com.hqjcloud.article.common.TimeUtil;
 import com.hqjcloud.article.dto.repose.ArticleRep;
+import com.hqjcloud.article.dto.request.ArticleReq;
 import com.hqjcloud.article.mapper.ArticleExMapper;
+import com.hqjcloud.article.service.ArticleClassRelationService;
 import com.hqjcloud.article.service.ArticleService;
 import com.hqjcloud.base.ApiResultEntity;
 import com.hqjcloud.base.enums.StateCode;
@@ -33,6 +38,9 @@ public class ArticleServiceImpl implements ArticleService {
     @Autowired
     private ArticleExMapper articleExMapper;
 
+    @Autowired
+    private ArticleClassRelationService articleClassRelationService;
+
     @Override
     public int add(Article entity) {
         return articleExMapper.insert(entity);
@@ -40,7 +48,47 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public int modify(Article entity) {
-        return  articleExMapper.updateByPrimaryKeySelective(entity);
+        return articleExMapper.updateByPrimaryKey(entity);
+    }
+
+    @Override
+    public void manage(ArticleReq req) throws Exception {
+
+        if(null!=req.getLongid())
+        {
+            articleClassRelationService.delByArticleId(req.getLongid());
+        }
+        Article entity=(Article)req;
+        if(req.getLongid()==null||req.getLongid()<=0L)
+        {
+            entity.setModifytime(TimeUtil.GetDate());
+            entity.setAddtime(TimeUtil.GetDate());
+            entity.setVisitcnt(0);
+            if(req.getPubTimes()!=null&&req.getPubTimes().trim().isEmpty()==false) {
+                entity.setPubtime(TimeUtil.dateToLong(TimeUtil.stringToDate1(req.getPubTimes())));
+            }
+            entity.setLikes(0);
+            entity.setArtsort(0);
+            add(entity);
+            req.setLongid(entity.getLongid());
+        }
+        else {
+            entity.setModifytime(TimeUtil.GetDate());
+            if(req.getPubTimes()!=null&&req.getPubTimes().trim().isEmpty()==false) {
+                entity.setPubtime(TimeUtil.dateToLong(TimeUtil.stringToDate1(req.getPubTimes())));
+            }
+            articleExMapper.updateByPrimaryKeySelective(entity);
+        }
+
+        if(req.getArtclass()!=null&&req.getArtclass().trim().isEmpty()==false)
+        {
+            String[] listClass=req.getArtclass().trim().split(",");
+            for(String s :listClass)
+            {
+                articleClassRelationService.add(req.getLongid(),Long.parseLong(s));
+            }
+        }
+
     }
 
     @Override

@@ -4,6 +4,8 @@ import com.hqjcloud.article.beans.ArticleClass;
 import com.hqjcloud.article.beans.ArticleClassExample;
 import com.hqjcloud.base.ApiResultEntity;
 
+import java.util.List;
+
 /**
  * @ProjectName: hqjcloud
  * @Package: com.hqjcloud.article.service
@@ -27,4 +29,7 @@ public interface ArticleClassService {
     public  ArticleClass getById(Long longid);
 
     public ApiResultEntity queryPageListByExample(ArticleClassExample example, int page, int size);
+
+
+    public List<ArticleClass> list(int classStatus);
 }

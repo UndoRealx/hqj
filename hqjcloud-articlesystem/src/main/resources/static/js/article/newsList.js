@@ -78,22 +78,32 @@ layui.use(['form','layer','laydate','table','laytpl','layRequest'],function(){
 
     //添加文章
     function addNews(edit){
-        console.log(111);
+        var title=edit==null?"添加文章":"修改文章";
         var index = layui.layer.open({
-            title : "添加文章",
+            title : title,
             type : 2,
             content : "newsAdd.html",
             success : function(layero, index){
                 var body = layui.layer.getChildFrame('body', index);
                 if(edit){
-                    body.find(".newsName").val(edit.newsName);
-                    body.find(".abstract").val(edit.abstract);
-                    body.find(".thumbImg").attr("src",edit.newsImg);
-                    body.find("#news_content").val(edit.content);
-                    body.find(".artstatus select").val(edit.artstatus);
-                    body.find(".openness input[name='openness'][title='"+edit.newsLook+"']").prop("checked","checked");
-                    body.find(".newsTop input[name='newsTop']").prop("checked",edit.newsTop);
-                    form.render();
+                    req.get("/article/info",{longid:edit.longid},function (res) {
+                        console.log(res.data);
+                        body.find("#myid").val(edit.longid);
+                        body.find("#arttitle").val(res.data.arttitle);
+                        body.find("#artabstract").val(res.data.artabstract);
+                        body.find("#artimage").attr("src",res.data.artimage);
+                        body.find("#artcontent").val(res.data.artcontent);
+                        body.find("#release"+res.data.artstatus+"").prop("checked","checked");
+                        body.find("#artistop").val(res.data.istop);
+                        body.find(".newsTop input[name='istop']").prop("checked",res.data.istop);
+                        if(res.artstatus==6) //定时发布
+                        {
+                            body.find("#pubtimes").val(res.data.pubtimes);
+                        }
+                        form.render();
+                        console.log("form.render()");
+                    });
+
                 }
                 setTimeout(function(){
                     layui.layer.tips('点击此处返回文章列表', '.layui-layer-setwin .layui-layer-close', {
@@ -105,11 +115,10 @@ layui.use(['form','layer','laydate','table','laytpl','layRequest'],function(){
         layui.layer.full(index);
         //改变窗口大小时，重置弹窗的宽高，防止超出可视区域（如F12调出debug的操作）
         $(window).on("resize",function(){
-            layui.layer.full(index);
+            //layui.layer.full(index);
         })
     }
     $(".addNews_btn").click(function(){
-        console.log('add');
         addNews();
     })
 

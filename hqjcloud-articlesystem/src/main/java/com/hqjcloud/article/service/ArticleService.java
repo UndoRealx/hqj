@@ -1,5 +1,8 @@
 package com.hqjcloud.article.service;
 
+import com.hqjcloud.article.beans.Article;
+import com.hqjcloud.article.beans.ArticleExample;
+import com.hqjcloud.article.dto.request.ArticleReq;
 import com.hqjcloud.base.ApiResultEntity;
 
 
@@ -19,7 +22,9 @@ public interface ArticleService {
 
     public int add(Article entity);
 
-    public  int modify(Article entity);
+    public int modify(Article entity);
+
+    public  void manage(ArticleReq entity) throws Exception;
 
     public  int del(Long longid);
 

@@ -59,6 +59,15 @@
         <table  tableName="hqj_tag" domainObjectName="Tag" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
             <generatedKey column="longid" sqlStatement="Mysql" identity="true"/>
         </table>
+        <table  tableName="hqj_user" domainObjectName="User" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
+            <generatedKey column="longid" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table  tableName="hqj_role" domainObjectName="Role" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
+            <generatedKey column="longid" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table  tableName="hqj_user_role" domainObjectName="UserRole" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
+            <generatedKey column="longid" sqlStatement="Mysql" identity="true"/>
+        </table>
 
     </context>
 </generatorConfiguration>
