@@ -84,6 +84,13 @@ public class ArticleController {
 
 
     @ResponseBody
+    @ApiOperation(value = "批量删除")
+    @RequestMapping(value = "/batchDel", method = RequestMethod.POST)
+    public ApiResultEntity batchDel(@RequestParam(value="longid", required=true) String  longid)
+    {
+        return ApiResultEntity.successResult(StateCode.success.get());
+    }
+    @ResponseBody
     @ApiOperation(value = "删除")
     @RequestMapping(value = "/del", method = RequestMethod.DELETE)
     public ApiResultEntity del(@RequestParam(value="longid", required=true) String  longid)

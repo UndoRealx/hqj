@@ -11,6 +11,11 @@
 	<meta name="format-detection" content="telephone=no">
 	<link rel="stylesheet" href="../../static/layui/css/layui.css" media="all" />
 	<link rel="stylesheet" href="../../static/css/public.css" media="all" />
+<!--	<link href="/static/ueditor/themes/default/css/ueditor.min.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="/static/ueditor/third-party/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="/static/ueditor/ueditor.config.js"></script>
+	<script type="text/javascript" charset="utf-8" src="/static/ueditor/ueditor.all.js"></script>
+	<script type="text/javascript" src="/static/ueditor/lang/zh-cn/zh-cn.js"></script>-->
 </head>
 <body class="childrenBody">
 <form class="layui-form layui-row layui-col-space10">
@@ -40,6 +45,7 @@
 			<label class="layui-form-label">文章内容</label>
 			<div class="layui-input-block">
 				<textarea class="layui-textarea layui-hide" name="artcontent" lay-verify="content" id="artcontent"></textarea>
+				<!--<script type="text/plain" id="myEditor"  style="width: 500px;height: 240px;text-align: left;" />-->
 			</div>
 		</div>
 	</div>
@@ -92,6 +98,16 @@
 </form>
 <script type="text/javascript" src="../../static/layui/layui.js"></script>
 <script type="text/javascript" src="../../static/js/article/newsAdd.js"></script>
+<!--<script type="text/javascript">
+    //实例化编辑器
+    var um = UE.getEditor('myEditor').getContent();
+    um.addListener('blur',function(){
+        $('#focush2').html('编辑器失去焦点了')
+    });
+    um.addListener('focus',function(){
+        $('#focush2').html('')
+    });
+</script>-->
 
 </body>
 </html>

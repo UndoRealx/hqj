@@ -1,14 +1,45 @@
-layui.use(['form','layer','layedit','laydate','upload'],function(){
+layui.config({
+    base : '../../static/js/'
+});
+layui.use(['form','layer','layedit','laydate','upload','layRequest'],function(){
     var form = layui.form
         layer = parent.layer === undefined ? layui.layer : top.layer,
         laypage = layui.laypage,
         upload = layui.upload,
         layedit = layui.layedit,
         laydate = layui.laydate,
+        req=layui.layRequest,
         $ = layui.jquery;
 
     //用于同步编辑器内容到textarea
     layedit.sync(editIndex);
+
+
+
+    req.get("/articleclass/list",{},function (res) {
+
+        res.data.forEach(function (e) {
+           /* var  chks=$.inArray(e.longid,arrayObj)==-1?"":"checked=\"checked\"";
+            console.log(e.longid+chks) “+chks+”*/
+            $("#articleclass").append("<p><input type='checkbox' name='artclass' id='artclass"+e.longid+"' value='"+e.longid+"' title='"+e.classname+"' lay-skin='primary'  /></p>");
+        });
+
+        form.render();
+    });
+
+
+
+    if($("#myid").val()!=undefined && $("#myid").val()!=''&& $("#myid").val()!='0')
+    {
+        req.get("/article/getArticleClassById",{longid:$("#myid").val()},function (res) {
+            res.data.forEach(function (e) {
+                console.log("#artclass"+e.articleclassid+"");
+                $("#artclass"+e.articleclassid+"").prop("checked",true);
+            });
+        });
+        form.render();
+    }
+
 
     //上传缩略图
     upload.render({
@@ -34,7 +65,7 @@ layui.use(['form','layer','layedit','laydate','upload'],function(){
     var time = new Date();
     var submitTime = time.getFullYear()+'-'+filterTime(time.getMonth()+1)+'-'+filterTime(time.getDate())+' '+filterTime(time.getHours())+':'+filterTime(time.getMinutes())+':'+filterTime(time.getSeconds());
     laydate.render({
-        elem: '#release',
+        elem: '#pubtimes',
         type: 'datetime',
         trigger : "click",
         done : function(value, date, endDate){
@@ -44,13 +75,21 @@ layui.use(['form','layer','layedit','laydate','upload'],function(){
     form.on("radio(release)",function(data){
         if(data.elem.title == "定时发布"){
             $(".releaseDate").removeClass("layui-hide");
-            $(".releaseDate #release").attr("lay-verify","required");
+            $(".releaseDate #pubtimes").attr("lay-verify","required");
         }else{
             $(".releaseDate").addClass("layui-hide");
-            $(".releaseDate #release").removeAttr("lay-verify");
+            $(".releaseDate #pubtimes").removeAttr("lay-verify");
             submitTime = time.getFullYear()+'-'+(time.getMonth()+1)+'-'+time.getDate()+' '+time.getHours()+':'+time.getMinutes()+':'+time.getSeconds();
         }
     });
+
+
+    //是否置顶
+    form.on('switch(istop)', function(data){
+        var chk=data.elem.checked;
+        $("#artistop").val(chk?1:0);
+        console.log($("#artistop").val());
+    })
 
     form.verify({
         newsName : function(val){
@@ -65,30 +104,40 @@ layui.use(['form','layer','layedit','laydate','upload'],function(){
         }
     })
     form.on("submit(addNews)",function(data){
-        //截取文章内容中的一部分文字放入文章摘要
-        var abstract = layedit.getText(editIndex).substring(0,50);
-        //弹出loading
+
+        var arr = new Array();
+        $("input:checkbox[name='artclass']:checked").each(function(i){
+            arr[i] = $(this).val();
+        });
+        data.field.artclass = arr.join(",");
+
+        console.log($("#artistop").val());
+
         var index = top.layer.msg('数据提交中，请稍候',{icon: 16,time:false,shade:0.8});
-        // 实际使用时的提交信息
-        // $.post("上传路径",{
-        //     newsName : $(".newsName").val(),  //文章标题
-        //     abstract : $(".abstract").val(),  //文章摘要
-        //     content : layedit.getContent(editIndex).split('<audio controls="controls" style="display: none;"></audio>')[0],  //文章内容
-        //     newsImg : $(".thumbImg").attr("src"),  //缩略图
-        //     classify : '1',    //文章分类
-        //     newsStatus : $('.newsStatus select').val(),    //发布状态
-        //     newsTime : submitTime,    //发布时间
-        //     newsTop : data.filed.newsTop == "on" ? "checked" : "",    //是否置顶
-        // },function(res){
-        //
-        // })
-        setTimeout(function(){
-            top.layer.close(index);
-            top.layer.msg("文章添加成功！");
-            layer.closeAll("iframe");
-            //刷新父页面
-            parent.location.reload();
-        },500);
+
+        var postdata=
+            {
+                longid : $("#myid").val(),
+                arttitle : $("#arttitle").val(),  //文章标题
+                artabstract : $("#artabstract").val(),  //文章摘要
+                artimage : $("#artimage").attr("src")==undefined?'':$("#artimage").attr("src"),  //缩略图
+                artcontent : layedit.getContent(editIndex).split('<audio controls="controls" style="display: none;"></audio>')[0],  //文章内容
+                artclass : data.field.artclass,    //文章分类
+                artstatus : $('#artstatus input[name="release"]:checked').val(),    //发布状态
+                pubTimes : $("#pubtimes").val(),    //发布时间
+                istop : $("#artistop").val(),    //是否置顶
+            };
+
+        req.post("/article/manage",postdata,function (res) {
+            setTimeout(function(){
+                top.layer.close(index);
+                top.layer.msg(postdata.longid>0?"文章修改成功！":"文章添加成功");
+                layer.closeAll("iframe");
+                //刷新父页面
+                parent.location.reload();
+            },500);
+        });
+
         return false;
     })
 
@@ -99,7 +148,7 @@ layui.use(['form','layer','layedit','laydate','upload'],function(){
     })
 
     //创建一个编辑器
-    var editIndex = layedit.build('news_content',{
+    var editIndex = layedit.build('artcontent',{
         height : 535,
         uploadImage : {
             url : "../../json/newsImg.json"

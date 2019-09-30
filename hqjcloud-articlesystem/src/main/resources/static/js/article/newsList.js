@@ -14,10 +14,11 @@ layui.use(['form','layer','laydate','table','laytpl','layRequest'],function(){
     var tableIns = table.render({
         elem: '#newsList',
         url : 'getByPage',
+        loading :true,
         cellMinWidth : 95,
         page : true,
         height : "full-125",
-        limit : 20,
+        limit : 10,
         limits : [10,15,20,25],
         id : "newsListTable",
         parseData:function(res)
@@ -25,7 +26,7 @@ layui.use(['form','layer','laydate','table','laytpl','layRequest'],function(){
             return {
                 "code": res.code, //解析接口状态
                 "msg": res.msg, //解析提示文本
-                "count": res.total, //解析数据长度
+                "count": res.data.total, //解析数据长度
                 "data": res.data.list //解析数据列表
            };
         },
@@ -127,19 +128,30 @@ layui.use(['form','layer','laydate','table','laytpl','layRequest'],function(){
         var checkStatus = table.checkStatus('newsListTable'),
             data = checkStatus.data,
             newsId = [];
+        console.log(data);
         if(data.length > 0) {
             for (var i in data) {
-                newsId.push(data[i].newsId);
+                newsId.push(data[i].longid);
             }
+            console.log(newsId);
             layer.confirm('确定删除选中的文章？', {icon: 3, title: '提示信息'}, function (index) {
                 // $.get("删除文章接口",{
                 //     newsId : newsId  //将需要删除的newsId作为参数传入
                 // },function(data){
+
+                // })
+                for (var i in data) {
+                    req.del("/article/del",{longid:data[i].longid,_method:'DELETE'},function (res) {
+                        console.log("执行成功！");
+                        tableIns.reload();
+                    });
+
+
+                }
                 tableIns.reload();
                 layer.close(index);
-                // })
             })
-        }else{
+        }else {
             layer.msg("请选择需要删除的文章");
         }
     })

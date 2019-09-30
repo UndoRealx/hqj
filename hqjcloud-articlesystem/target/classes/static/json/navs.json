@@ -7,6 +7,12 @@
 			"spread": false
 		},
 		{
+			"title": "文章分类列表",
+			"icon": "icon-text",
+			"href": "articleclass/articleClasList.html",
+			"spread": false
+		},
+		{
 			"title": "图片管理",
 			"icon": "&#xe634;",
 			"href": "page/img/images.html",
