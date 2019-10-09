@@ -38,14 +38,31 @@ layui.use(['form','layer','laydate','table','laytpl','layRequest'],function(){
             {type: "checkbox", fixed:"left", width:50},
             {field: 'longid', title: 'ID', width:60, align:"center"},
             {field: 'classname', title: '', width:350},
-            {field: 'addtime', title: '添加时间', align:'center', minWidth:110},
+            {field: 'statusName', title: '状态', align:'center', templet:function(d){
+                if(d.status==1)
+                    return '<input type="checkbox" name="isenable"   value='+d.longid+' lay-filter="isenable"  checked="checked"  lay-skin="switch"  lay-text="启用|禁用" '+d.status+'>'
+                else
+                    return '<input type="checkbox" name="isenable"   value='+d.longid+' lay-filter="isenable"   lay-skin="switch"  lay-text="启用|禁用" '+d.status+'>'
+                }},
+            {field: 'addTimes', title: '添加时间', align:'center', minWidth:110},
             {title: '操作', width:170, templet:'#classListBar',fixed:"right",align:"center"}
         ]]
     });
+
+    //是否启用
+    form.on('switch(isenable)', function(data){
+        var chk=data.elem.checked;
+        var data={longid:data.value,status:chk?1:0};
+        req.post("/articleclass/doStatus",data,function (res) {
+            console.log("执行成功！");
+            layer.msg("操作成功!");
+        });
+    })
+
     //搜索【此功能需要后台配合，所以暂时没有动态效果演示】
     $(".search_btn").on("click",function(){
-        if($(".searchVal").val() != ''){
-            table.reload("newsListTable",{
+        /*if($(".searchVal").val() != ''){*/
+            table.reload("classListTable",{
                 page: {
                     curr: 1 //重新从第 1 页开始
                 },
@@ -53,60 +70,51 @@ layui.use(['form','layer','laydate','table','laytpl','layRequest'],function(){
                     key: $(".searchVal").val()  //搜索的关键字
                 }
             })
-        }else{
+       /* }else{
             layer.msg("请输入搜索的内容");
-        }
+        }*/
     });
 
     //添加文章
-    function addNews(edit){
-        var title=edit==null?"添加文章":"修改文章";
+    function addclass(edit){
+        var title=edit==null?"添加分类":"修改分类";
         var index = layui.layer.open({
             title : title,
             type : 2,
-            content : "newsAdd.html",
+            area: ['360px', '250px'],
+            content : "articleClassAdd.html",
             success : function(layero, index){
                 var body = layui.layer.getChildFrame('body', index);
                 if(edit){
-                    req.get("/article/info",{longid:edit.longid},function (res) {
+                    req.get("/articleclass/info",{longid:edit.longid},function (res) {
                         console.log(res.data);
-                        body.find("#myid").val(edit.longid);
-                        body.find("#arttitle").val(res.data.arttitle);
-                        body.find("#artabstract").val(res.data.artabstract);
-                        body.find("#artimage").attr("src",res.data.artimage);
-                        body.find("#artcontent").val(res.data.artcontent);
-                        body.find("#release"+res.data.artstatus+"").prop("checked","checked");
-                        body.find("#artistop").val(res.data.istop);
-                        body.find(".newsTop input[name='istop']").prop("checked",res.data.istop);
-                        if(res.artstatus==6) //定时发布
-                        {
-                            body.find("#pubtimes").val(res.data.pubtimes);
-                        }
+                        body.find("#longid").val(edit.longid);
+                        body.find("#className").val(res.data.classname);
+                        body.find("#status").val(res.data.status);
+                        body.find("#open").prop("checked",res.data.status==1?true:false);
                         form.render();
-                        console.log("form.render()");
                     });
-
                 }
                 setTimeout(function(){
-                    layui.layer.tips('点击此处返回文章列表', '.layui-layer-setwin .layui-layer-close', {
+                    layui.layer.tips('点击此处返回文章分类列表', '.layui-layer-setwin .layui-layer-close', {
                         tips: 3
                     });
                 },500)
             }
         })
-        layui.layer.full(index);
+        //layui.layer.full(index);
         //改变窗口大小时，重置弹窗的宽高，防止超出可视区域（如F12调出debug的操作）
-        $(window).on("resize",function(){
+      /*  $(window).on("resize",function(){
             //layui.layer.full(index);
-        })
+        })*/
     }
-    $(".addNews_btn").click(function(){
-        addNews();
+    $(".add_btn").click(function(){
+        addclass();
     })
 
     //批量删除
     $(".delAll_btn").click(function(){
-        var checkStatus = table.checkStatus('newsListTable'),
+        var checkStatus = table.checkStatus('classListTable'),
             data = checkStatus.data,
             newsId = [];
         console.log(data);
@@ -115,11 +123,10 @@ layui.use(['form','layer','laydate','table','laytpl','layRequest'],function(){
                 newsId.push(data[i].longid);
             }
             console.log(newsId);
-            layer.confirm('确定删除选中的文章？', {icon: 3, title: '提示信息'}, function (index) {
+            layer.confirm('确定删除选中的分类吗？', {icon: 3, title: '提示信息'}, function (index) {
                 for (var i in data) {
-                    req.del("/article/del",{longid:data[i].longid,_method:'DELETE'},function (res) {
+                    req.del("/articleclass/del",{longid:data[i].longid,_method:'DELETE'},function (res) {
                         console.log("执行成功！");
-                        tableIns.reload();
                     });
                 }
                 tableIns.reload();
@@ -135,14 +142,19 @@ layui.use(['form','layer','laydate','table','laytpl','layRequest'],function(){
         var layEvent = obj.event,
             data = obj.data;
 
+        var id=data.longid;
         if(layEvent === 'edit'){ //编辑
-            addNews(data);
-        } else if(layEvent === 'del'){ //删除
-            console.log(data);
-            layer.confirm('确定删除此文章？',{icon:3, title:'提示信息'},function(index){
-                req.del("/article/del",{longid:data.longid,_method:'DELETE'},function (res) {
+            addclass(data);
+        }
+        else if(layEvent=='del'){
+            layer.confirm('确定删除吗？',{btn: ['确定', '取消'], title:'提示'},function(index){
+                req.del("/articleclass/del",{longid:id,_method:'DELETE'},function (res) {
                     console.log("执行成功！");
+                    layer.msg('删除成功', {icon: 1});
                     tableIns.reload();
+                },function (res) {
+                    layer.close(index);
+                    layer.msg(res.msg, {icon: 5,time:1000,shade:0.5});
                 });
             });
         }

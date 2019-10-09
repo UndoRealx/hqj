@@ -66,4 +66,14 @@ public class ArticleRep extends Article {
     }
 
 
+    private  String artclass;
+
+
+    public String getArtclass() {
+        return artclass;
+    }
+
+    public void setArtclass(String artclass) {
+        this.artclass = artclass;
+    }
 }

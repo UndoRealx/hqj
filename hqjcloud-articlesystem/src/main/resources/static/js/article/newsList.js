@@ -37,7 +37,8 @@ layui.use(['form','layer','laydate','table','laytpl','layRequest'],function(){
         cols : [[
             {type: "checkbox", fixed:"left", width:50},
             {field: 'longid', title: 'ID', width:60, align:"center"},
-            {field: 'arttitle', title: '文章标题', width:350},
+            {field: 'arttitle', title: '文章标题', width:250},
+            {field: 'artclass', title: '文章分类', width:150},
             {field: 'addauthor', title: '发布者', align:'center'},
             {field: 'artStatusName', title: '发布状态',  align:'center',templet:"#artstatus"},
             {field: 'visitcnt', title: '阅读次数', align:'center'},
@@ -168,7 +169,11 @@ layui.use(['form','layer','laydate','table','laytpl','layRequest'],function(){
             layer.confirm('确定删除此文章？',{icon:3, title:'提示信息'},function(index){
                 req.del("/article/del",{longid:data.longid,_method:'DELETE'},function (res) {
                     console.log("执行成功！");
+                    layer.msg('删除成功', {icon: 1});
                     tableIns.reload();
+                },function (res) {
+                    layer.close(index);
+                    layer.msg(res.msg, {icon: 5,time:1000,shade:0.5});
                 });
             });
         } else if(layEvent === 'look'){ //预览

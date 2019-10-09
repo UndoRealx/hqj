@@ -4,14 +4,17 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.hqjcloud.article.beans.ArticleClass;
 import com.hqjcloud.article.beans.ArticleClassExample;
+import com.hqjcloud.article.dto.repose.ArticleClassRep;
 import com.hqjcloud.article.mapper.ArticleClassExMapper;
 import com.hqjcloud.article.service.ArticleClassService;
 import com.hqjcloud.base.ApiResultEntity;
 import com.hqjcloud.base.enums.StateCode;
 import com.hqjcloud.data.util.PageUtil;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -53,12 +56,30 @@ public class ArticleClassServiceImpl implements ArticleClassService {
     }
 
     @Override
+    public  ArticleClass getByName(String className)
+    {
+        ArticleClassExample example = new ArticleClassExample();
+        ArticleClassExample.Criteria criteria = example.createCriteria();
+        criteria.andClassnameEqualTo(className.trim());
+        List<ArticleClass>  list=mapper.selectByExample(example);
+        return  list.size()>0?list.get(0):null;
+    }
+
+    @Override
     public ApiResultEntity queryPageListByExample(ArticleClassExample example, int page, int size) {
         PageHelper.startPage(page, size, true);// 设置分页参数
         // 查询数据
         List<ArticleClass> lists = mapper.selectByExample(example);
         PageInfo<ArticleClass> pageInfo=new PageInfo<ArticleClass>(lists);
-        return ApiResultEntity.returnResult(StateCode.success.get(), PageUtil.returnPageList(pageInfo));
+
+        List<ArticleClassRep> list = new ArrayList<>();
+        for(ArticleClass bean:pageInfo.getList())
+        {
+            ArticleClassRep item = new ArticleClassRep();
+            BeanUtils.copyProperties(bean,item);
+            list.add(item);
+        }
+        return ApiResultEntity.returnResult(StateCode.success.get(), PageUtil.returnPageList(pageInfo,list));
     }
 
     @Override

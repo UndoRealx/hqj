@@ -28,6 +28,8 @@ public interface ArticleClassService {
 
     public  ArticleClass getById(Long longid);
 
+    public  ArticleClass getByName(String className);
+
     public ApiResultEntity queryPageListByExample(ArticleClassExample example, int page, int size);
 
 

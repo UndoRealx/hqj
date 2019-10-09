@@ -1,6 +1,7 @@
 package com.hqjcloud.article.service;
 
 import com.hqjcloud.article.beans.ArticleClassRelation;
+import com.hqjcloud.article.beans.ArticleClassRelationExample;
 
 import java.util.List;
 
@@ -24,4 +25,14 @@ public interface ArticleClassRelationService {
 
 
     public  long  add(Long articleId,Long classid);
+
+    /**
+     *@Description 根据条件统计
+     *@Param  * @param example
+     *@Return int
+     *@Author lic
+     *@Date 2019/10/8
+     *@Time 10:36
+     */
+    public long countByExample(ArticleClassRelationExample example);
 }

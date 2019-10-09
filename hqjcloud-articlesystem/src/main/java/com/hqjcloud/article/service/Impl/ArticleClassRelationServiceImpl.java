@@ -69,4 +69,17 @@ public class ArticleClassRelationServiceImpl implements ArticleClassRelationServ
     }
 
 
+    /**
+     *@Description 根据条件统计
+     *@Param  * @param example
+     *@Return int
+     *@Author lic
+     *@Date 2019/10/8
+     *@Time 10:36
+     */
+    public long countByExample(ArticleClassRelationExample example)
+    {
+        return  mapper.countByExample(example);
+    }
+
 }

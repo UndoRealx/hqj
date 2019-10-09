@@ -23,23 +23,19 @@
                 <a class="layui-btn search_btn" data-type="reload">搜索</a>
             </div>
             <div class="layui-inline">
-                <a class="layui-btn layui-btn-normal addNews_btn">添加分类</a>
-            </div>
-            <div class="layui-inline">
-                <a class="layui-btn layui-btn-danger layui-btn-normal delAll_btn">批量删除</a>
+                <a class="layui-btn layui-btn-normal add_btn">添加分类</a>
             </div>
         </form>
     </blockquote>
-    <table id="newsList" lay-filter="classList"></table>
+    <table id="classList" lay-filter="classList"></table>
 
     <!--操作-->
-    <script type="text/html" id="newsListBar">
+    <script type="text/html" id="classListBar">
         <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
         <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="del">删除</a>
-        <!--	<a class="layui-btn layui-btn-xs layui-btn-primary" lay-event="look">预览</a>-->
     </script>
 </form>
 <script type="text/javascript" src="../../static/layui/layui.js"></script>
-<script type="text/javascript" src="../../static/js/article/classList.js"></script>
+<script type="text/javascript" src="../../static/js/articleclass/articleClasList.js"></script>
 </body>
 </html>

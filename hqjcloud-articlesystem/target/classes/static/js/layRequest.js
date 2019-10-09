@@ -3,7 +3,7 @@ layui.define(['element','jquery'],function(exports) {
     var $ = layui.$;
 
 //封装AJAX请求
-    function ajax(type, url, data, successCallBack) {
+    function ajax(type, url, data, successCallBack,failCallBack) {
        // var index = layer.msg('正在处理中，请稍候', {icon: 16, time: false, shade: 0.8});
         //var index = layer.load(0,  { shade: [0.5, '#393D49'] });
         $.ajax({
@@ -33,22 +33,29 @@ layui.define(['element','jquery'],function(exports) {
             },
             success: function (res) {
                 if (res.code == "0") {
-                    if (null == successCallBack || successCallBack == undefined) {
-                        layer.alert(res.msg);
+                   if (null == successCallBack || successCallBack == undefined) {
+                        layer.msg(res.msg);
+                        return;
                     } else {
                         return successCallBack(res);
                     }
                 } else {
-                    layer.alert(res.msg, {
-                        icon: 5,
-                        title: "提示"
-                    });
+                    if (null == failCallBack || failCallBack == undefined)
+                    {
+                        layer.msg(res.msg, {
+                            icon: 5,
+                            title: "提示"
+                        });
+                    }
+                    else
+                        return failCallBack(res);
+                   /* setTimeout(function () {
+                        layer.close(index);
+                    }, 500);*/
                 }
             },
             complete: function (XMLHttpRequest, textStatus) {
-               /* setTimeout(function () {
-                    layer.close(index);
-                }, 500);*/
+
             },
             error: function (XMLHttpRequest, textStatus) {
                 /*         console.log(XMLHttpRequest.status);
@@ -107,10 +114,13 @@ layui.define(['element','jquery'],function(exports) {
      * @param {JSON数据} data
      * @param {发送成功回调函数} success
      */
-    function del(url, data, successCallBack) {
+    function del(url, data, successCallBack,failCallBack) {
 
         ajax('post', url, data, function (res) {
             return successCallBack(res);
+        },function (res)
+        {
+            return failCallBack(res);
         });
     }
 

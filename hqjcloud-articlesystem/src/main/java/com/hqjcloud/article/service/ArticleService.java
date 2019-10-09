@@ -31,4 +31,15 @@ public interface ArticleService {
     public  Article getById(Long longid);
 
     public ApiResultEntity queryPageListByExample(ArticleExample example, int page, int size);
+
+    
+    /**
+    *@Description 根据条件统计
+    *@Param  * @param example
+    *@Return int
+    *@Author lic
+    *@Date 2019/10/8
+    *@Time 10:36
+    */
+    public long countByExample(ArticleExample example);
 }
