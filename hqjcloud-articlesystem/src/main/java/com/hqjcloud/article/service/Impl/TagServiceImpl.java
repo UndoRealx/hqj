@@ -4,11 +4,11 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.hqjcloud.article.beans.Tag;
 import com.hqjcloud.article.beans.TagExample;
+import com.hqjcloud.article.common.ApiResultEntity;
+import com.hqjcloud.article.common.enums.StateCode;
+import com.hqjcloud.article.common.util.PageUtil;
 import com.hqjcloud.article.mapper.TagExMapper;
 import com.hqjcloud.article.service.TagService;
-import com.hqjcloud.base.ApiResultEntity;
-import com.hqjcloud.base.enums.StateCode;
-import com.hqjcloud.data.util.PageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

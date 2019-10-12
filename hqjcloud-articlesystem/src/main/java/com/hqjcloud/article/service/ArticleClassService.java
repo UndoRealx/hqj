@@ -2,7 +2,7 @@ package com.hqjcloud.article.service;
 
 import com.hqjcloud.article.beans.ArticleClass;
 import com.hqjcloud.article.beans.ArticleClassExample;
-import com.hqjcloud.base.ApiResultEntity;
+import com.hqjcloud.article.common.ApiResultEntity;
 
 import java.util.List;
 

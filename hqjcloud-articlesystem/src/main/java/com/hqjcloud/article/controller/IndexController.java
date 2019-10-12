@@ -1,6 +1,5 @@
 package com.hqjcloud.article.controller;
 
-import io.swagger.annotations.Api;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 @RequestMapping(value = "/")
-@Api(description = "首页")
 public class IndexController{
 
     @RequestMapping(value = "/index",method = RequestMethod.GET)

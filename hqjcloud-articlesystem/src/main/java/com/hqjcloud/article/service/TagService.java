@@ -2,7 +2,7 @@ package com.hqjcloud.article.service;
 
 import com.hqjcloud.article.beans.Tag;
 import com.hqjcloud.article.beans.TagExample;
-import com.hqjcloud.base.ApiResultEntity;
+import com.hqjcloud.article.common.ApiResultEntity;
 
 /**
  * @ProjectName: hqjcloud

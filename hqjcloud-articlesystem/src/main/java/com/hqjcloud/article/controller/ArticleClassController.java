@@ -3,15 +3,11 @@ package com.hqjcloud.article.controller;
 import com.hqjcloud.article.beans.ArticleClass;
 import com.hqjcloud.article.beans.ArticleClassExample;
 import com.hqjcloud.article.beans.ArticleClassRelationExample;
+import com.hqjcloud.article.common.ApiResultEntity;
 import com.hqjcloud.article.common.TimeUtil;
+import com.hqjcloud.article.common.enums.StateCode;
 import com.hqjcloud.article.service.ArticleClassRelationService;
 import com.hqjcloud.article.service.ArticleClassService;
-import com.hqjcloud.base.ApiResultEntity;
-import com.hqjcloud.base.enums.StateCode;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
-import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -28,7 +24,6 @@ import java.util.List;
  */
 @Controller
 @RequestMapping(value = "/articleclass")
-@Api(description = "")
 public class ArticleClassController {
 	@Autowired
 	private ArticleClassService articleclassService;
@@ -41,14 +36,21 @@ public class ArticleClassController {
     }
 
 	@ResponseBody
-    @ApiOperation(value = "新增")
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public ApiResultEntity create(@RequestBody ArticleClass data) {
         articleclassService.add(data);
         return ApiResultEntity.successResult(StateCode.success.get());
     }
+
+    /**
+    *@Description 修改
+    *@Param  * @param data
+    *@Return com.hqjcloud.article.common.ApiResultEntity
+    *@Author lic
+    *@Date 2019/10/10
+    *@Time 15:37
+    */
     @ResponseBody
-    @ApiOperation(value = "修改")
     @RequestMapping(value = "/modify", method = RequestMethod.PUT)
     public  ApiResultEntity modify(@RequestBody ArticleClass data)
     {
@@ -56,8 +58,15 @@ public class ArticleClassController {
         return ApiResultEntity.successResult(StateCode.success.get());
     }
 
+    /**
+    *@Description 分类管理
+    *@Param  * @param data
+    *@Return com.hqjcloud.article.common.ApiResultEntity
+    *@Author lic
+    *@Date 2019/10/10
+    *@Time 15:37
+    */
     @ResponseBody
-    @ApiOperation(value = "分类管理")
     @RequestMapping(value = "/manage", method = RequestMethod.POST)
     public  ApiResultEntity manage(ArticleClass data)
     {
@@ -96,8 +105,15 @@ public class ArticleClassController {
         return ApiResultEntity.successResult(StateCode.success.get());
     }
 
+    /**
+    *@Description 删除
+    *@Param  * @param longid
+    *@Return com.hqjcloud.article.common.ApiResultEntity
+    *@Author lic
+    *@Date 2019/10/10
+    *@Time 15:37
+    */
     @ResponseBody
-    @ApiOperation(value = "删除")
     @RequestMapping(value = "/del", method = RequestMethod.DELETE)
     public ApiResultEntity del(Long longid) {
         if (null == longid || longid == 0) {
@@ -114,8 +130,16 @@ public class ArticleClassController {
         articleclassService.del(longid);
         return ApiResultEntity.successResult(StateCode.success.get());
     }
-    @ResponseBody
-    @ApiOperation(value = "获取单条")
+    
+    /**
+    *@Description 获取单条
+    *@Param  * @param longid
+    *@Return com.hqjcloud.article.common.ApiResultEntity
+    *@Author lic
+    *@Date 2019/10/10
+    *@Time 15:37
+    */
+    @ResponseBody    
     @RequestMapping(value = "/info", method = RequestMethod.GET)
     public  ApiResultEntity info(Long longid)
     {
@@ -127,8 +151,16 @@ public class ArticleClassController {
         return ApiResultEntity.successResult(articleClass);
     }
 
-    @ResponseBody
-    @ApiOperation(value = "更新状态")
+    /**
+    *@Description 更新状态
+    *@Param  * @param longid
+                * @param status
+    *@Return com.hqjcloud.article.common.ApiResultEntity
+    *@Author lic
+    *@Date 2019/10/10
+    *@Time 15:37
+    */
+    @ResponseBody   
     @RequestMapping(value = "/doStatus", method = RequestMethod.POST)
     public ApiResultEntity doStatus(Long longid,Integer status)
     {
@@ -146,15 +178,18 @@ public class ArticleClassController {
         return ApiResultEntity.successResult(articleClass);
     }
 
-
+    /**
+    *@Description 分页获取
+    *@Param  * @param key
+ * @param page
+ * @param size
+    *@Return com.hqjcloud.article.common.ApiResultEntity
+    *@Author lic
+    *@Date 2019/10/10
+    *@Time 15:37
+    */
     @ResponseBody
-    @GetMapping(value = "/getByPage")
-    @ApiOperation(value = "分页获取", notes = "分页获取")
-    @ApiImplicitParams(
-            {
-                    @ApiImplicitParam(paramType = "query", name = "page", value = "第几页", dataType = "Integer"),
-                    @ApiImplicitParam(paramType ="query", name = "size", value = "每页显示条数", dataType = "Integer")
-            })
+    @GetMapping(value = "/getByPage")   
     public ApiResultEntity getByPage(@RequestParam(required = false,defaultValue = "") String key,
                                      @RequestParam(required = false,defaultValue = "1") Integer page,
                                      @RequestParam(required = false,defaultValue = "15") Integer size)
@@ -169,8 +204,16 @@ public class ArticleClassController {
         return articleclassService.queryPageListByExample(example,page,size);
     }
 
-    @ResponseBody
-    @ApiOperation(value = "获取所有上架的分类")
+    
+    /**
+    *@Description 获取所有上架的分类
+    *@Param  * @param 
+    *@Return com.hqjcloud.article.common.ApiResultEntity
+    *@Author lic
+    *@Date 2019/10/10
+    *@Time 15:41
+    */
+    @ResponseBody   
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public  ApiResultEntity list()
     {

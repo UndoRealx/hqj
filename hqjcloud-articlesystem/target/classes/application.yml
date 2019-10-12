@@ -12,8 +12,9 @@ spring:
     suffix: .html
     mode: LEGACYHTML5
     encoding: UTF-8
-    content-type: text/html
     prefix: classpath:/templates/
+    servlet:
+      content-type: text/html
   mvc:
     static-path-pattern: /static/**
   resources:
@@ -22,7 +23,7 @@ spring:
         content:
           enabled: true
           paths: /**
-    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
+    static-locations: classpath:/static/,classpath:/META-INF/resources/,classpath:/resources/,classpath:/public/
   application:
     name: hqjcloud-articlesystem
   datasource:

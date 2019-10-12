@@ -1,7 +1,9 @@
 package com.hqjcloud.article.mapper;
+
 import com.hqjcloud.article.beans.ArticleClass;
+import com.hqjcloud.article.common.BaseMapper;
 import com.hqjcloud.article.mapper.base.ArticleClassMapper;
-import com.hqjcloud.data.BaseMapper;
+
 
 
 /**

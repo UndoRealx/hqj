@@ -1,15 +1,16 @@
 package com.hqjcloud.article.service.Impl;
 
+
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.hqjcloud.article.beans.ArticleClass;
 import com.hqjcloud.article.beans.ArticleClassExample;
+import com.hqjcloud.article.common.ApiResultEntity;
+import com.hqjcloud.article.common.enums.StateCode;
+import com.hqjcloud.article.common.util.PageUtil;
 import com.hqjcloud.article.dto.repose.ArticleClassRep;
 import com.hqjcloud.article.mapper.ArticleClassExMapper;
 import com.hqjcloud.article.service.ArticleClassService;
-import com.hqjcloud.base.ApiResultEntity;
-import com.hqjcloud.base.enums.StateCode;
-import com.hqjcloud.data.util.PageUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,18 +1,16 @@
 layui.config({
     base : '../../static/js/'
 });
-layui.use(['form','layer','layedit','laydate','upload','layRequest'],function(){
+layui.use(['form','layer','laydate','upload','layRequest'],function(){
     var form = layui.form
         layer = parent.layer === undefined ? layui.layer : top.layer,
         laypage = layui.laypage,
         upload = layui.upload,
-        layedit = layui.layedit,
         laydate = layui.laydate,
         req=layui.layRequest,
         $ = layui.jquery;
 
-    //用于同步编辑器内容到textarea
-    layedit.sync(editIndex);
+
 
 
 
@@ -121,7 +119,7 @@ layui.use(['form','layer','layedit','laydate','upload','layRequest'],function(){
                 arttitle : $("#arttitle").val(),  //文章标题
                 artabstract : $("#artabstract").val(),  //文章摘要
                 artimage : $("#artimage").attr("src")==undefined?'':$("#artimage").attr("src"),  //缩略图
-                artcontent : layedit.getContent(editIndex).split('<audio controls="controls" style="display: none;"></audio>')[0],  //文章内容
+                artcontent : UE.getEditor('editor').getContent(),  //文章内容
                 artclass : data.field.artclass,    //文章分类
                 artstatus : $('#artstatus input[name="release"]:checked').val(),    //发布状态
                 pubTimes : $("#pubtimes").val(),    //发布时间
@@ -147,12 +145,6 @@ layui.use(['form','layer','layedit','laydate','upload','layRequest'],function(){
         return false;
     })
 
-    //创建一个编辑器
-    var editIndex = layedit.build('artcontent',{
-        height : 535,
-        uploadImage : {
-            url : "../../json/newsImg.json"
-        }
-    });
+
 
 })

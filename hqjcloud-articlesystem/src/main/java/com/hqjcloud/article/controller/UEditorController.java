@@ -1,13 +1,5 @@
 package com.hqjcloud.article.controller;
 
-import com.hqjcloud.article.beans.PublicMsg;
-import com.hqjcloud.article.beans.Ueditor;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
-
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * @ProjectName: hqjcloud
@@ -21,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
  * @UpdateRemark: 更新说明
  * @Version: 1.0
  */
+/*
 @Controller
 public class UeditorController {
 
@@ -42,4 +35,5 @@ public class UeditorController {
         Ueditor ueditor = new Ueditor();
         return ueditor;
     }
-}
+}*/
+

@@ -2,9 +2,9 @@ package com.hqjcloud.article.mapper;
 
 
 import com.hqjcloud.article.beans.ArticleTagRelation;
-
+import com.hqjcloud.article.common.BaseMapper;
 import com.hqjcloud.article.mapper.base.ArticleTagRelationMapper;
-import com.hqjcloud.data.BaseMapper;
+
 
 /**
  * @ProjectName: hqjcloud

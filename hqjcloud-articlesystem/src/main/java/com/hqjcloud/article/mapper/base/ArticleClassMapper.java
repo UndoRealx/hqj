@@ -2,8 +2,10 @@ package com.hqjcloud.article.mapper.base;
 
 import com.hqjcloud.article.beans.ArticleClass;
 import com.hqjcloud.article.beans.ArticleClassExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
+
 
 public interface ArticleClassMapper {
     /**

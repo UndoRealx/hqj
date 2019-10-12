@@ -1,8 +1,8 @@
 package com.hqjcloud.article.controller;
 
-import com.hqjcloud.base.ApiResultEntity;
-import com.hqjcloud.base.enums.StateCode;
-import io.swagger.annotations.Api;
+
+import com.hqjcloud.article.common.ApiResultEntity;
+import com.hqjcloud.article.common.enums.StateCode;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping(value = "/login", produces = MediaType.APPLICATION_JSON_VALUE)
-@Api(description = "用户登录")
 public class LoginController {
 
     
@@ -34,7 +33,7 @@ public class LoginController {
     *@Date 2019/9/23
     *@Time 9:38
     */
-    public ApiResultEntity Login(String userName,String password)
+    public ApiResultEntity Login(String userName, String password)
     {
         return  ApiResultEntity.returnResult(StateCode.success.get());
     }
