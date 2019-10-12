@@ -11,9 +11,9 @@
 	<meta name="format-detection" content="telephone=no">
 	<link rel="stylesheet" href="../../static/layui/css/layui.css" media="all" />
 	<link rel="stylesheet" href="../../static/css/public.css" media="all" />
-	<script src="../static/ueditor/ueditor.config.js"></script>
-	<script src="../static/ueditor/ueditor.all.min.js"></script>
-	<script src="../static/ueditor/lang/zh-cn/zh-cn.js"></script>
+	<script src="../../static/ueditor/ueditor.config.js"></script>
+	<script src="../../static/ueditor/ueditor.all.min.js"></script>
+	<script src="../../static/ueditor/lang/zh-cn/zh-cn.js"></script>
 </head>
 <body class="childrenBody">
 <form class="layui-form layui-row layui-col-space10">
@@ -42,7 +42,7 @@
 		<div class="layui-form-item magb0">
 			<label class="layui-form-label">文章内容</label>
 			<div class="layui-input-block">
-				<textarea  name="content" id="content"></textarea>
+				<textarea  name="artcontent" id="artcontent"></textarea>
 			</div>
 		</div>
 	</div>
@@ -90,8 +90,8 @@
 			</div>
 		</div>
 	</div>
-	<input type="hidden" id="myid"  value="0">
-    <input type="hidden" id="focush2">
+	<input type="hidden" id="id" name="id"  value="0">
+    <input type="hidden" id="content">
 </form>
 <script type="text/javascript" src="../../static/layui/layui.js"></script>
 <script type="text/javascript" src="../../static/js/article/newsAdd.js"></script>
@@ -99,6 +99,6 @@
 
 </body>
 <script>
-	UE.getEditor("content");
+	UE.getEditor("artcontent");
 </script>
 </html>

@@ -90,11 +90,11 @@ layui.use(['form','layer','laydate','table','laytpl','layRequest'],function(){
                 if(edit){
                     req.get("/article/info",{longid:edit.longid},function (res) {
                         console.log(res.data);
-                        body.find("#myid").val(edit.longid);
+                        body.find("#id").val(edit.longid);
                         body.find("#arttitle").val(res.data.arttitle);
                         body.find("#artabstract").val(res.data.artabstract);
                         body.find("#artimage").attr("src",res.data.artimage);
-                        body.find("#artcontent").val(res.data.artcontent);
+                        body.find("#content").val(res.data.artcontent);
                         body.find("#release"+res.data.artstatus+"").prop("checked","checked");
                         body.find("#artistop").val(res.data.istop);
                         body.find(".newsTop input[name='istop']").prop("checked",res.data.istop);
