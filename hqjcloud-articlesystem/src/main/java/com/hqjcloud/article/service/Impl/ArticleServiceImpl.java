@@ -13,6 +13,7 @@ import com.hqjcloud.article.common.util.PageUtil;
 import com.hqjcloud.article.dto.repose.ArticleRep;
 import com.hqjcloud.article.dto.request.ArticleReq;
 import com.hqjcloud.article.mapper.ArticleExMapper;
+import com.hqjcloud.article.mapper.base.TagMapper;
 import com.hqjcloud.article.service.ArticleClassRelationService;
 import com.hqjcloud.article.service.ArticleClassService;
 import com.hqjcloud.article.service.ArticleService;
@@ -47,6 +48,9 @@ public class ArticleServiceImpl implements ArticleService {
     @Autowired
     private ArticleClassService articleClassService;
 
+    @Autowired
+    private TagMapper tagMapper;
+
     @Override
     public int add(Article entity) {
         return articleExMapper.insert(entity);
@@ -72,6 +76,7 @@ public class ArticleServiceImpl implements ArticleService {
                 entity.setPubtime(TimeUtil.dateToLong(TimeUtil.stringToDate1(req.getPubTimes())));
             }
             entity.setLikes(0);
+            entity.setArticletag(req.getArticletag());
             entity.setArtsort(0);
             add(entity);
             req.setLongid(entity.getLongid());
