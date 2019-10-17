@@ -12,7 +12,12 @@ layui.use(['form','layer','laydate','upload','layRequest'],function(){
 
 
 
-
+    function loadData()
+    {
+        var mycontent =$("#content").val();
+        UE.getEditor('artcontent').setContent(mycontent);
+    }
+    loadData();
 
     req.get("/articleclass/list",{},function (res) {
 
@@ -115,11 +120,11 @@ layui.use(['form','layer','laydate','upload','layRequest'],function(){
 
         var postdata=
             {
-                longid : $("#myid").val(),
+                longid : $("#id").val(),
                 arttitle : $("#arttitle").val(),  //文章标题
                 artabstract : $("#artabstract").val(),  //文章摘要
                 artimage : $("#artimage").attr("src")==undefined?'':$("#artimage").attr("src"),  //缩略图
-                artcontent : UE.getEditor('editor').getContent(),  //文章内容
+                artcontent : UE.getEditor('artcontent').getContent(),  //文章内容
                 artclass : data.field.artclass,    //文章分类
                 artstatus : $('#artstatus input[name="release"]:checked').val(),    //发布状态
                 pubTimes : $("#pubtimes").val(),    //发布时间
