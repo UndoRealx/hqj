@@ -105,7 +105,6 @@ layui.use(['form','layer','laydate','table','laytpl','layRequest'],function(){
                         form.render();
                         console.log("form.render()");
                     });
-
                 }
                 setTimeout(function(){
                     layui.layer.tips('点击此处返回文章列表', '.layui-layer-setwin .layui-layer-close', {
