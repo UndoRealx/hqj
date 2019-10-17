@@ -79,12 +79,12 @@ var searchAjax = function(name, id, isAdd){
 })();
 
 //添加标签
-layui.use(['from','layedit','element','jquery'],function () {
-    var form = layui.form,
-        layer = layui.layer,
-            element = layui.element,
-            $ = layui.jquery;
-    $(document).on('click','#btn',function () {
-        layer.alert('添加成功')
-    })
-})
+// layui.use(['from','layedit','element','jquery'],function () {
+//     var form = layui.form,
+//         layer = layui.layer,
+//             element = layui.element,
+//             $ = layui.jquery;
+//     $(document).on('click','#btn',function () {
+//         layer.alert('添加成功')
+//     })
+// })

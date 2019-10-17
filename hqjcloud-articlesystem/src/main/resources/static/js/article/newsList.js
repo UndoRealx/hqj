@@ -93,6 +93,7 @@ layui.use(['form','layer','laydate','table','laytpl','layRequest'],function(){
                         body.find("#myid").val(edit.longid);
                         body.find("#arttitle").val(res.data.arttitle);
                         body.find("#artabstract").val(res.data.artabstract);
+                        body.find("#myTags").val(res.data.articletag);
                         body.find("#artimage").attr("src",res.data.artimage);
                         body.find("#artcontent").val(res.data.artcontent);
                         body.find("#release"+res.data.artstatus+"").prop("checked","checked");

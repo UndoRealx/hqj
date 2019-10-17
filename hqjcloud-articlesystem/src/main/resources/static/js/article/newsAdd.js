@@ -11,7 +11,6 @@ layui.use(['form','layer','laydate','upload','layRequest'],function(){
         $ = layui.jquery;
 
 
-
     function loadData()
     {
         var mycontent =$("#content").val();
@@ -112,9 +111,18 @@ layui.use(['form','layer','laydate','upload','layRequest'],function(){
         $("input:checkbox[name='artclass']:checked").each(function(i){
             arr[i] = $(this).val();
         });
-        data.field.artclass = arr.join(",");
 
-        console.log($("#artistop").val());
+        data.field.artclass = arr.join(",");
+        var tagstr = '';
+        var myTags= $("#myTags span");
+        myTags.each(function(item,i){
+            if (item==myTags.length-1){
+                tagstr+=$(this).text();
+            } else {
+                tagstr+=$(this).text()+','
+            }
+        });
+
 
         var index = top.layer.msg('数据提交中，请稍候',{icon: 16,time:false,shade:0.8});
 
@@ -123,6 +131,7 @@ layui.use(['form','layer','laydate','upload','layRequest'],function(){
                 longid : $("#id").val(),
                 arttitle : $("#arttitle").val(),  //文章标题
                 artabstract : $("#artabstract").val(),  //文章摘要
+                articletag :  tagstr,      //文章标签
                 artimage : $("#artimage").attr("src")==undefined?'':$("#artimage").attr("src"),  //缩略图
                 artcontent : UE.getEditor('artcontent').getContent(),  //文章内容
                 artclass : data.field.artclass,    //文章分类
