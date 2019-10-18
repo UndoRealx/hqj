@@ -34,7 +34,7 @@ public class ArticleClassRelationServiceImpl implements ArticleClassRelationServ
     {
         ArticleClassRelationExample example = new ArticleClassRelationExample();
         ArticleClassRelationExample.Criteria criteria = example.createCriteria();
-        criteria.andArticleidEqualTo(articleId);
+        criteria.andArticleIdEqualTo(articleId);
         example.setOrderByClause("addtime asc");
         List<ArticleClassRelation> lists = mapper.selectByExample(example);
         return lists;
@@ -54,7 +54,7 @@ public class ArticleClassRelationServiceImpl implements ArticleClassRelationServ
     {
         ArticleClassRelationExample example = new ArticleClassRelationExample();
         ArticleClassRelationExample.Criteria criteria = example.createCriteria();
-        criteria.andArticleidEqualTo(articleId);
+        criteria.andArticleIdEqualTo(articleId);
         return mapper.deleteByExample(example);       
     }
 
@@ -62,9 +62,9 @@ public class ArticleClassRelationServiceImpl implements ArticleClassRelationServ
     public  long  add(Long articleId,Long classid)
     {
         ArticleClassRelation classRelation=new  ArticleClassRelation();
-        classRelation.setAddtime(TimeUtil.GetDate());
-        classRelation.setArticleclassid(classid);
-        classRelation.setArticleid(articleId);
+        classRelation.setAddTime(TimeUtil.GetDate());
+        classRelation.setArticleClassId(classid);
+        classRelation.setArticleId(articleId);
         return  mapper.insert(classRelation);
     }
 

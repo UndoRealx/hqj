@@ -1,10 +1,11 @@
-package com.hqjcloud.upms.common;
+package com.hqjcloud.upms.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.GenericFilterBean;
 
@@ -27,14 +28,15 @@ import java.io.IOException;
  * @UpdateRemark: 更新说明
  * @Version: 1.0
  */
-public class MyTokenFilter extends GenericFilterBean {
+@Component
+public class JwtAuthorizationTokenFilter extends GenericFilterBean {
 
 //private  final  Longger longger= LoggerFactory.getLogger(MyTokenFilter.class);
     private final static String XAUTH_TOKEN_HEADER_NAME = "authtoken";
     private UserDetailsService detailsService;
     @Autowired
-    private TokenProvider tokenProvider;
-    public MyTokenFilter(UserDetailsService detailsService, TokenProvider tokenProvider) {
+    private JwtTokenUtil tokenProvider;
+    public JwtAuthorizationTokenFilter(UserDetailsService detailsService, JwtTokenUtil tokenProvider) {
         this.detailsService = detailsService;
         this.tokenProvider = tokenProvider;
     }
@@ -44,11 +46,11 @@ public class MyTokenFilter extends GenericFilterBean {
 
         try {
             HttpServletRequest httpServletRequest=(HttpServletRequest) servletRequest;
-            String authToken=httpServletRequest.getParameter(XAUTH_TOKEN_HEADER_NAME);//getHeader(XAUTH_TOKEN_HEADER_NAME)
+            String authToken=httpServletRequest.getHeader(XAUTH_TOKEN_HEADER_NAME);
             if(StringUtils.hasText(authToken))
             {
                 //从自定义tokenProvider中解析用户
-                String username=this.tokenProvider.getUserNameFromToken(authToken);
+                String username=this.tokenProvider.getUsernameFromToken(authToken);
                 // 这里仍然是调用我们自定义的UserDetailsService，查库，检查用户名是否存在，
                 // 如果是伪造的token,可能DB中就找不到username这个人了，抛出异常，认证失败
                 UserDetails details = this.detailsService.loadUserByUsername(username);

@@ -61,7 +61,7 @@ public class ArticleClassServiceImpl implements ArticleClassService {
     {
         ArticleClassExample example = new ArticleClassExample();
         ArticleClassExample.Criteria criteria = example.createCriteria();
-        criteria.andClassnameEqualTo(className.trim());
+        criteria.andClassNameEqualTo(className.trim());
         List<ArticleClass>  list=mapper.selectByExample(example);
         return  list.size()>0?list.get(0):null;
     }
