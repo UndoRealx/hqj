@@ -15,6 +15,19 @@ layui.use(['form','layer','laydate','upload','layRequest'],function(){
     {
         var mycontent =$("#content").val();
         UE.getEditor('artcontent').setContent(mycontent);
+
+        var tagsFlag=$("#tagsFlag").val();
+        if (""!=tagsFlag&&null!=tagsFlag){
+            var arr = tagsFlag.split(',');
+            var str=""
+            for (var i = 0; i <arr.length ; i++) {
+                str+="<a value='-1' title='+'arr[i]'+'><span>"+arr[i]+"</span><em></em></a>"
+            }
+           // alert(str)
+            $("#myTags").show();
+            $("#myTags").html(str);
+        }
+       // form.render();
     }
     loadData();
 
@@ -105,6 +118,8 @@ layui.use(['form','layer','laydate','upload','layRequest'],function(){
             }
         }
     })
+
+    //添加文章
     form.on("submit(addNews)",function(data){
 
         var arr = new Array();
@@ -122,7 +137,6 @@ layui.use(['form','layer','laydate','upload','layRequest'],function(){
                 tagstr+=$(this).text()+','
             }
         });
-
 
         var index = top.layer.msg('数据提交中，请稍候',{icon: 16,time:false,shade:0.8});
 

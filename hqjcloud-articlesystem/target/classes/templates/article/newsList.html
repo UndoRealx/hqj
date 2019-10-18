@@ -42,6 +42,24 @@
 		{{#  }}}
 	</script>
 
+	<!--标签-->
+	<script>
+		function showhidediv(id) {
+			var sbtitle = document.getElementById(id);
+			if(sbtitle) {
+				if(sbtitle.style.display == 'block'|| sbtitle.style.display == '') {
+					sbtitle.style.display = 'none';
+				} else {
+					sbtitle.style.display = 'block';
+				}
+			}
+		}
+		function showhide(){
+			showhidediv($("#myTags"));
+		}
+	</script>
+
+	<input >
 	<!--操作-->
 	<script type="text/html" id="newsListBar">
 		<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
