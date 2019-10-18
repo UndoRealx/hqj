@@ -35,7 +35,7 @@ public class ArticleClassController {
 
     }
 
-	@ResponseBody
+    @ResponseBody
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public ApiResultEntity create(@RequestBody ArticleClass data) {
         articleclassService.add(data);
@@ -70,11 +70,11 @@ public class ArticleClassController {
     @RequestMapping(value = "/manage", method = RequestMethod.POST)
     public  ApiResultEntity manage(ArticleClass data)
     {
-        if(data.getClassname()==null||data.getClassname().trim().isEmpty())
+        if(data.getClassName()==null||data.getClassName().trim().isEmpty())
         {
             return  ApiResultEntity.returnResult(StateCode.ILLEGALREQUESTPARAMETER.get());
         }
-        ArticleClass entity= articleclassService.getByName(data.getClassname());
+        ArticleClass entity= articleclassService.getByName(data.getClassName());
 
 
         if(data.getLongid()==null||data.getLongid()==0)
@@ -83,7 +83,7 @@ public class ArticleClassController {
             {
                 return  ApiResultEntity.returnResult(StateCode.ARC10031002.get());
             }
-            data.setAddtime(TimeUtil.GetDate());
+            data.setAddTime(TimeUtil.GetDate());
             data.setSort(0);
             articleclassService.add(data);
         }
@@ -94,11 +94,13 @@ public class ArticleClassController {
             {
                 return  ApiResultEntity.returnResult(StateCode.NODATAEXIST.get());
             }
-            if(articleClass.getLongid()!=entity.getLongid())
-            {
-                return  ApiResultEntity.returnResult(StateCode.ARC10031002.get());
+            articleClass=articleclassService.getByName(data.getClassName());
+            if(null!=articleClass) {
+                if (articleClass.getLongid() != data.getLongid()) {
+                    return ApiResultEntity.returnResult(StateCode.ARC10031002.get());
+                }
             }
-            articleClass.setClassname(data.getClassname());
+            articleClass.setClassName(data.getClassName());
             articleClass.setStatus(data.getStatus());
             articleclassService.modify(data);
         }
@@ -122,7 +124,7 @@ public class ArticleClassController {
 
         ArticleClassRelationExample example=new ArticleClassRelationExample();
         ArticleClassRelationExample.Criteria criteria = example.createCriteria();
-        criteria.andArticleclassidEqualTo(longid);
+        criteria.andArticleClassIdEqualTo(longid);
         if(articleClassRelationService.countByExample(example)>0L)
         {
             return ApiResultEntity.returnResult(StateCode.ARC10031001.get());
@@ -199,7 +201,7 @@ public class ArticleClassController {
         example.setOrderByClause("longid desc");
         if(key!=null&&key.trim().isEmpty()==false)
         {
-            criteria.andClassnameLike(key);
+            criteria.andClassNameLike(key);
         }
         return articleclassService.queryPageListByExample(example,page,size);
     }

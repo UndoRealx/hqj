@@ -1,4 +1,4 @@
-package com.hqjcloud.upms.config;
+package com.hqjcloud.upms.security;
 
 import com.hqjcloud.upms.beans.User;
 import com.hqjcloud.upms.service.UserService;
@@ -25,9 +25,10 @@ import java.util.List;
  * @UpdateRemark: 更新说明
  * @Version: 1.0
  */
-@Component("userDetailsService")
-public class CustomUserDetailsService implements UserDetailsService {
+@Component
+public class JwtUserDetailsService implements UserDetailsService {
 
+    final  String preRole="ROLE_";
     @Autowired
     private UserService userService;
 
@@ -39,10 +40,10 @@ public class CustomUserDetailsService implements UserDetailsService {
         {
             throw new UsernameNotFoundException("User " + userName + " was not found in db");
         }
-        // 2. 设置角色
+        // 2. 设置角色  遍历角色 角色前一定要加前缀
         List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
-        GrantedAuthority grantedAuthority = new SimpleGrantedAuthority("ROLE_" +  "ADMIN");//ADMIN
-        GrantedAuthority grantedAuthority2 = new SimpleGrantedAuthority("ROLE_"+ "USER");//USER
+        GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(preRole +  "ADMIN");//ADMIN
+        GrantedAuthority grantedAuthority2 = new SimpleGrantedAuthority(preRole+ "USER");//USER
         grantedAuthorities.add(grantedAuthority);
         grantedAuthorities.add(grantedAuthority2);
 

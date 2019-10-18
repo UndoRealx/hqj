@@ -5,7 +5,6 @@ import com.hqjcloud.article.common.BaseMapper;
 import com.hqjcloud.article.mapper.base.ArticleClassMapper;
 
 
-
 /**
  * @ProjectName: hqjcloud
  * @Package: com.hqjcloud.article.mapper

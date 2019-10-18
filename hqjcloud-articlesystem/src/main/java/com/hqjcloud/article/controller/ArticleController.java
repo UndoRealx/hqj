@@ -65,8 +65,8 @@ public class ArticleController {
         {
             return ApiResultEntity.returnResult(StateCode.NODATAEXIST.get());
         }
-        article.setIstop(Byte.parseByte(String.valueOf(isTop)));
-        article.setModifytime(TimeUtil.GetDate());
+        article.setIsTop(Byte.parseByte(String.valueOf(isTop)));
+        article.setModifyTime(TimeUtil.GetDate());
         articleService.modify(article);
         return ApiResultEntity.successResult(StateCode.success.get());
     }
@@ -139,8 +139,8 @@ public class ArticleController {
         {
             return ApiResultEntity.returnResult(StateCode.NODATAEXIST.get());
         }
-        article.setArtstatus(100);
-        article.setModifytime(TimeUtil.GetDate());
+        article.setArtStatus(100);
+        article.setModifyTime(TimeUtil.GetDate());
         articleService.modify(article);
         return ApiResultEntity.successResult(StateCode.success.get());
     }
@@ -181,12 +181,13 @@ public class ArticleController {
                            @RequestParam(required = false,defaultValue = "1") Integer page,
                            @RequestParam(required = false,defaultValue = "15") Integer size)
     {
+        //andArtstatusNotEqualTo
         ArticleExample example = new ArticleExample();
         ArticleExample.Criteria criteria = example.createCriteria();
-        criteria.andArtstatusNotEqualTo(100);//已删除不显示
+        criteria.andArtStatusNotEqualTo(100);//已删除不显示
         if(key!=null&&key.trim().isEmpty()==false)
         {
-            criteria.andArttitleLike(key);
+            criteria.andArtTitleLike(key);
         }
         example.setOrderByClause("longid desc");
         return articleService.queryPageListByExample(example,page,size);

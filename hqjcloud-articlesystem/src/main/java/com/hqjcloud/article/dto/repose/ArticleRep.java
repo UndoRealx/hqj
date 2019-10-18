@@ -21,11 +21,11 @@ public class ArticleRep extends Article {
     private String addTimes;
 
     public String getAddTimes() {
-        if(getAddtime()==null)
+        if(getAddTime()==null)
         {
             return "";
         }
-        return TimeUtil.dateToString(TimeUtil.longToDate(getAddtime()));
+        return TimeUtil.dateToString(TimeUtil.longToDate(getAddTime()));
     }
 
 
@@ -33,11 +33,11 @@ public class ArticleRep extends Article {
     private  String modifyTimes;
 
     public String getModifyTimes() {
-        if(getModifytime()==null)
+        if(getModifyTime()==null)
         {
             return "";
         }
-        return TimeUtil.dateToString(TimeUtil.longToDate(getModifytime()));
+        return TimeUtil.dateToString(TimeUtil.longToDate(getModifyTime()));
     }
 
 
@@ -46,11 +46,11 @@ public class ArticleRep extends Article {
 
     public String getPubTimes()
     {
-        if(getPubtime()==null)
+        if(getPubTime()==null)
         {
             return "";
         }
-        return TimeUtil.dateToString(TimeUtil.longToDate(getPubtime()));
+        return TimeUtil.dateToString(TimeUtil.longToDate(getPubTime()));
     }
 
 
@@ -58,11 +58,11 @@ public class ArticleRep extends Article {
     private  String artStatusName;
 
     public String getArtStatusName() {
-        if(getArtstatus()==null)
+        if(getArtStatus()==null)
         {
             return "";
         }
-        return ArtStatusEnum.get(getArtstatus());
+        return ArtStatusEnum.get(getArtStatus());
     }
 
 

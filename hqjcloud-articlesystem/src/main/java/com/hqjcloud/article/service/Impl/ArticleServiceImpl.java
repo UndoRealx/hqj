@@ -13,7 +13,6 @@ import com.hqjcloud.article.common.util.PageUtil;
 import com.hqjcloud.article.dto.repose.ArticleRep;
 import com.hqjcloud.article.dto.request.ArticleReq;
 import com.hqjcloud.article.mapper.ArticleExMapper;
-import com.hqjcloud.article.mapper.base.TagMapper;
 import com.hqjcloud.article.service.ArticleClassRelationService;
 import com.hqjcloud.article.service.ArticleClassService;
 import com.hqjcloud.article.service.ArticleService;
@@ -48,9 +47,6 @@ public class ArticleServiceImpl implements ArticleService {
     @Autowired
     private ArticleClassService articleClassService;
 
-    @Autowired
-    private TagMapper tagMapper;
-
     @Override
     public int add(Article entity) {
         return articleExMapper.insert(entity);
@@ -69,21 +65,20 @@ public class ArticleServiceImpl implements ArticleService {
         }
         Article entity = (Article) req;
         if (req.getLongid() == null || req.getLongid() <= 0L) {
-            entity.setModifytime(TimeUtil.GetDate());
-            entity.setAddtime(TimeUtil.GetDate());
-            entity.setVisitcnt(0);
+            entity.setModifyTime(TimeUtil.GetDate());
+            entity.setAddTime(TimeUtil.GetDate());
+            entity.setVisitCnt(0);
             if (req.getPubTimes() != null && req.getPubTimes().trim().isEmpty() == false) {
-                entity.setPubtime(TimeUtil.dateToLong(TimeUtil.stringToDate1(req.getPubTimes())));
+                entity.setPubTime(TimeUtil.dateToLong(TimeUtil.stringToDate1(req.getPubTimes())));
             }
             entity.setLikes(0);
-            entity.setArticletag(req.getArticletag());
-            entity.setArtsort(0);
+            entity.setArtSort(0);
             add(entity);
             req.setLongid(entity.getLongid());
         } else {
-            entity.setModifytime(TimeUtil.GetDate());
+            entity.setModifyTime(TimeUtil.GetDate());
             if (req.getPubTimes() != null && req.getPubTimes().trim().isEmpty() == false) {
-                entity.setPubtime(TimeUtil.dateToLong(TimeUtil.stringToDate1(req.getPubTimes())));
+                entity.setPubTime(TimeUtil.dateToLong(TimeUtil.stringToDate1(req.getPubTimes())));
             }
             articleExMapper.updateByPrimaryKeySelective(entity);
         }
@@ -127,8 +122,8 @@ public class ArticleServiceImpl implements ArticleService {
             if(listClassRelation.size()>0) {
                 for (ArticleClassRelation entity : listClassRelation) {
                     for (ArticleClass model : listClass) {
-                        if (entity.getArticleclassid() == model.getLongid()) {
-                            item.setArtclass(item.getArtclass() + model.getClassname() + ",");
+                        if (entity.getArticleClassId() == model.getLongid()) {
+                            item.setArtclass(item.getArtclass() + model.getClassName() + ",");
                         }
                     }
                 }

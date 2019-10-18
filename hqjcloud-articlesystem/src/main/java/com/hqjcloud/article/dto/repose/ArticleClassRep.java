@@ -21,11 +21,11 @@ public class ArticleClassRep extends ArticleClass {
     private String addTimes;
 
     public String getAddTimes() {
-        if(getAddtime()==null)
+        if(getAddTime()==null)
         {
             return "";
         }
-        return TimeUtil.dateToString(TimeUtil.longToDate(getAddtime()));
+        return TimeUtil.dateToString(TimeUtil.longToDate(getAddTime()));
     }
 
 

@@ -1,11 +1,12 @@
 package com.hqjcloud.article.controller;
 
-import com.hqjcloud.article.beans.ArticleClass;
-import com.hqjcloud.article.beans.ArticleClassExample;
-import com.hqjcloud.article.beans.ArticleClassRelationExample;
-import com.hqjcloud.article.beans.ArticleLevel;
+import com.hqjcloud.article.beans.*;
 import com.hqjcloud.article.common.ApiResultEntity;
+import com.hqjcloud.article.common.TimeUtil;
 import com.hqjcloud.article.common.enums.StateCode;
+import com.hqjcloud.article.dto.request.ArticleLevelReq;
+import com.hqjcloud.article.service.ArticleLevelService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,6 +26,9 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "/articlelevel")
 public class ArticleLevelController {
 
+    @Autowired
+    private ArticleLevelService articleLevelService;
+
     @RequestMapping("/*")
     public void toHtml(){
 
@@ -32,8 +36,53 @@ public class ArticleLevelController {
 
     @ResponseBody
     @RequestMapping(value = "/manage", method = RequestMethod.POST)
-    public ApiResultEntity manage(ArticleLevel data) {
+    public ApiResultEntity manage(ArticleLevelReq data) {
+        if(data.getLevelName()==null||data.getLevelName().trim().isEmpty())
+        {
+            return  ApiResultEntity.returnResult(StateCode.ILLEGALREQUESTPARAMETER.get());
+        }
+        ArticleLevel entity= articleLevelService.getByName(data.getLevelName(),data.getLongid());
 
+        if(data.getLongid()==null||data.getLongid()==0)
+        {
+            if(null!=entity)
+            {
+                return  ApiResultEntity.returnResult(StateCode.ARC10031002.get());
+            }
+            data.setAddtime(TimeUtil.GetDate());
+            data.setModifytime(TimeUtil.GetDate());
+            articleLevelService.add(data);
+        }
+        else
+        {
+            ArticleLevel articleLevel=articleLevelService.getById(data.getLongid());
+            if(null==articleLevel)
+            {
+                return  ApiResultEntity.returnResult(StateCode.NODATAEXIST.get());
+            }
+            ArticleLevel newArticleLevel=articleLevelService.getByName(data.getLevelName(),data.getLevelParentid());
+            if(null!=newArticleLevel)
+            {
+                //不是同一个上级栏目
+                if(newArticleLevel.getLevelParentid()!=articleLevel.getLevelParentid()) {
+                    //栏目名称已存在
+                    return ApiResultEntity.returnResult(StateCode.ARL10041001.get());
+                }
+                else {
+                    if (newArticleLevel.getLongid() != data.getLongid()) {
+                        //栏目名称已存在
+                        return ApiResultEntity.returnResult(StateCode.ARL10041001.get());
+                    }
+                }
+            }
+
+            articleLevel.setLevelName(data.getLevelName());
+            articleLevel.setModifytime(TimeUtil.GetDate());
+            articleLevel.setLevelParentid(data.getLevelParentid());
+            articleLevel.setLevelStatus(data.getLevelStatus());
+            articleLevelService.modify(data);
+        }
+        return ApiResultEntity.successResult(StateCode.success.get());
     }
 
     @ResponseBody
@@ -45,12 +94,12 @@ public class ArticleLevelController {
 
         ArticleClassRelationExample example=new ArticleClassRelationExample();
         ArticleClassRelationExample.Criteria criteria = example.createCriteria();
-        criteria.andArticleclassidEqualTo(longid);
-        if(articleClassRelationService.countByExample(example)>0L)
+        criteria.andArticleClassIdEqualTo(longid);
+       /* if(articleLevelService.countByExample(example)>0L)
         {
             return ApiResultEntity.returnResult(StateCode.ARC10031001.get());
-        }
-        articleclassService.del(longid);
+        }*/
+        articleLevelService.del(longid);
         return ApiResultEntity.successResult(StateCode.success.get());
     }
 
@@ -62,8 +111,8 @@ public class ArticleLevelController {
         {
             return  ApiResultEntity.returnResult(StateCode.ILLEGALREQUESTPARAMETER.get());
         }
-        ArticleClass articleClass=articleclassService.getById(longid);
-        return ApiResultEntity.successResult(articleClass);
+        ArticleLevel articleLevel=articleLevelService.getById(longid);
+        return ApiResultEntity.successResult(articleLevel);
     }
 
     /**
@@ -83,14 +132,14 @@ public class ArticleLevelController {
         {
             return  ApiResultEntity.returnResult(StateCode.ILLEGALREQUESTPARAMETER.get());
         }
-        ArticleClass articleClass=articleclassService.getById(longid);
-        if(articleClass.getStatus()==Byte.parseByte(String.valueOf(status)))
+        ArticleLevel articleLevel=articleLevelService.getById(longid);
+        if(articleLevel.getLevelStatus()==Byte.parseByte(String.valueOf(status)))
         {
             return  ApiResultEntity.returnResult(StateCode.success.get());
         }
-        articleClass.setStatus(Byte.parseByte(String.valueOf(status)));
-        articleclassService.modify(articleClass);
-        return ApiResultEntity.successResult(articleClass);
+        articleLevel.setLevelStatus(Byte.parseByte(String.valueOf(status)));
+        articleLevelService.modify(articleLevel);
+        return ApiResultEntity.successResult(articleLevel);
     }
 
     /**
@@ -109,14 +158,14 @@ public class ArticleLevelController {
                                      @RequestParam(required = false,defaultValue = "1") Integer page,
                                      @RequestParam(required = false,defaultValue = "15") Integer size)
     {
-        ArticleClassExample example = new ArticleClassExample();
-        ArticleClassExample.Criteria criteria = example.createCriteria();
+        ArticleLevelExample example = new ArticleLevelExample();
+        ArticleLevelExample.Criteria criteria = example.createCriteria();
         example.setOrderByClause("longid desc");
         if(key!=null&&key.trim().isEmpty()==false)
         {
-            criteria.andClassnameLike(key);
+            criteria.andLevelNameLike(key);
         }
-        return articleclassService.queryPageListByExample(example,page,size);
+        return articleLevelService.queryPageListByExample(example,page,size);
     }
 
 }
