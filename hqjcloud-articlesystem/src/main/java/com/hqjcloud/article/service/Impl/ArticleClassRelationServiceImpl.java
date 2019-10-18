@@ -35,7 +35,7 @@ public class ArticleClassRelationServiceImpl implements ArticleClassRelationServ
         ArticleClassRelationExample example = new ArticleClassRelationExample();
         ArticleClassRelationExample.Criteria criteria = example.createCriteria();
         criteria.andArticleIdEqualTo(articleId);
-        example.setOrderByClause("addtime asc");
+        example.setOrderByClause("add_time asc");
         List<ArticleClassRelation> lists = mapper.selectByExample(example);
         return lists;
     }
