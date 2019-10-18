@@ -21,13 +21,14 @@ layui.use(['form','layer','laydate','upload','layRequest'],function(){
             var arr = tagsFlag.split(',');
             var str=""
             for (var i = 0; i <arr.length ; i++) {
-                str+="<a value='-1' title='+'arr[i]'+'><span>"+arr[i]+"</span><em></em></a>"
+                str+="<a value='-1' title="+arr[i]+"><span>"+arr[i]+"</span><em></em></a>"
             }
-           // alert(str)
+            console.log(str)
+            // alert(str)
             $("#myTags").show();
             $("#myTags").html(str);
         }
-       // form.render();
+        // form.render();
     }
     loadData();
 

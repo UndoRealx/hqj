@@ -13,6 +13,7 @@ $(function(){(
 
         hasTips=function(b){
             var d=$("a",a),c=false;
+            console.log(d)
             d.each(function(){
                 if($(this).attr("title")==b){
                     c=true;

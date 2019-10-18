@@ -93,17 +93,17 @@ layui.use(['form','layer','laydate','table','laytpl','layRequest'],function(){
                     req.get("/article/info",{longid:edit.longid},function (res) {
                         console.log(res.data);
                         body.find("#myid").val(edit.longid);
-                        body.find("#arttitle").val(res.data.arttitle);
-                        body.find("#artabstract").val(res.data.artabstract);
-                        body.find("#tagsFlag").val(res.data.articletag);
-                        body.find("#artimage").attr("src",res.data.artimage);
-                        body.find("#artcontent").val(res.data.artcontent);
-                        body.find("#release"+res.data.artstatus+"").prop("checked","checked");
-                        body.find("#artistop").val(res.data.istop);
-                        body.find(".newsTop input[name='istop']").prop("checked",res.data.istop);
+                        body.find("#arttitle").val(res.data.artTitle);
+                        body.find("#artabstract").val(res.data.artAbstract);
+                        body.find("#tagsFlag").val(res.data.artIcletag);
+                        body.find("#artimage").attr("src",res.data.artImage);
+                        body.find("#artcontent").val(res.data.artContent);
+                        body.find("#release"+res.data.artStatus+"").prop("checked","checked");
+                        body.find("#artistop").val(res.data.isTop);
+                        body.find(".newsTop input[name='istop']").prop("checked",res.data.isTop);
                         if(res.artstatus==6) //定时发布
                         {
-                            body.find("#pubtimes").val(res.data.pubtimes);
+                            body.find("#pubtimes").val(res.data.pubTime);
                         }
                         form.render();
                         console.log("form.render()");
