@@ -6,55 +6,29 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="hqjcloud-discovery" />
         <module name="hqjcloud-articlesystem" />
         <module name="hqjcloud-common-base" />
-        <module name="hqjcloud-common-config" />
         <module name="hqjcloud-common-core" />
+        <module name="hqjcloud-provider-common" />
+        <module name="hqjcloud-eureka" />
+        <module name="hqjcloud-gateway" />
+        <module name="hqjcloud-provider-common-api" />
+        <module name="hqjcloud-feign" />
         <module name="hqjcloud-common-data" />
+        <module name="hqjcloud-generator-base" />
         <module name="hqjcloud-common-swagger" />
         <module name="hqjcloud-common-util" />
-        <module name="hqjcloud-discovery" />
-        <module name="hqjcloud-eureka" />
-        <module name="hqjcloud-feign" />
-        <module name="hqjcloud-gateway" />
-        <module name="hqjcloud-generator-article" />
-        <module name="hqjcloud-generator-base" />
-        <module name="hqjcloud-generator-common" />
-        <module name="hqjcloud-monitor" />
-        <module name="hqjcloud-provider-common" />
-        <module name="hqjcloud-provider-common-api" />
         <module name="hqjcloud-zipkin" />
+        <module name="hqjcloud-monitor" />
+        <module name="hqjcloud-common-config" />
+        <module name="hqjcloud-generator-common" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="hqjcloud-provider-uac" target="1.8" />
-      <module name="hqjcloud-provider-uac-api" target="1.8" />
-      <module name="hqjcloud-swagger" target="1.8" />
-      <module name="hqjcloud.common.base" target="1.8" />
-      <module name="hqjcloud.common.config" target="1.8" />
-      <module name="hqjcloud.common.data" target="1.8" />
-      <module name="hqjcloud.common.swagger" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="hqjcloud-common-base" options="" />
-      <module name="hqjcloud-common-config" options="" />
-      <module name="hqjcloud-common-core" options="" />
-      <module name="hqjcloud-common-data" options="" />
-      <module name="hqjcloud-common-swagger" options="" />
-      <module name="hqjcloud-common-util" options="" />
-      <module name="hqjcloud-discovery" options="" />
-      <module name="hqjcloud-eureka" options="" />
-      <module name="hqjcloud-feign" options="" />
-      <module name="hqjcloud-gateway" options="" />
-      <module name="hqjcloud-monitor" options="" />
-      <module name="hqjcloud-provider-common" options="" />
-      <module name="hqjcloud-provider-common-api" options="" />
-      <module name="hqjcloud-provider-uac" options="-parameters" />
-      <module name="hqjcloud-provider-uac-api" options="-parameters" />
-      <module name="hqjcloud-swagger" options="-parameters" />
-      <module name="hqjcloud-zipkin" options="" />
+      <module name="hqjcloud-articlesystem" options="-parameters" />
     </option>
   </component>
 </project>
