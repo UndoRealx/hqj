@@ -7,7 +7,6 @@ import com.hqjcloud.article.common.enums.StateCode;
 import com.hqjcloud.article.service.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -17,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
  * @email hqj@hqj.com
  * @date 2019-09-20 16:22:06
  */
-@Controller
+@RestController
 @RequestMapping(value = "/sys/hqjtag", produces = MediaType.APPLICATION_JSON_VALUE) //配置返回值 application/json
 
 public class TagController {
@@ -50,6 +49,11 @@ public class TagController {
     }
 
 
+    /**
+     *单条获取
+     * @param longid
+     * @return
+     */
     @RequestMapping(value = "/info", method = RequestMethod.GET)
     public  ApiResultEntity info(Long longid)
     {
@@ -57,6 +61,12 @@ public class TagController {
         return ApiResultEntity.successResult(tag);
     }
 
+    /**
+     * 批量获取
+     * @param page
+     * @param size
+     * @return
+     */
     @GetMapping(value = "/getByPage")
     public ApiResultEntity getByPage(@RequestParam(required = false,defaultValue = "1") Integer page,
                                      @RequestParam(required = false,defaultValue = "15") Integer size)
