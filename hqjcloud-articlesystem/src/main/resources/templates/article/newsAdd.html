@@ -11,158 +11,90 @@
 	<meta name="format-detection" content="telephone=no">
 	<link rel="stylesheet" href="../../static/layui/css/layui.css" media="all" />
 	<link rel="stylesheet" href="../../static/css/public.css" media="all" />
-
-
-	<link rel="stylesheet" href="../../static/layui/css/style.css" type="text/css" />
-	<link rel="stylesheet" href="../../static/css/tag.css" media="all" />
-	<script type="text/javascript" src="../static/ueditor/jquery.1.4.2-min.js"></script>
-
-	<script src="../static/ueditor/ueditor.config.js"></script>
-	<script src="../static/ueditor/ueditor.all.min.js"></script>
-	<script src="../static/ueditor/lang/zh-cn/zh-cn.js"></script>
-
 	<script src="../../static/ueditor/ueditor.config.js"></script>
 	<script src="../../static/ueditor/ueditor.all.min.js"></script>
 	<script src="../../static/ueditor/lang/zh-cn/zh-cn.js"></script>
-
 </head>
 <body class="childrenBody">
-
-<form class="layui-form ">
-	<input type="hidden" id="tagsFlag" >
-	<input type="hidden" id="id" name="id"  value="0">
-	<input type="hidden" id="content">
-	<div class="layui-row">
-		<div class="layui-col-md10 layui-col-xs12">
-			<div class="layui-row layui-col-space10">
-				<div class="layui-col-md9 layui-col-xs7">
-					<div class="layui-form-item magt3">
-						<label class="layui-form-label">文章标题</label>
-						<div class="layui-input-block">
-							<input name="arttitle" type="text" class="layui-input newsName" lay-verify="newsName" id="arttitle" placeholder="请输入文章标题">
-						</div>
-					</div>
-					<div class="layui-form-item demo">
-						<div class="plus-tag tagbtn clearfix" id="myTags"></div>
-						<div class="plus-tag-add" align="center">
-							<form id="" action="" class="login">
-								<ul class="Form FancyForm">
-									<li>
-										<span class="label" style="font-size: 13px">我的标签：</span>
-										<input id="tagAdd" name="tagAdd" type="text" class="stext" maxlength="10" style="font-size: 15px"/>
-										<label>输入标签</label>
-										<span class="fff"></span>
-									</li>
-									<li>
-										<button id="btn" type="button" class="Button RedButton Button18" style="font-size:15px;">添加标签</button>
-										<a href="javascript:void(0);" style="font-size: 15px">展开推荐标签</a>
-									</li>
-								</ul>
-							</form>
-						</div><!--plus-tag-add end-->
-
-						<div id="mycard-plus" style="display:none;">
-							<div class="default-tag tagbtn">
-								<div class="clearfix">
-									<a value="-1" title="美食之都" href="javascript:void(0);"><span>美食之都</span><em></em></a>
-									<a value="-1" title="诗厢文苑" href="javascript:void(0);"><span>诗厢文苑</span><em></em></a>
-									<a value="-1" title="it" href="javascript:void(0);"><span>it</span><em></em></a>
-									<a value="-1" title="电子商务" href="javascript:void(0);"><span>电子商务</span><em></em></a>
-									<a value="-1" title="电子竞技" href="javascript:void(0);"><span>电子竞技</span><em></em></a>
-									<a value="-1" title="网络编辑" href="javascript:void(0);"><span>网络编辑</span><em></em></a>
-									<a value="-1" title="国漫" href="javascript:void(0);"><span>国漫</span><em></em></a>
-									<a value="-1" title="日漫" href="javascript:void(0);"><span>日漫</span><em></em></a>
-									<a value="-1" title="科技之光" href="javascript:void(0);"><span>科技之光</span><em></em></a>
-									<a value="-1" title="文案策划" href="javascript:void(0);"><span>文案策划</span><em></em></a>
-									<a value="-1" title="纪录片" href="javascript:void(0);"><span>纪录片</span><em></em></a>
-								</div>
-								<div class="clearfix" style="display:none;"><a value="-1" title="媒体" href="javascript:void(0);"><span>媒体</span><em></em></a></div>
-								<div class="clearfix" style="display:none;"><a value="-1" title="网络营销" href="javascript:void(0);"><span>网络营销</span><em></em></a></div>
-							</div>
-							<div align="right"><a href="javascript:void(0);" id="change-tips" style="color:#3366cc;">换一换</a></div>
-						</div><!--mycard-plus end-->
-
-					</div>
-					<div class="layui-form-item">
-						<label class="layui-form-label">内容摘要</label>
-						<div class="layui-input-block">
-							<textarea name="artabstract" placeholder="请输入内容摘要" class="layui-textarea abstract" id="artabstract"></textarea>
-						</div>
+<form class="layui-form layui-row layui-col-space10">
+	<div class="layui-col-md9 layui-col-xs12">
+		<div class="layui-row layui-col-space10">
+			<div class="layui-col-md9 layui-col-xs7">
+				<div class="layui-form-item magt3">
+					<label class="layui-form-label">文章标题</label>
+					<div class="layui-input-block">
+						<input name="arttitle" type="text" class="layui-input newsName" lay-verify="newsName" id="arttitle" placeholder="请输入文章标题">
 					</div>
 				</div>
-
-				<div class="layui-col-md3 layui-col-xs5">
-					<dibcv class="layui-upload-list thumbBox mag0 magt3">
-						<img class="layui-upload-img thumbImg" id="artimage" name="artimage" src="../../static/images/178157567.jpg">
-					</dibcv>
+				<div class="layui-form-item">
+					<label class="layui-form-label">内容摘要</label>
+					<div class="layui-input-block">
+						<textarea name="artabstract" placeholder="请输入内容摘要" class="layui-textarea abstract" id="artabstract"></textarea>
+					</div>
 				</div>
 			</div>
-			<div class="layui-form-item magb0 layui-row layui-col-space10 demo2">
-				<label class="layui-form-label layui-col-md2">文章内容</label>
-				<div class="layui-col-md8">
-					<textarea  name="artcontent" id="artcontent"></textarea>
+			<div class="layui-col-md3 layui-col-xs5">
+				<div class="layui-upload-list thumbBox mag0 magt3">
+					<img class="layui-upload-img thumbImg" id="artimage" name="artimage">
 				</div>
 			</div>
 		</div>
-		<div class="layui-col-md2 layui-col-xs12">
-			<blockquote class="layui-elem-quote title"><i class="seraph icon-caidan"></i> 分类目录</blockquote>
-			<div class="border category">
-				<div class="" id="articleclass">
-				</div>
-			</div>
-			<blockquote class="layui-elem-quote title magt10"><i class="layui-icon">&#xe609;</i> 发布</blockquote>
-			<div class="border">
-				<div class="layui-form-item">
-					<label class="layui-form-label"><i class="layui-icon">&#xe609;</i> 发　布</label>
-					<div class="layui-input-block" id="artstatus" >
-						<input type="radio" name="release" id="release0" value="0" title="保存草稿" lay-skin="primary" lay-filter="release" />
-						<input type="radio" name="release" id="release5" value="5" title="立即发布" lay-skin="primary" lay-filter="release" checked />
-						<input type="radio" name="release" id="release6" value="6" title="定时发布" lay-skin="primary" lay-filter="release" />
-					</div>
-				</div>
-				<div class="layui-form-item layui-hide releaseDate">
-					<label class="layui-form-label"></label>
-					<div class="layui-input-block">
-						<input type="text" class="layui-input" name="pubtimes" id="pubtimes" placeholder="请选择日期和时间" readonly />
-					</div>
-				</div>
-				<!--<div class="layui-form-item openness">
-                    <label class="layui-form-label"><i class="seraph icon-look"></i> 公开度</label>
-                    <div class="layui-input-block">
-                        <input type="radio" name="openness" title="开放浏览" lay-skin="primary" checked />
-                        <input type="radio" name="openness" title="私密浏览" lay-skin="primary" />
-                    </div>
-                </div>-->
-				<div class="layui-form-item newsTop">
-					<label class="layui-form-label"><i class="seraph icon-zhiding"></i> 置　顶</label>
-					<div class="layui-input-block">
-						<input type="hidden" name="artistop" id="artistop" value="0"  >
-						<input type="checkbox"  name="is_top" id="istop" lay-skin="switch" lay-filter="istop" lay-text="是|否">
-						<!--<input type="checkbox" name="istop" id="istop" lay-skin="switch" lay-text="是|否">-->
-					</div>
-				</div>
-				<hr class="layui-bg-gray" />
-				<div class="layui-right">
-					<a class="layui-btn layui-btn-sm" lay-filter="addNews" lay-submit><i class="layui-icon">&#xe609;</i>发布</a>
-					<a class="layui-btn layui-btn-primary layui-btn-sm" lay-filter="look" lay-submit>预览</a>
-				</div>
+		<div class="layui-form-item magb0">
+			<label class="layui-form-label">文章内容</label>
+			<div class="layui-input-block">
+				<textarea  name="artcontent" id="artcontent"></textarea>
 			</div>
 		</div>
 	</div>
-
-
-
+	<div class="layui-col-md3 layui-col-xs12">
+		<blockquote class="layui-elem-quote title"><i class="seraph icon-caidan"></i> 分类目录</blockquote>
+		<div class="border category">
+			<div class="" id="articleclass">
+			</div>
+		</div>
+		<blockquote class="layui-elem-quote title magt10"><i class="layui-icon">&#xe609;</i> 发布</blockquote>
+		<div class="border">
+			<div class="layui-form-item">
+				<label class="layui-form-label"><i class="layui-icon">&#xe609;</i> 发　布</label>
+				<div class="layui-input-block" id="artstatus" >
+					<input type="radio" name="release" id="release0" value="0" title="保存草稿" lay-skin="primary" lay-filter="release" />
+					<input type="radio" name="release" id="release5" value="5" title="立即发布" lay-skin="primary" lay-filter="release" checked />
+					<input type="radio" name="release" id="release6" value="6" title="定时发布" lay-skin="primary" lay-filter="release" />
+				</div>
+			</div>
+			<div class="layui-form-item layui-hide releaseDate">
+				<label class="layui-form-label"></label>
+				<div class="layui-input-block">
+					<input type="text" class="layui-input" name="pubtimes" id="pubtimes" placeholder="请选择日期和时间" readonly />
+				</div>
+			</div>
+			<!--<div class="layui-form-item openness">
+				<label class="layui-form-label"><i class="seraph icon-look"></i> 公开度</label>
+				<div class="layui-input-block">
+					<input type="radio" name="openness" title="开放浏览" lay-skin="primary" checked />
+					<input type="radio" name="openness" title="私密浏览" lay-skin="primary" />
+				</div>
+			</div>-->
+			<div class="layui-form-item newsTop">
+				<label class="layui-form-label"><i class="seraph icon-zhiding"></i> 置　顶</label>
+				<div class="layui-input-block">
+					<input type="hidden" name="artistop" id="artistop" value="0"  >
+					<input type="checkbox"  name="istop" id="istop" lay-skin="switch" lay-filter="istop" lay-text="是|否">
+					<!--<input type="checkbox" name="istop" id="istop" lay-skin="switch" lay-text="是|否">-->
+				</div>
+			</div>
+			<hr class="layui-bg-gray" />
+			<div class="layui-right">
+				<a class="layui-btn layui-btn-sm" lay-filter="addNews" lay-submit><i class="layui-icon">&#xe609;</i>发布</a>
+				<a class="layui-btn layui-btn-primary layui-btn-sm" lay-filter="look" lay-submit>预览</a>
+			</div>
+		</div>
+	</div>
+	<input type="hidden" id="id" name="id"  value="0">
+    <input type="hidden" id="content">
 </form>
-
-
 <script type="text/javascript" src="../../static/layui/layui.js"></script>
 <script type="text/javascript" src="../../static/js/article/newsAdd.js"></script>
-
-<!--标签-->
-<script type="text/javascript" src="../../static/layui/tag1.js"></script>
-<script type="text/javascript" src="../../static/layui/tag2.js"></script>
-<script type="text/javascript" src="../../static/layui/tag3.js"></script>
-<script type="text/javascript" src="../../static/layui/tag4.js"></script>
 
 
 </body>

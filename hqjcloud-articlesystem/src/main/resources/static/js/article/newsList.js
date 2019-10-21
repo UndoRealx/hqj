@@ -38,7 +38,7 @@ layui.use(['form','layer','laydate','table','laytpl','layRequest'],function(){
             {type: "checkbox", fixed:"left", width:50},
             {field: 'longid', title: 'ID', width:60, align:"center"},
             {field: 'artTitle', title: '文章标题', width:250},
-            {field: 'artLevelName', title: '所属栏目', width:150},
+            /*{field: 'artLevelName', title: '所属栏目', width:150},*/
             {field: 'artclass', title: '文章分类', width:150},
             {field: 'author', title: '作者', align:'center'},
             {field: 'artStatusName', title: '发布状态',  align:'center',templet:"#artstatus"},
