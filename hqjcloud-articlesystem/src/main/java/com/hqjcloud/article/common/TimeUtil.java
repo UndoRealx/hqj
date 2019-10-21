@@ -37,7 +37,7 @@ public class TimeUtil {
      * @param date
      * @return yyyy-MM-dd HH:mm:ss 格式的时间
      */
-    public static String dateToString(Date date) {
+    public static String dateToStringEx(Date date) {
         String strDateFormat = "yyyy-MM-dd HH:mm:ss";
         SimpleDateFormat sdf = new SimpleDateFormat(strDateFormat);
         return sdf.format(date);
@@ -49,7 +49,7 @@ public class TimeUtil {
      * @param date
      * @return yyyy-MM-dd 格式的时间
      */
-    public String dateToString1(Date date) {
+    public static String dateToString(Date date) {
         String strDateFormat = "yyyy-MM-dd";
         SimpleDateFormat sdf = new SimpleDateFormat(strDateFormat);
         return sdf.format(date);

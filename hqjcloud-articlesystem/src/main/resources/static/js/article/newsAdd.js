@@ -48,13 +48,25 @@ layui.use(['form','layer','laydate','upload','layRequest'],function(){
     //上传缩略图
     upload.render({
         elem: '.thumbBox',
-        url: '/ueditor/uploadFile',
+        url: '/ueditor/multiUpload',
+        acceptMime: 'image/*',
+
         method : "post",  //此处是为了演示之用，实际使用中请将此删除，默认用post方式提交
-        name:"upfile",
-        done: function(res){//index, upload
+        done: function(res,index, upload){
+            console.log(res);
+            console.log(upload);
             var num = parseInt(4*Math.random());  //生成0-4的随机数，随机显示一个头像信息
-            $('.thumbImg').attr('src',res.data[num].src);
-            $('.thumbBox').css("background","#fff");
+
+            if(res.state=="SUCCESS")
+            {
+                $('.thumbImg').attr('src','/Path/'+res.url);
+                $('.thumbBox').css("background","#fff");
+                form.render();
+            }
+            else
+            {
+                layui.alert(res.title);
+            }
         }
     });
 
