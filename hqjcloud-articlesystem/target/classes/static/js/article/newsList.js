@@ -37,12 +37,13 @@ layui.use(['form','layer','laydate','table','laytpl','layRequest'],function(){
         cols : [[
             {type: "checkbox", fixed:"left", width:50},
             {field: 'longid', title: 'ID', width:60, align:"center"},
-            {field: 'arttitle', title: '文章标题', width:250},
+            {field: 'artTitle', title: '文章标题', width:250},
+            /*{field: 'artLevelName', title: '所属栏目', width:150},*/
             {field: 'artclass', title: '文章分类', width:150},
-            {field: 'addauthor', title: '发布者', align:'center'},
+            {field: 'author', title: '作者', align:'center'},
             {field: 'artStatusName', title: '发布状态',  align:'center',templet:"#artstatus"},
-            {field: 'visitcnt', title: '阅读次数', align:'center'},
-            {field: 'istop', title: '是否置顶', align:'center', templet:function(d){
+            {field: 'visitCnt', title: '阅读次数', align:'center'},
+            {field: 'isTop', title: '是否置顶', align:'center', templet:function(d){
                 return '<input type="checkbox" name="istop" value='+d.longid+' lay-filter="istop" lay-skin="switch" lay-text="是|否" '+d.istop+'>'
             }},
             {field: 'pubTimes', title: '发布时间', align:'center', minWidth:110, templet:function(d){
@@ -92,17 +93,17 @@ layui.use(['form','layer','laydate','table','laytpl','layRequest'],function(){
                     req.get("/article/info",{longid:edit.longid},function (res) {
                         console.log(res.data);
                         body.find("#myid").val(edit.longid);
-                        body.find("#arttitle").val(res.data.arttitle);
-                        body.find("#artabstract").val(res.data.artabstract);
-                        body.find("#tagsFlag").val(res.data.articletag);
-                        body.find("#artimage").attr("src",res.data.artimage);
-                        body.find("#artcontent").val(res.data.artcontent);
-                        body.find("#release"+res.data.artstatus+"").prop("checked","checked");
-                        body.find("#artistop").val(res.data.istop);
-                        body.find(".newsTop input[name='istop']").prop("checked",res.data.istop);
+                        body.find("#arttitle").val(res.data.artTitle);
+                        body.find("#artabstract").val(res.data.artAbstract);
+                        body.find("#tagsFlag").val(res.data.artIcletag);
+                        body.find("#artimage").attr("src",res.data.artImage);
+                        body.find("#artcontent").val(res.data.artContent);
+                        body.find("#release"+res.data.artStatus+"").prop("checked","checked");
+                        body.find("#artistop").val(res.data.isTop);
+                        body.find(".newsTop input[name='istop']").prop("checked",res.data.isTop);
                         if(res.artstatus==6) //定时发布
                         {
-                            body.find("#pubtimes").val(res.data.pubtimes);
+                            body.find("#pubtimes").val(res.data.pubTime);
                         }
                         form.render();
                         console.log("form.render()");

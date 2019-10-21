@@ -21,22 +21,24 @@ layui.use(['form','layer','laydate','upload','layRequest'],function(){
             var arr = tagsFlag.split(',');
             var str=""
             for (var i = 0; i <arr.length ; i++) {
-                str+="<a value='-1' title='+'arr[i]'+'><span>"+arr[i]+"</span><em></em></a>"
+                str+="<a value='-1' title="+arr[i]+"><span>"+arr[i]+"</span><em></em></a>"
             }
-           // alert(str)
+            console.log(str)
+            // alert(str)
             $("#myTags").show();
             $("#myTags").html(str);
         }
-       // form.render();
+        // form.render();
     }
     loadData();
 
     req.get("/articleclass/list",{},function (res) {
-
+        console.log(res.data);
         res.data.forEach(function (e) {
            /* var  chks=$.inArray(e.longid,arrayObj)==-1?"":"checked=\"checked\"";
             console.log(e.longid+chks) “+chks+”*/
-            $("#articleclass").append("<p><input type='checkbox' name='artclass' id='artclass"+e.longid+"' value='"+e.longid+"' title='"+e.classname+"' lay-skin='primary'  /></p>");
+
+            $("#articleclass").append("<p><input type='checkbox' name='artclass' id='artclass"+e.longid+"' value='"+e.longid+"' title='"+e.className+"' lay-skin='primary'  /></p>");
         });
 
         form.render();
@@ -59,9 +61,10 @@ layui.use(['form','layer','laydate','upload','layRequest'],function(){
     //上传缩略图
     upload.render({
         elem: '.thumbBox',
-        url: '../../json/userface.json',
-        method : "get",  //此处是为了演示之用，实际使用中请将此删除，默认用post方式提交
-        done: function(res, index, upload){
+        url: '/ueditor/uploadFile',
+        method : "post",  //此处是为了演示之用，实际使用中请将此删除，默认用post方式提交
+        name:"upfile",
+        done: function(res){//index, upload
             var num = parseInt(4*Math.random());  //生成0-4的随机数，随机显示一个头像信息
             $('.thumbImg').attr('src',res.data[num].src);
             $('.thumbBox').css("background","#fff");
