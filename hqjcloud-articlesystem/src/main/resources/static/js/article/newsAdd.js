@@ -15,7 +15,7 @@ layui.use(['form','layer','laydate','upload','layRequest'],function(){
     {
         var mycontent =$("#content").val();
         UE.getEditor('artcontent').setContent(mycontent);
-
+        //标签回调
         var tagsFlag=$("#tagsFlag").val();
         if (""!=tagsFlag&&null!=tagsFlag){
             var arr = tagsFlag.split(',');
@@ -79,6 +79,7 @@ layui.use(['form','layer','laydate','upload','layRequest'],function(){
             return val;
         }
     }
+
     //定时发布
     var time = new Date();
     var submitTime = time.getFullYear()+'-'+filterTime(time.getMonth()+1)+'-'+filterTime(time.getDate())+' '+filterTime(time.getHours())+':'+filterTime(time.getMinutes())+':'+filterTime(time.getSeconds());
@@ -90,6 +91,7 @@ layui.use(['form','layer','laydate','upload','layRequest'],function(){
             submitTime = value;
         }
     });
+
     form.on("radio(release)",function(data){
         if(data.elem.title == "定时发布"){
             $(".releaseDate").removeClass("layui-hide");
