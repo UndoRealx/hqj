@@ -73,8 +73,8 @@ public class UeditorController {
         ReturnUploadImage rui = new ReturnUploadImage();
         if (dest != null) {
             rui.setState("SUCCESS");
-            rui.setUrl("/" + TimeUtil.dateToString(now)+"/"+ newFileName);
-            rui.setThumbnailUrl("/" + TimeUtil.dateToString(now)+"/"+new File(listThumbnail.get(0)).getName());
+            rui.setUrl(TimeUtil.dateToString(now)+"/"+ newFileName);
+            rui.setThumbnailUrl(TimeUtil.dateToString(now)+"/"+new File(listThumbnail.get(0)).getName());
             rui.setTitle("上传成功!");
             rui.setOriginal(fileName);
         }

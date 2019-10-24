@@ -3,17 +3,22 @@ package com.hqjcloud.article.controller;
 import com.hqjcloud.article.beans.Article;
 import com.hqjcloud.article.beans.ArticleClassRelation;
 import com.hqjcloud.article.beans.ArticleExample;
+import com.hqjcloud.article.beans.ArticleLevel;
 import com.hqjcloud.article.common.ApiResultEntity;
 import com.hqjcloud.article.common.TimeUtil;
 import com.hqjcloud.article.common.enums.StateCode;
 import com.hqjcloud.article.dto.request.ArticleReq;
 import com.hqjcloud.article.service.ArticleClassRelationService;
+import com.hqjcloud.article.service.ArticleLevelService;
 import com.hqjcloud.article.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cglib.beans.BeanMap;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -34,6 +39,9 @@ public class ArticleController {
 
     @Autowired
     private ArticleService articleService;
+
+    @Autowired
+    private ArticleLevelService  articleLevelService;
 
     @Autowired
     private ArticleClassRelationService articleClassRelationService;
@@ -98,6 +106,55 @@ public class ArticleController {
     @RequestMapping(value = "/manage", method = RequestMethod.POST)
     public  ApiResultEntity manage(ArticleReq data) throws Exception
     {
+        if(data.getArtTitle()==null||data.getArtTitle().isEmpty())
+        {
+            return  ApiResultEntity.returnResult(StateCode.ART10021001.get());
+        }
+        if(data.getArtFrom()==null||data.getArtFrom().isEmpty())
+        {
+            return  ApiResultEntity.returnResult(StateCode.ART10021003.get());
+        }
+        if(data.getArtAuthor()==null||data.getArtAuthor().isEmpty())
+        {
+            return  ApiResultEntity.returnResult(StateCode.ART10021004.get());
+        }
+        if(data.getArtTags()==null||data.getArtTags().isEmpty())
+        {
+            return  ApiResultEntity.returnResult(StateCode.ART10021006.get());
+        }
+        if(data.getArtAbstract()==null||data.getArtAbstract().isEmpty())
+        {
+            return  ApiResultEntity.returnResult(StateCode.ART10021005.get());
+        }
+
+        if(data.getArtContent()==null||data.getArtContent().isEmpty())
+        {
+            return  ApiResultEntity.returnResult(StateCode.ART10021002.get());
+        }
+        if(data.getPlatformId()==null||data.getPlatformId()<=0L)
+        {
+            return  ApiResultEntity.returnResult(StateCode.ART10021010.get());
+        }
+        if(data.getTopLevelId()==null||data.getTopLevelId()<=0L)
+        {
+            return  ApiResultEntity.returnResult(StateCode.ART10021011.get());
+        }
+
+        if(data.getArtStatus()==null)
+        {
+            return  ApiResultEntity.returnResult(StateCode.ART10021009.get());
+        }
+        if(data.getArtStatus()==6)//定时发布
+        {
+            if(data.getPubTimes()==null||data.getPubTimes().isEmpty())
+            {
+                return  ApiResultEntity.returnResult(StateCode.ART10021007.get());
+            }
+          /*  if((Date.parse(TimeUtil.stringToDate1(data.getPubTimes()))/1000) <= TimeUtil.GetDate())
+            {
+                return  ApiResultEntity.returnResult(StateCode.ART10021008.get());
+            }*/
+        }
         articleService.manage(data);
         return ApiResultEntity.successResult(StateCode.success.get());
     }
@@ -162,7 +219,34 @@ public class ArticleController {
             return ApiResultEntity.returnResult(StateCode.ILLEGALREQUESTPARAMETER.get());
         }
         Article article=articleService.getById(longid);
-        return ApiResultEntity.successResult(article);
+        Map map=BeanMap.create(article);
+        Map copyMap=new HashMap();
+        copyMap.putAll(map);
+        copyMap.put("top_level_id",0);
+        copyMap.put("sec_level_id",0);
+        copyMap.put("pubTimes",TimeUtil.dateToStringEx(TimeUtil.longToDate(article.getPubTime())));
+        if(article.getArtLevelId()!=null)
+        {
+
+            ArticleLevel entity=articleLevelService.getById(article.getArtLevelId());
+            if(null!=entity)
+            {
+                if(entity.getLevelParentid()==0L)
+                {
+                    copyMap.put("top_level_id",entity.getLongid());
+                    copyMap.put("sec_level_id",0);
+                }
+                else
+                {
+                    copyMap.put("top_level_id",entity.getLevelParentid());
+                    copyMap.put("sec_level_id",entity.getLongid());
+                }
+
+            }
+
+        }
+
+        return ApiResultEntity.successResult(copyMap);
     }
 
     /**
@@ -179,7 +263,8 @@ public class ArticleController {
     @GetMapping(value = "/getByPage")     
     public ApiResultEntity getByPage(@RequestParam(required = false,defaultValue = "") String key,
                            @RequestParam(required = false,defaultValue = "1") Integer page,
-                           @RequestParam(required = false,defaultValue = "15") Integer size)
+                           @RequestParam(required = false,defaultValue = "15") Integer size,
+                                     Long platformId,Long topLevelId,Integer ArtStatus)
     {
         //andArtstatusNotEqualTo
         ArticleExample example = new ArticleExample();
@@ -188,6 +273,18 @@ public class ArticleController {
         if(key!=null&&key.trim().isEmpty()==false)
         {
             criteria.andArtTitleLike(key);
+        }
+        if(null!=platformId && platformId!=0L)
+        {
+            criteria.andPlatformIdEqualTo(platformId);
+        }
+        if(null!=topLevelId && topLevelId!=0L)
+        {
+            criteria.andArtLevelIdEqualTo(topLevelId);
+        }
+        if(null!=ArtStatus && ArtStatus>-1)
+        {
+            criteria.andArtStatusEqualTo(ArtStatus);
         }
         example.setOrderByClause("longid desc");
         return articleService.queryPageListByExample(example,page,size);

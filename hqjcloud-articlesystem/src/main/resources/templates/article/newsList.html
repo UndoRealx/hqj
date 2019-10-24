@@ -20,10 +20,27 @@
 				<div class="layui-input-inline">
 					<input type="text" class="layui-input searchVal" placeholder="请输入搜索的内容" />
 				</div>
-				<a class="layui-btn search_btn" data-type="reload">搜索</a>
+                <div class="layui-input-inline">
+                    <select name="platform_id" id="platform_id" lay-filter="platformType" >
+                    </select>
+                </div>
+             <!--   <div class="layui-input-inline">
+                    <select name="top_level_id"  id="top_level_id" lay-filter="topLevelType">
+                    </select>
+                </div>-->
+                <div class="layui-input-inline">
+                    <select name="ArtStatus"  id="ArtStatus">
+                        <option selected value="-1">---发布状态---</option>
+                        <option  value="0">草稿</option>
+                        <option  value="5">已发布</option>
+                        <option  value="6">定时发布</option>
+                    </select>
+                </div>
+                <button type="button" data-type="reload" class="layui-btn search_btn">搜索</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
 			</div>
 			<div class="layui-inline">
-				<a class="layui-btn layui-btn-normal addNews_btn">添加文章</a>
+                <button type="button" class="layui-btn layui-btn-normal" id="add_btn">添加文章</button>
 			</div>
 			<div class="layui-inline">
 				<a class="layui-btn layui-btn-danger layui-btn-normal delAll_btn">批量删除</a>
@@ -31,16 +48,6 @@
 		</form>
 	</blockquote>
 	<table id="newsList" lay-filter="newsList"></table>
-	<!--审核状态-->
-	<script type="text/html" id="newsStatus">
-		{{#  if(d.newsStatus == "1"){ }}
-		<span class="layui-red">等待审核</span>
-		{{#  } else if(d.newsStatus == "0"){ }}
-		<span class="layui-blue">已存草稿</span>
-		{{#  } else { }}
-			审核通过
-		{{#  }}}
-	</script>
 
 	<!--标签-->
 	<script>

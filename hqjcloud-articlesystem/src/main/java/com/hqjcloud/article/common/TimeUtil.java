@@ -18,6 +18,10 @@ import java.util.Date;
  */
 public class TimeUtil {
 
+    public  final  static  String pattern="yyyy-MM-dd HH:mm:ss";
+
+    public  final  static  String shortPattern="yyyy-MM-dd";
+
 
     /**
      * @Description 获取当前时间
@@ -38,8 +42,8 @@ public class TimeUtil {
      * @return yyyy-MM-dd HH:mm:ss 格式的时间
      */
     public static String dateToStringEx(Date date) {
-        String strDateFormat = "yyyy-MM-dd HH:mm:ss";
-        SimpleDateFormat sdf = new SimpleDateFormat(strDateFormat);
+
+        SimpleDateFormat sdf = new SimpleDateFormat(pattern);
         return sdf.format(date);
     }
 
@@ -50,8 +54,7 @@ public class TimeUtil {
      * @return yyyy-MM-dd 格式的时间
      */
     public static String dateToString(Date date) {
-        String strDateFormat = "yyyy-MM-dd";
-        SimpleDateFormat sdf = new SimpleDateFormat(strDateFormat);
+        SimpleDateFormat sdf = new SimpleDateFormat(shortPattern);
         return sdf.format(date);
     }
 
@@ -78,7 +81,7 @@ public class TimeUtil {
      * @throws ParseException
      */
     public static Date stringToDate(String strTime) throws ParseException {
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat formatter = new SimpleDateFormat(shortPattern);
         Date date = null;
         date = formatter.parse(strTime);
         return date;
@@ -92,11 +95,12 @@ public class TimeUtil {
      * @throws ParseException
      */
     public static Date stringToDate1(String strTime) throws ParseException {
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat formatter = new SimpleDateFormat(pattern);
         Date date = null;
         date = formatter.parse(strTime);
         return date;
     }
+
 
     /**
      * 获取时分秒

@@ -15,9 +15,10 @@ package com.hqjcloud.article.common;
 public enum ArtStatusEnum
 {
     draft(0,"草稿"),
-    waitPub(1,"待发布"),
     Pub(5,"已发布"),
-    LowerShelf(10,"下架");
+    TimingPub(6,"定时发布"),
+    LowerShelf(10,"下架"),
+    Del(10,"删除");
     //状态:0 待发布  10下架  5 已发布
 
     private int value;
