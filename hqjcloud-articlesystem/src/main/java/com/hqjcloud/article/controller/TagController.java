@@ -54,6 +54,7 @@ public class TagController {
      * @param longid
      * @return
      */
+    @ResponseBody
     @RequestMapping(value = "/info", method = RequestMethod.GET)
     public  ApiResultEntity info(Long longid)
     {
@@ -83,7 +84,7 @@ public class TagController {
     /**
     *@Description 随机获取几条
     *@Param  * @param page
-    * @param size
+    * @param
     *@Return com.hqjcloud.article.common.ApiResultEntity
     *@Author lic
     *@Date 2019/10/23
