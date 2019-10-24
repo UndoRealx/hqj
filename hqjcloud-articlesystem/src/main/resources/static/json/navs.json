@@ -12,12 +12,14 @@
 			"href": "articlelevel/list.html",
 			"spread": false
 		},
+
 		{
-			"title": "文章分类列表",
-			"icon": "icon-text",
-			"href": "articleclass/articleClasList.html",
-			"spread": false
-		},
+				"title": "文章标签列表",
+				"icon": "icon-text",
+				"href": "tag/tagList.html",
+				"spread": false
+			},
+
 		{
 			"title": "文章列表",
 			"icon": "icon-text",

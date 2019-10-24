@@ -60,4 +60,14 @@ public class TagServiceImpl implements TagService {
         PageInfo<Tag> pageInfo=new PageInfo<Tag>(lists);
         return ApiResultEntity.returnResult(StateCode.success.get(), PageUtil.returnPageList(pageInfo));
     }
+
+    @Override
+    public Tag getByName(String name) {
+        TagExample tagExample = new TagExample();
+        TagExample.Criteria criteria = tagExample.createCriteria();
+        criteria.andTagNameEqualTo(name.trim());
+
+        List<Tag> list = mapper.selectByExample(tagExample);
+        return  list.size()>0?list.get(0):null;
+    }
 }

@@ -27,4 +27,6 @@ public interface TagService {
     public  Tag getById(Long longid);
 
     public ApiResultEntity queryPageListByExample(TagExample example, int page, int size);
+
+    public Tag getByName(String name);
 }
