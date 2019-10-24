@@ -47,19 +47,26 @@
         <table  tableName="hqj_article" domainObjectName="Article" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
             <generatedKey column="longid" sqlStatement="Mysql" identity="true"/>
         </table>
-        <table  tableName="hqj_articleclass" domainObjectName="ArticleClass" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
+        <table  tableName="hqj_article_class" domainObjectName="ArticleClass" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
             <generatedKey column="longid" sqlStatement="Mysql" identity="true"/>
         </table>
-        <table  tableName="hqj_articleclassrelation" domainObjectName="ArticleClassRelation" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
+        <table  tableName="hqj_articleclass_relation" domainObjectName="ArticleClassRelation" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
             <generatedKey column="longid" sqlStatement="Mysql" identity="true"/>
         </table>
-        <table  tableName="hqj_articletagrelation" domainObjectName="ArticleTagRelation" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
+        <table  tableName="hqj_articletag_relation" domainObjectName="ArticleTagRelation" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
             <generatedKey column="longid" sqlStatement="Mysql" identity="true"/>
         </table>
         <table  tableName="hqj_tag" domainObjectName="Tag" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
             <generatedKey column="longid" sqlStatement="Mysql" identity="true"/>
         </table>
-        <table  tableName="hqj_user" domainObjectName="User" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
+        <table  tableName="hqj_article_level" domainObjectName="ArticleLevel" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
+            <generatedKey column="longid" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table  tableName="hqj_platform" domainObjectName="Platform" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
+            <generatedKey column="longid" sqlStatement="Mysql" identity="true"/>
+        </table>
+
+      <!--  <table  tableName="hqj_user" domainObjectName="User" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
             <generatedKey column="longid" sqlStatement="Mysql" identity="true"/>
         </table>
         <table  tableName="hqj_role" domainObjectName="Role" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
@@ -80,10 +87,10 @@
         </table>
         <table  tableName="sys_role" domainObjectName="SysRole" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
             <generatedKey column="longid" sqlStatement="Mysql" identity="true"/>
-        </table>
-        <table  tableName="sys_user" domainObjectName="SysUser" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
+        </table>-->
+<!--        <table  tableName="sys_user" domainObjectName="SysUser" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
             <generatedKey column="longid" sqlStatement="Mysql" identity="true"/>
-        </table>
+        </table>-->
 
     </context>
 </generatorConfiguration>

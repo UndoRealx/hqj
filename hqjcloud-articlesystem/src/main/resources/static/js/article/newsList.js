@@ -44,7 +44,7 @@ layui.use(['form','layer','laydate','table','laytpl','layRequest'],function(){
             {field: 'artStatusName', title: '发布状态',  align:'center',templet:"#artstatus"},
             {field: 'visitCnt', title: '阅读次数', align:'center'},
             {field: 'isTop', title: '是否置顶', align:'center', templet:function(d){
-                return '<input type="checkbox" name="istop" value='+d.longid+' lay-filter="istop" lay-skin="switch" lay-text="是|否" '+d.istop+'>'
+                return '<input type="checkbox" name="istop" value='+d.longid+'  lay-filter="istop" '+(d.isTop==1?'checked':'')+' lay-skin="switch" lay-text="是|否" '+d.istop+'>'
             }},
             {field: 'pubTimes', title: '发布时间', align:'center', minWidth:110, templet:function(d){
                     return d.pubTimes;

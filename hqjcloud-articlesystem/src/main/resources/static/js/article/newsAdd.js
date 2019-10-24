@@ -32,13 +32,55 @@ layui.use(['form','layer','laydate','upload','layRequest'],function(){
     }
     loadData();
 
+    window.refreshTags=function()
+    {
+        $("#keyList").html('')
+        req.get("/tag/getByRand",{page:1,size:10},function (res) {
+            console.log(res.data);
+            res.data.list.forEach(function (e) {
+                $("#keyList").append("<a title='"+e.tagName+"' href='javascript:void(0);'  onclick=tagSelect('"+e.tagName+"')><span>"+e.tagName+"</span></a>&nbsp;&nbsp;");
+            });
+            form.render();
+        });
+    };
+
+    window.tagSelect = function(key){
+         var  tagsval=$("#arttags").val().split(",");
+
+         var isExist=false;
+        $.each(tagsval, function(i,val){
+
+            if(val.trim()==key.trim())
+            {
+                isExist=true;
+            }
+        });
+        if(isExist==false) {
+            tagsval = tagsval + key + ',';
+            $("#arttags").val(tagsval);
+        }
+    };
+/*
     req.get("/articleclass/list",{},function (res) {
         console.log(res.data);
         res.data.forEach(function (e) {
-           /* var  chks=$.inArray(e.longid,arrayObj)==-1?"":"checked=\"checked\"";
-            console.log(e.longid+chks) “+chks+”*/
+           /!* var  chks=$.inArray(e.longid,arrayObj)==-1?"":"checked=\"checked\"";
+            console.log(e.longid+chks) “+chks+”*!/
 
             $("#articleclass").append("<p><input type='checkbox' name='artclass' id='artclass"+e.longid+"' value='"+e.longid+"' title='"+e.className+"' lay-skin='primary'  /></p>");
+        });
+
+        form.render();
+    });
+*/
+
+
+    req.get("/platform/list",{},function (res) {
+
+        $("#platform_id").append("<option value='-1'>请选择平台</option>");
+        res.data.forEach(function (e) {
+            $("#platform_id").append("<option value='"+e.longid+"'>"+e.platformName+"</option>");
+            //$("#platform_id").append("<p><input type='checkbox' name='artclass' id='artclass"+e.longid+"' value='"+e.longid+"' title='"+e.className+"' lay-skin='primary'  /></p>");
         });
 
         form.render();
@@ -50,7 +92,7 @@ layui.use(['form','layer','laydate','upload','layRequest'],function(){
     {
         req.get("/article/getArticleClassById",{longid:$("#myid").val()},function (res) {
             res.data.forEach(function (e) {
-                console.log("#artclass"+e.articleclassid+"");
+
                 $("#artclass"+e.articleclassid+"").prop("checked",true);
             });
         });
@@ -66,8 +108,7 @@ layui.use(['form','layer','laydate','upload','layRequest'],function(){
 
         method : "post",  //此处是为了演示之用，实际使用中请将此删除，默认用post方式提交
         done: function(res,index, upload){
-            console.log(res);
-            console.log(upload);
+
             var num = parseInt(4*Math.random());  //生成0-4的随机数，随机显示一个头像信息
 
             if(res.state=="SUCCESS")
@@ -115,12 +156,54 @@ layui.use(['form','layer','laydate','upload','layRequest'],function(){
         }
     });
 
+    layui.use(['form'], function() {
+        form=layui.form;
+
+        form.on('select(tags)', function(data){
+            var val=data.value;
+            console.info(val);
+        });
+        form.on('select(platformType)', function(data){
+            var val=data.value;
+            console.info(val);
+            if(val!=-1)
+            {
+                req.get("/articlelevel/list",{platformId:val,parentId:0},function (res) {
+
+                    $("#top_level_id").empty();
+                    $("#sec_level_id").empty();
+                    $("#top_level_id").append("<option value='-1'>请选择一级栏目</option>");
+                    res.data.forEach(function (e) {
+                        $("#top_level_id").append("<option value='"+e.longid+"'>"+e.levelName+"</option>");
+                    });
+                    form.render();
+                });
+            }
+        });
+        form.on('select(topLevelType)', function(data){
+            var val=data.value;
+            console.info(val);
+            if(val!=-1)
+            {
+                req.get("/articlelevel/list",{platformId:0,parentId:val},function (res) {
+
+                    $("#sec_level_id").empty();
+                    $("#sec_level_id").append("<option value='-1'>请选择二级栏目</option>");
+                    res.data.forEach(function (e) {
+                        $("#sec_level_id").append("<option value='"+e.longid+"'>"+e.levelName+"</option>");
+                    });
+                    form.render();
+                });
+            }
+        });
+    });
+
 
     //是否置顶
     form.on('switch(istop)', function(data){
         var chk=data.elem.checked;
         $("#artistop").val(chk?1:0);
-        console.log($("#artistop").val());
+
     })
 
     form.verify({
@@ -145,7 +228,7 @@ layui.use(['form','layer','laydate','upload','layRequest'],function(){
         });
 
         data.field.artclass = arr.join(",");
-        var tagstr = '';
+      /*  var tagstr = '';
         var myTags= $("#myTags span");
         myTags.each(function(item,i){
             if (item==myTags.length-1){
@@ -153,7 +236,7 @@ layui.use(['form','layer','laydate','upload','layRequest'],function(){
             } else {
                 tagstr+=$(this).text()+','
             }
-        });
+        });*/
 
         var index = top.layer.msg('数据提交中，请稍候',{icon: 16,time:false,shade:0.8});
 
@@ -162,14 +245,20 @@ layui.use(['form','layer','laydate','upload','layRequest'],function(){
                 longid : $("#id").val(),
                 arttitle : $("#arttitle").val(),  //文章标题
                 artabstract : $("#artabstract").val(),  //文章摘要
-                articletag :  tagstr,      //文章标签
+                artTags :  $("#arttags").val(),     //文章标签
                 artimage : $("#artimage").attr("src")==undefined?'':$("#artimage").attr("src"),  //缩略图
                 artcontent : UE.getEditor('artcontent').getContent(),  //文章内容
                 artclass : data.field.artclass,    //文章分类
                 artstatus : $('#artstatus input[name="release"]:checked').val(),    //发布状态
                 pubTimes : $("#pubtimes").val(),    //发布时间
                 istop : $("#artistop").val(),    //是否置顶
+                platformId : $("#platform_id").val(),
+                artfrom  : $("#artfrom").val(),
+                artauthor  : $("#artauthor").val(),
+                toplevelid  : $("#top_level_id").val(),
+                seclevelid  : $("#sec_level_id").val()
             };
+        console.log(postdata);
 
         req.post("/article/manage",postdata,function (res) {
             setTimeout(function(){

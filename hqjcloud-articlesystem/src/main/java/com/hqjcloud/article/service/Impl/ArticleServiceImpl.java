@@ -108,8 +108,8 @@ public class ArticleServiceImpl implements ArticleService {
         // 查询数据
         List<Article> lists = articleExMapper.selectByExample(example);
         PageInfo<Article> pageInfo = new PageInfo<Article>(lists);
-        List<ArticleRep> list = new ArrayList<>();
-        List<ArticleClass> listClass=new ArrayList<>();
+        List<ArticleRep> list = new ArrayList<ArticleRep>();
+        List<ArticleClass> listClass=new ArrayList<ArticleClass>();
         if(pageInfo.getList().size()>0) {
             listClass=articleClassService.list(-1);
         }

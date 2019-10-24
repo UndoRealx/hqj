@@ -12,10 +12,19 @@
     <artifactId>hqjcloud-generator</artifactId>
     <packaging>pom</packaging>
     <modules>
+        <module>hqjcloud-generator-article</module>
         <module>hqjcloud-generator-common</module>
         <module>hqjcloud-generator-base</module>
+        <module>hqjcloud-generator-upms</module>
     </modules>
-
+    <dependencies>
+        <dependency>
+            <groupId>org.mybatis.generator</groupId>
+            <artifactId>mybatis-generator-core</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
 
 </project>

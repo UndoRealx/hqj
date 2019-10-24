@@ -73,7 +73,7 @@ public class ArticleClassServiceImpl implements ArticleClassService {
         List<ArticleClass> lists = mapper.selectByExample(example);
         PageInfo<ArticleClass> pageInfo=new PageInfo<ArticleClass>(lists);
 
-        List<ArticleClassRep> list = new ArrayList<>();
+        List<ArticleClassRep> list = new ArrayList<ArticleClassRep>();
         for(ArticleClass bean:pageInfo.getList())
         {
             ArticleClassRep item = new ArticleClassRep();

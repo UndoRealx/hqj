@@ -5,6 +5,8 @@ import com.hqjcloud.article.beans.ArticleLevelExample;
 import com.hqjcloud.article.common.ApiResultEntity;
 import com.hqjcloud.article.dto.request.ArticleLevelReq;
 
+import java.util.List;
+
 /**
  * @ProjectName: hqjcloud
  * @Package: com.hqjcloud.article.service
@@ -31,4 +33,7 @@ public interface ArticleLevelService {
     public  ArticleLevel getByName(String name,Long parentId);
 
     public ApiResultEntity queryPageListByExample(ArticleLevelExample example, int page, int size);
+
+
+    public List<ArticleLevel> list(Long platformId, Long parentId);
 }

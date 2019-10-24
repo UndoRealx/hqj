@@ -6,7 +6,7 @@ import com.hqjcloud.article.common.ApiResultEntity;
 import com.hqjcloud.article.common.enums.StateCode;
 import com.hqjcloud.article.service.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.*;
  * @email hqj@hqj.com
  * @date 2019-09-20 16:22:06
  */
-@RestController
-@RequestMapping(value = "/sys/hqjtag", produces = MediaType.APPLICATION_JSON_VALUE) //配置返回值 application/json
+@Controller
+@RequestMapping(value = "/tag") //配置返回值 application/json
 
 public class TagController {
     @Autowired
@@ -67,6 +67,7 @@ public class TagController {
      * @param size
      * @return
      */
+    @ResponseBody
     @GetMapping(value = "/getByPage")
     public ApiResultEntity getByPage(@RequestParam(required = false,defaultValue = "1") Integer page,
                                      @RequestParam(required = false,defaultValue = "15") Integer size)
@@ -76,4 +77,27 @@ public class TagController {
         example.setOrderByClause("longid desc");
         return tagService.queryPageListByExample(example,page,size);
     }
+
+
+    
+    /**
+    *@Description 随机获取几条
+    *@Param  * @param page
+    * @param size
+    *@Return com.hqjcloud.article.common.ApiResultEntity
+    *@Author lic
+    *@Date 2019/10/23
+    *@Time 16:50
+    */
+    @ResponseBody
+    @GetMapping(value = "/getByRand")
+    public ApiResultEntity getByPage()
+    {
+        TagExample example = new TagExample();
+        TagExample.Criteria criteria = example.createCriteria();
+        example.setOrderByClause("RAND()");
+        return tagService.queryPageListByExample(example,1,10);
+    }
+
+    
 }

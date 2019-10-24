@@ -16,4 +16,16 @@ import com.hqjcloud.article.beans.ArticleLevel;
  */
 public class ArticleLevelReq extends ArticleLevel {
 
+    private long parentlevelid;
+
+
+    public long getParentlevelid() {
+        return parentlevelid;
+    }
+
+    public void setParentlevelid(long parentlevelid) {
+        this.parentlevelid = parentlevelid;
+    }
 }
+
+

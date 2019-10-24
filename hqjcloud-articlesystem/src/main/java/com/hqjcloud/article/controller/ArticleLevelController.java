@@ -1,14 +1,21 @@
 package com.hqjcloud.article.controller;
 
-import com.hqjcloud.article.beans.*;
+import com.hqjcloud.article.beans.ArticleExample;
+import com.hqjcloud.article.beans.ArticleLevel;
+import com.hqjcloud.article.beans.ArticleLevelExample;
 import com.hqjcloud.article.common.ApiResultEntity;
 import com.hqjcloud.article.common.TimeUtil;
 import com.hqjcloud.article.common.enums.StateCode;
 import com.hqjcloud.article.dto.request.ArticleLevelReq;
 import com.hqjcloud.article.service.ArticleLevelService;
+import com.hqjcloud.article.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @ProjectName: hqjcloud
@@ -28,6 +35,9 @@ public class ArticleLevelController {
 
     @Autowired
     private ArticleLevelService articleLevelService;
+
+    @Autowired
+    private ArticleService articleService;
 
     @RequestMapping("/*")
     public void toHtml(){
@@ -91,14 +101,42 @@ public class ArticleLevelController {
         if (null == longid || longid == 0) {
             return ApiResultEntity.returnResult(StateCode.ILLEGALREQUESTPARAMETER.get());
         }
-
-        ArticleClassRelationExample example=new ArticleClassRelationExample();
-        ArticleClassRelationExample.Criteria criteria = example.createCriteria();
-        criteria.andArticleClassIdEqualTo(longid);
-       /* if(articleLevelService.countByExample(example)>0L)
+        ArticleLevel articleLevel=articleLevelService.getById(longid);
+        if(null==articleLevel)
         {
-            return ApiResultEntity.returnResult(StateCode.ARC10031001.get());
-        }*/
+            return  ApiResultEntity.returnResult(StateCode.NODATAEXIST.get());
+        }
+
+        List<ArticleLevel> childrenLevel=new ArrayList<>();
+        if(articleLevel.getLevelParentid()==0) //顶级目录
+        {
+            childrenLevel=articleLevelService.list(articleLevel.getPlatformId(),articleLevel.getLongid());
+            if(childrenLevel.isEmpty()==false)
+            {
+                return  ApiResultEntity.returnResult(StateCode.ARL10041003.get());
+            }
+        }
+        ArticleExample example=new ArticleExample();
+        ArticleExample.Criteria criteria = example.createCriteria();
+        criteria.andArtLevelIdEqualTo(longid);
+        criteria.andArtStatusNotEqualTo(100);
+        long cnt=articleService.countByExample(example);
+        if(cnt>0)
+        {
+            return ApiResultEntity.returnResult(StateCode.ARL10041002.get());
+        }
+        if(childrenLevel.isEmpty()==false)
+        {
+           List<Long> listChildLd=childrenLevel.stream().map(ArticleLevel::getLongid).collect(Collectors.toList());
+            criteria = example.createCriteria();
+            criteria.andArtLevelIdIn(listChildLd);
+            criteria.andArtStatusNotEqualTo(100);
+            cnt=articleService.countByExample(example);
+            if(cnt>0)
+            {
+                return ApiResultEntity.returnResult(StateCode.ARL10041004.get());
+            }
+        }
         articleLevelService.del(longid);
         return ApiResultEntity.successResult(StateCode.success.get());
     }
@@ -142,6 +180,14 @@ public class ArticleLevelController {
         return ApiResultEntity.successResult(articleLevel);
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    public  ApiResultEntity list(Long platformId,Long parentId)
+    {
+        List<ArticleLevel> list=articleLevelService.list(platformId,parentId);
+        return ApiResultEntity.successResult(list);
+    }
+
     /**
      *@Description 分页获取
      *@Param  * @param key
@@ -167,5 +213,7 @@ public class ArticleLevelController {
         }
         return articleLevelService.queryPageListByExample(example,page,size);
     }
+
+    
 
 }

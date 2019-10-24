@@ -18,6 +18,8 @@ public class ReturnUploadImage {
 
     private  String url;
 
+    private String thumbnailUrl;
+
     private  String title;
 
     private  String original;
@@ -52,5 +54,13 @@ public class ReturnUploadImage {
 
     public void setOriginal(String original) {
         this.original = original;
+    }
+
+    public String getThumbnailUrl() {
+        return thumbnailUrl;
+    }
+
+    public void setThumbnailUrl(String thumbnailUrl) {
+        this.thumbnailUrl = thumbnailUrl;
     }
 }

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>添加栏目</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="../../static/layui/css/layui.css" media="all" />
+    <link rel="stylesheet" href="../../static/css/public.css" media="all" />
+</head>
+<body class="childrenBody">
+<form class="layui-form" action="" >
+    <div class="layui-form-item">
+        <label class="layui-form-label">平台</label>
+        <div class="layui-input-inline">
+            <select name="platform_id" id="platform_id" lay-filter="platformType" >
+            </select>
+        </div>
+
+        <div class="layui-input-inline">
+            <select name="top_level_id"  id="top_level_id" lay-filter="topLevelType">
+
+            </select>
+        </div>
+
+        <label class="layui-form-label">栏目名称</label>
+        <div class="layui-input-inline">
+            <input type="text" name="levelName" id="levelName" required lay-verify="required" autocomplete="off"  style="width: 200px;" placeholder="请输入栏目名称" class="layui-input">
+        </div>
+
+
+    </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">是否启用</label>
+            <div class="layui-input-block sEnable">
+                <input type="checkbox" checked="" id="open" name="open" lay-skin="switch" lay-filter="switchEnable"  lay-text="启用|禁用">
+            </div>
+        </div>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button type="submit" class="layui-btn" lay-submit="" lay-filter="add">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
+    <input  type="hidden" id="longid" name="longid" value="0">
+        <input  type="hidden" id="status" name="status" value="1">
+    <input  type="hidden" id="hid_platform_Id" name="hid_platform_Id" value="0">
+    <input  type="hidden" id="hid_levelparent_Id" name="hid_levelparent_Id" value="0">
+</form>
+<script type="text/javascript" src="../../static/layui/layui.js"></script>
+<script type="text/javascript" src="../../static/js/articlelevel/add.js"></script>
+</body>
+</html>

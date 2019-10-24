@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>hqjcloud-generator-common</artifactId>
+    <artifactId>hqjcloud-generator-article</artifactId>
 
     <dependencies>
         <dependency>

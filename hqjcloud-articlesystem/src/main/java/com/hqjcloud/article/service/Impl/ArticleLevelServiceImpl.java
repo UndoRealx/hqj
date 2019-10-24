@@ -2,19 +2,22 @@ package com.hqjcloud.article.service.Impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.hqjcloud.article.beans.ArticleLevel;
-import com.hqjcloud.article.beans.ArticleLevelExample;
+import com.hqjcloud.article.beans.*;
 import com.hqjcloud.article.common.ApiResultEntity;
 import com.hqjcloud.article.common.enums.StateCode;
 import com.hqjcloud.article.common.util.PageUtil;
+import com.hqjcloud.article.dto.repose.ArticleLevelRep;
 import com.hqjcloud.article.dto.request.ArticleLevelReq;
 import com.hqjcloud.article.mapper.ArticleLevelExMapper;
 import com.hqjcloud.article.service.ArticleLevelService;
+import com.hqjcloud.article.service.PlatformService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 /**
  * @ProjectName: hqjcloud
@@ -33,6 +36,9 @@ public class ArticleLevelServiceImpl implements ArticleLevelService {
 
     @Autowired
     private ArticleLevelExMapper mapper;
+
+    @Autowired
+    private PlatformService platformService;
 
     @Override
     public int add(ArticleLevel entity) {
@@ -79,7 +85,55 @@ public class ArticleLevelServiceImpl implements ArticleLevelService {
         // 查询数据
         List<ArticleLevel> lists = mapper.selectByExample(example);
         PageInfo<ArticleLevel> pageInfo = new PageInfo<ArticleLevel>(lists);
-        List<ArticleLevel> list = new ArrayList<>();
+
+        List<ArticleLevelRep>  list=new ArrayList<ArticleLevelRep>();
+
+
+
+
+        for (ArticleLevel bean : pageInfo.getList()) {
+            ArticleLevelRep item = new ArticleLevelRep();
+            BeanUtils.copyProperties(bean, item);
+            item.setPlatformName("");
+            item.setParentLevelName("-----");
+            if(item.getPlatformId()!=null&&item.getPlatformId()>0L)
+            {
+                Platform platform=platformService.getById(item.getPlatformId());
+                if(null!=platform)
+                {
+                    item.setPlatformName(platform.getPlatformName());
+                }
+            }
+            if(item.getLevelParentid()!=null&&item.getLevelParentid()>0L)
+            {
+                ArticleLevel articleLevel=getById(item.getLevelParentid());
+                if(null!=articleLevel)
+                {
+                    item.setParentLevelName(articleLevel.getLevelName());
+                }
+            }
+            list.add(item);
+        }
+
         return ApiResultEntity.returnResult(StateCode.success.get(), PageUtil.returnPageList(pageInfo, list));
+    }
+
+    @Override
+    public List<ArticleLevel> list(Long platformId, Long parentId)
+    {
+        ArticleLevelExample example = new ArticleLevelExample();
+        ArticleLevelExample.Criteria criteria = example.createCriteria();
+        if(parentId!=null)
+        {
+            criteria.andLevelParentidEqualTo(parentId);
+        }
+
+        if(platformId!=null&&platformId>0)
+        {
+            criteria.andPlatformIdEqualTo(platformId);
+        }
+
+        List<ArticleLevel>  list=mapper.selectByExample(example);
+        return  list;
     }
 }

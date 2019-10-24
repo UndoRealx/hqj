@@ -2,6 +2,7 @@ package com.hqjcloud.article.controller;
 
 
 import com.alibaba.fastjson.JSON;
+import com.hqjcloud.article.common.ImageUtil;
 import com.hqjcloud.article.common.TimeUtil;
 import com.hqjcloud.article.dto.repose.ReturnUploadImage;
 import org.apache.commons.io.FileUtils;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -52,12 +54,17 @@ public class UeditorController {
             upload.mkdirs();
         }
 
-
         String fileName = file.getOriginalFilename();
         String newFileName = UUID.randomUUID().toString() + fileName.substring(fileName.lastIndexOf("."), fileName.length());
-        File dest = new File(filePath + newFileName);
+        String fullFilePath=filePath + newFileName;
+        File dest = new File(fullFilePath);
+        List<String> listThumbnail=null;
         try {
             file.transferTo(dest);
+
+
+            //生成缩略图
+            listThumbnail=ImageUtil.generateThumbnail2Directory(filePath,fullFilePath);
 
         } catch (IOException e) {
                 throw e;
@@ -66,7 +73,8 @@ public class UeditorController {
         ReturnUploadImage rui = new ReturnUploadImage();
         if (dest != null) {
             rui.setState("SUCCESS");
-            rui.setUrl("/" + TimeUtil.dateToString(now)+"/"+newFileName);
+            rui.setUrl("/" + TimeUtil.dateToString(now)+"/"+ newFileName);
+            rui.setThumbnailUrl("/" + TimeUtil.dateToString(now)+"/"+new File(listThumbnail.get(0)).getName());
             rui.setTitle("上传成功!");
             rui.setOriginal(fileName);
         }

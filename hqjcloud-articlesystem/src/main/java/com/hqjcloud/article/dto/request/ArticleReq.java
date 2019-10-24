@@ -38,7 +38,6 @@ public class ArticleReq extends Article {
 
 
 
-
     public String getArtclass() {
         return artclass;
     }

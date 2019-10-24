@@ -1,4 +1,4 @@
-package com.hqjcloud.common.main;
+package com.hqjcloud.article.main;
 
 import org.mybatis.generator.api.PluginAdapter;
 import org.mybatis.generator.api.ShellRunner;
