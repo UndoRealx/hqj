@@ -46,7 +46,7 @@ public class ArticleRep extends Article {
 
     public String getPubTimes()
     {
-        if(getPubTime()==null)
+        if(getPubTime()==null||getPubTime()==0)
         {
             return "";
         }
@@ -75,5 +75,25 @@ public class ArticleRep extends Article {
 
     public void setArtclass(String artclass) {
         this.artclass = artclass;
+    }
+
+    private String platformName;
+
+    public String getPlatformName() {
+        return platformName;
+    }
+
+    public void setPlatformName(String platformName) {
+        this.platformName = platformName;
+    }
+
+    private  String  artLevelName;
+
+    public String getArtLevelName() {
+        return artLevelName;
+    }
+
+    public void setArtLevelName(String artLevelName) {
+        this.artLevelName = artLevelName;
     }
 }

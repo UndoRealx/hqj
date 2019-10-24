@@ -10,28 +10,6 @@ layui.use(['form','layer','laydate','upload','layRequest'],function(){
         req=layui.layRequest,
         $ = layui.jquery;
 
-
-    function loadData()
-    {
-        var mycontent =$("#content").val();
-        UE.getEditor('artcontent').setContent(mycontent);
-        //标签回调
-        var tagsFlag=$("#tagsFlag").val();
-        if (""!=tagsFlag&&null!=tagsFlag){
-            var arr = tagsFlag.split(',');
-            var str=""
-            for (var i = 0; i <arr.length ; i++) {
-                str+="<a value='-1' title="+arr[i]+"><span>"+arr[i]+"</span><em></em></a>"
-            }
-            console.log(str)
-            // alert(str)
-            $("#myTags").show();
-            $("#myTags").html(str);
-        }
-        // form.render();
-    }
-    loadData();
-
     window.refreshTags=function()
     {
         $("#keyList").html('')
@@ -77,10 +55,10 @@ layui.use(['form','layer','laydate','upload','layRequest'],function(){
 
     req.get("/platform/list",{},function (res) {
 
-        $("#platform_id").append("<option value='-1'>请选择平台</option>");
+
+        $("#platform_id").append("<option value='0'>请选择平台</option>");
         res.data.forEach(function (e) {
             $("#platform_id").append("<option value='"+e.longid+"'>"+e.platformName+"</option>");
-            //$("#platform_id").append("<p><input type='checkbox' name='artclass' id='artclass"+e.longid+"' value='"+e.longid+"' title='"+e.className+"' lay-skin='primary'  /></p>");
         });
 
         form.render();
@@ -88,7 +66,7 @@ layui.use(['form','layer','laydate','upload','layRequest'],function(){
 
 
 
-    if($("#myid").val()!=undefined && $("#myid").val()!=''&& $("#myid").val()!='0')
+   /* if($("#myid").val()!=undefined && $("#myid").val()!=''&& $("#myid").val()!='0')
     {
         req.get("/article/getArticleClassById",{longid:$("#myid").val()},function (res) {
             res.data.forEach(function (e) {
@@ -97,7 +75,7 @@ layui.use(['form','layer','laydate','upload','layRequest'],function(){
             });
         });
         form.render();
-    }
+    }*/
 
 
     //上传缩略图
@@ -146,6 +124,7 @@ layui.use(['form','layer','laydate','upload','layRequest'],function(){
     });
 
     form.on("radio(release)",function(data){
+        console.log(data);
         if(data.elem.title == "定时发布"){
             $(".releaseDate").removeClass("layui-hide");
             $(".releaseDate #pubtimes").attr("lay-verify","required");
@@ -156,28 +135,40 @@ layui.use(['form','layer','laydate','upload','layRequest'],function(){
         }
     });
 
+    function loadTopLevel(val)
+    {
+        req.get("/articlelevel/list",{platformId:val,parentId:0},function (res) {
+
+            $("#top_level_id").empty();
+            $("#sec_level_id").empty();
+            $("#top_level_id").append("<option value='-1'>请选择一级栏目</option>");
+            res.data.forEach(function (e) {
+                $("#top_level_id").append("<option value='"+e.longid+"'>"+e.levelName+"</option>");
+            });
+        });
+    }
+
+    function loadSecLevel(val)
+    {
+        req.get("/articlelevel/list",{platformId:0,parentId:val},function (res) {
+
+            $("#sec_level_id").empty();
+            $("#sec_level_id").append("<option value='-1'>请选择二级栏目</option>");
+            res.data.forEach(function (e) {
+                $("#sec_level_id").append("<option value='"+e.longid+"'>"+e.levelName+"</option>");
+            });
+        });
+    }
+
     layui.use(['form'], function() {
         form=layui.form;
-
-        form.on('select(tags)', function(data){
-            var val=data.value;
-            console.info(val);
-        });
         form.on('select(platformType)', function(data){
             var val=data.value;
             console.info(val);
             if(val!=-1)
             {
-                req.get("/articlelevel/list",{platformId:val,parentId:0},function (res) {
-
-                    $("#top_level_id").empty();
-                    $("#sec_level_id").empty();
-                    $("#top_level_id").append("<option value='-1'>请选择一级栏目</option>");
-                    res.data.forEach(function (e) {
-                        $("#top_level_id").append("<option value='"+e.longid+"'>"+e.levelName+"</option>");
-                    });
-                    form.render();
-                });
+                loadTopLevel(val);
+                form.render();
             }
         });
         form.on('select(topLevelType)', function(data){
@@ -185,19 +176,25 @@ layui.use(['form','layer','laydate','upload','layRequest'],function(){
             console.info(val);
             if(val!=-1)
             {
-                req.get("/articlelevel/list",{platformId:0,parentId:val},function (res) {
-
-                    $("#sec_level_id").empty();
-                    $("#sec_level_id").append("<option value='-1'>请选择二级栏目</option>");
-                    res.data.forEach(function (e) {
-                        $("#sec_level_id").append("<option value='"+e.longid+"'>"+e.levelName+"</option>");
-                    });
-                    form.render();
-                });
+                loadSecLevel(val);
+                form.render();
             }
         });
     });
 
+    function loadData()
+    {
+        var mycontent =$("#hid_content").val();
+        UE.getEditor('artcontent').setContent(mycontent);
+
+        $("#platform_id").val($("#hid_platform_id").val());
+        loadTopLevel($("#hid_platform_id").val());
+        $("#top_level_id").val($("#hid_top_level_id").val());
+        loadSecLevel($("#hid_top_level_id").val());
+        $("#sec_level_id").val($("#hid_sec_level_id").val());
+        form.render();
+    }
+    loadData();
 
     //是否置顶
     form.on('switch(istop)', function(data){
@@ -228,35 +225,27 @@ layui.use(['form','layer','laydate','upload','layRequest'],function(){
         });
 
         data.field.artclass = arr.join(",");
-      /*  var tagstr = '';
-        var myTags= $("#myTags span");
-        myTags.each(function(item,i){
-            if (item==myTags.length-1){
-                tagstr+=$(this).text();
-            } else {
-                tagstr+=$(this).text()+','
-            }
-        });*/
+
 
         var index = top.layer.msg('数据提交中，请稍候',{icon: 16,time:false,shade:0.8});
 
         var postdata=
             {
-                longid : $("#id").val(),
-                arttitle : $("#arttitle").val(),  //文章标题
-                artabstract : $("#artabstract").val(),  //文章摘要
+                longid : $("#myid").val(),
+                artTitle : $("#arttitle").val(),  //文章标题
+                artAbstract : $("#artabstract").val(),  //文章摘要
                 artTags :  $("#arttags").val(),     //文章标签
-                artimage : $("#artimage").attr("src")==undefined?'':$("#artimage").attr("src"),  //缩略图
-                artcontent : UE.getEditor('artcontent').getContent(),  //文章内容
-                artclass : data.field.artclass,    //文章分类
-                artstatus : $('#artstatus input[name="release"]:checked').val(),    //发布状态
+                artImage : $("#artimage").attr("src")==undefined?'':$("#artimage").attr("src"),  //缩略图
+                artContent : UE.getEditor('artcontent').getContent(),  //文章内容
+                artClass : data.field.artclass,    //文章分类
+                artStatus : $('#artstatus input[name="release"]:checked').val(),    //发布状态
                 pubTimes : $("#pubtimes").val(),    //发布时间
-                istop : $("#artistop").val(),    //是否置顶
+                isTop : $("#artistop").val(),    //是否置顶
                 platformId : $("#platform_id").val(),
-                artfrom  : $("#artfrom").val(),
-                artauthor  : $("#artauthor").val(),
-                toplevelid  : $("#top_level_id").val(),
-                seclevelid  : $("#sec_level_id").val()
+                topLevelId  : $("#top_level_id").val(),
+                secLevelId  : $("#sec_level_id").val(),
+                artFrom  : $("#artfrom").val(),
+                artAuthor  : $("#artauthor").val()
             };
         console.log(postdata);
 

@@ -18,7 +18,7 @@ public class ArticleReq extends Article {
 
 
 
-    private  String artclass;
+    private  String artClass;
 
     private  String pubTimes;
 
@@ -39,14 +39,31 @@ public class ArticleReq extends Article {
 
 
     public String getArtclass() {
-        return artclass;
+        return artClass;
     }
 
     public void setArtclass(String artclass) {
-        this.artclass = artclass;
+        this.artClass = artclass;
     }
 
 
+    private Long topLevelId;
+    private Long  secLevelId;
 
 
+    public Long getTopLevelId() {
+        return topLevelId;
+    }
+
+    public void setTopLevelId(Long topLevelId) {
+        this.topLevelId = topLevelId;
+    }
+
+    public Long getSecLevelId() {
+        return secLevelId;
+    }
+
+    public void setSecLevelId(Long secLevelId) {
+        this.secLevelId = secLevelId;
+    }
 }

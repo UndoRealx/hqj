@@ -24,9 +24,6 @@
 </head>
 <body class="childrenBody">
 <form class="layui-form ">
-	<input type="hidden" id="tagsFlag" >
-	<input type="hidden" id="id" name="id"  value="0">
-	<input type="hidden" id="content">
 	<div class="layui-row">
 		<div class="layui-col-md9 layui-col-xs12">
 			<div class="layui-row layui-col-space10">
@@ -34,19 +31,19 @@
 					<div class="layui-form-item magt3">
 						<label class="layui-form-label">文章标题</label>
 						<div class="layui-input-block">
-							<input name="arttitle" type="text" class="layui-input newsName" lay-verify="newsName" id="arttitle" placeholder="请输入文章标题">
+							<input name="arttitle" type="text" class="layui-input newsName" required lay-verify="newsName" id="arttitle" placeholder="请输入文章标题">
 						</div>
 					</div>
                     <div class="layui-form-item">
                         <label class="layui-form-label">来源</label>
                         <div class="layui-input-block">
-							<input  name="artfrom" placeholder="请输入文章来源" class="layui-input" style="width: 20%;">
+							<input  name="artfrom" id="artfrom" placeholder="请输入文章来源"  class="layui-input" required style="width: 20%;">
                         </div>
                     </div>
 					<div class="layui-form-item">
 						<label class="layui-form-label">作者</label>
 						<div class="layui-input-block">
-							<input  name="artauthor" placeholder="请输入文章作者" class="layui-input" style="width: 20%;">
+							<input  name="artauthor" id="artauthor" placeholder="请输入文章作者"  class="layui-input" required style="width: 20%;">
 						</div>
 					</div>
 					<div class="layui-form-item">
@@ -69,7 +66,7 @@
 					<div class="layui-form-item">
 						<label class="layui-form-label">文章标签</label>
 						<div class="layui-input-block">
-							<input  name="arttags" placeholder="请输入文章标签" id="arttags" class="layui-input">
+							<input  name="arttags" placeholder="请输入文章标签"  id="arttags" class="layui-input" required>
 						</div>
 						<div class="layui-input-block">
 							<div class="layui-left layui-col-md9" id="keyList">
@@ -80,51 +77,12 @@
 							</div>
 						</div>
 					</div>
-					<!--<div class="layui-form-item">
-						<div class="plus-tag tagbtn clearfix" id="myTags"></div>
-						<div class="plus-tag-add" align="center">
-							<form id="" action="" class="login">
-								<ul class="Form FancyForm">
-									<li>
-										<span class="label" style="font-size: 12px">我的标签：</span>
-										<input id="tagAdd" name="tagAdd" type="text" class="stext" maxlength="10" style="font-size: 15px"/>
-										<label>输入标签</label>
-										<span class="fff"></span>
-									</li>
-									<li>
-										<button id="btn" type="button" class="Button RedButton Button18" style="font-size:15px;">添加标签</button>
-										<a href="javascript:void(0);" style="font-size: 15px">展开推荐标签</a>
-									</li>
-								</ul>
-							</form>
-						</div>
 
-						<div id="mycard-plus" style="display:none;">
-							<div class="default-tag tagbtn">
-								<div class="clearfix">
-									<a value="-1" title="美食之都" href="javascript:void(0);"><span>美食之都</span><em></em></a>
-									<a value="-1" title="诗厢文苑" href="javascript:void(0);"><span>诗厢文苑</span><em></em></a>
-									<a value="-1" title="it" href="javascript:void(0);"><span>it</span><em></em></a>
-									<a value="-1" title="电子商务" href="javascript:void(0);"><span>电子商务</span><em></em></a>
-									<a value="-1" title="电子竞技" href="javascript:void(0);"><span>电子竞技</span><em></em></a>
-									<a value="-1" title="网络编辑" href="javascript:void(0);"><span>网络编辑</span><em></em></a>
-									<a value="-1" title="国漫" href="javascript:void(0);"><span>国漫</span><em></em></a>
-									<a value="-1" title="日漫" href="javascript:void(0);"><span>日漫</span><em></em></a>
-									<a value="-1" title="科技之光" href="javascript:void(0);"><span>科技之光</span><em></em></a>
-									<a value="-1" title="文案策划" href="javascript:void(0);"><span>文案策划</span><em></em></a>
-									<a value="-1" title="纪录片" href="javascript:void(0);"><span>纪录片</span><em></em></a>
-								</div>
-								<div class="clearfix" style="display:none;"><a value="-1" title="媒体" href="javascript:void(0);"><span>媒体</span><em></em></a></div>
-								<div class="clearfix" style="display:none;"><a value="-1" title="网络营销" href="javascript:void(0);"><span>网络营销</span><em></em></a></div>
-							</div>
-							<div align="right"><a href="javascript:void(0);" id="change-tips" style="color:#3366cc;">换一换</a></div>
-						</div>
-					</div>-->
 
 					<div class="layui-form-item">
 						<label class="layui-form-label">内容摘要</label>
 						<div class="layui-input-block">
-							<textarea name="artabstract" placeholder="请输入内容摘要" class="layui-textarea abstract" id="artabstract"></textarea>
+							<textarea name="artabstract" placeholder="请输入内容摘要"  class="layui-textarea abstract" required id="artabstract"></textarea>
 						</div>
 					</div>
 					<div class="layui-form-item">
@@ -139,7 +97,7 @@
 						<label class="layui-form-label">文章内容</label>
 						<div class="layui-input-block">
 
-							<textarea  name="artcontent" id="artcontent" style="width:100%; height: 400px"></textarea>
+							<textarea  name="artcontent" id="artcontent" required style="width:100%; height: 400px"></textarea>
 						</div>
 					</div>
 					<div class="layui-form-item">
@@ -161,7 +119,7 @@
 						<label class="layui-form-label"><i class="seraph icon-zhiding"></i> 置　顶</label>
 						<div class="layui-input-block">
 							<input type="hidden" name="artistop" id="artistop" value="0"  >
-							<input type="checkbox"  name="is_top" id="istop" lay-skin="switch" lay-filter="istop" lay-text="是|否">
+							<input type="checkbox"  name="istop" id="istop" lay-skin="switch" lay-filter="istop" lay-text="是|否">
 						</div>
 					</div>
 					<div class="layui-form-item">
@@ -181,7 +139,11 @@
 	</div>
 
 
-
+	<input type="hidden" id="myid" name="myid"  value="0">
+	<input type="hidden" id="hid_content">
+	<input type="hidden" id="hid_platform_id">
+	<input type="hidden" id="hid_top_level_id">
+	<input type="hidden" id="hid_sec_level_id">
 </form>
 
 

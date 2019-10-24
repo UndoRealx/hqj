@@ -38,9 +38,10 @@ layui.use(['form','layer','laydate','table','laytpl','layRequest'],function(){
             {type: "checkbox", fixed:"left", width:50},
             {field: 'longid', title: 'ID', width:60, align:"center"},
             {field: 'artTitle', title: '文章标题', width:250},
-            /*{field: 'artLevelName', title: '所属栏目', width:150},*/
-            {field: 'artclass', title: '文章分类', width:150},
-            {field: 'author', title: '作者', align:'center'},
+            {field: 'platformName', title: '平台', width:150},
+            {field: 'artLevelName', title: '所属栏目', width:150},
+            {field: 'artFrom', title: '来源', align:'center'},
+            {field: 'artAuthor', title: '作者', align:'center'},
             {field: 'artStatusName', title: '发布状态',  align:'center',templet:"#artstatus"},
             {field: 'visitCnt', title: '阅读次数', align:'center'},
             {field: 'isTop', title: '是否置顶', align:'center', templet:function(d){
@@ -53,6 +54,42 @@ layui.use(['form','layer','laydate','table','laytpl','layRequest'],function(){
         ]]
     });
 
+    req.get("/platform/list",{},function (res) {
+        $("#platform_id").append("<option value='0'>请选择平台</option>");
+        res.data.forEach(function (e) {
+            $("#platform_id").append("<option value='"+e.longid+"'>"+e.platformName+"</option>");
+        });
+
+        form.render();
+    });
+
+   /* function loadTopLevel(val)
+    {
+        req.get("/articlelevel/list",{platformId:val,parentId:0},function (res) {
+
+            $("#top_level_id").empty();
+            $("#top_level_id").append("<option value='-1'>请选择一级栏目</option>");
+            res.data.forEach(function (e) {
+                $("#top_level_id").append("<option value='"+e.longid+"'>"+e.levelName+"</option>");
+            });
+        });
+    }
+
+
+
+    layui.use(['form'], function() {
+        form=layui.form;
+        form.on('select(platformType)', function(data){
+            var val=data.value;
+            console.info(val);
+            if(val!=-1)
+            {
+                loadTopLevel(val);
+                form.render();
+            }
+        });
+    });
+*/
     //是否置顶
     form.on('switch(istop)', function(data){
         var chk=data.elem.checked;
@@ -65,18 +102,21 @@ layui.use(['form','layer','laydate','table','laytpl','layRequest'],function(){
 
     //搜索【此功能需要后台配合，所以暂时没有动态效果演示】
     $(".search_btn").on("click",function(){
-        if($(".searchVal").val() != ''){
+      /*  if($(".searchVal").val() != ''){*/
             table.reload("newsListTable",{
                 page: {
                     curr: 1 //重新从第 1 页开始
                 },
                 where: {
-                    key: $(".searchVal").val()  //搜索的关键字
+                    key: $(".searchVal").val(),  //搜索的关键字
+                    platformId : $("#platform_id").val(),
+                    topLevelId  : $("#top_level_id").val(),
+                    ArtStatus  : $("#ArtStatus").val()
                 }
             })
-        }else{
+       /* }else{
             layer.msg("请输入搜索的内容");
-        }
+        }*/
     });
 
 
@@ -95,18 +135,31 @@ layui.use(['form','layer','laydate','table','laytpl','layRequest'],function(){
                         body.find("#myid").val(edit.longid);
                         body.find("#arttitle").val(res.data.artTitle);
                         body.find("#artabstract").val(res.data.artAbstract);
-                        body.find("#tagsFlag").val(res.data.artIcletag);
+                        body.find("#arttags").val(res.data.artTags);
                         body.find("#artimage").attr("src",res.data.artImage);
-                        body.find("#artcontent").val(res.data.artContent);
+                        body.find("#hid_content").val(res.data.artContent);
                         body.find("#release"+res.data.artStatus+"").prop("checked","checked");
                         body.find("#artistop").val(res.data.isTop);
-                        body.find(".newsTop input[name='istop']").prop("checked",res.data.isTop);
-                        if(res.artstatus==6) //定时发布
+                        if(res.data.isTop==1)
                         {
-                            body.find("#pubtimes").val(res.data.pubTime);
+                            body.find("#istop").prop("checked","checked");
                         }
+
+                       /* body.find(".newsTop input[name='istop']").prop("checked",res.data.isTop==1?"checked";"");*/
+                        if(res.data.artStatus==6) //定时发布
+                        {
+                            body.find(".releaseDate").removeClass("layui-hide");
+                            body.find("#pubtimes").val(res.data.pubTimes);
+                        }
+                        body.find("#artfrom").val(res.data.artFrom);
+                        body.find("#artauthor").val(res.data.artAuthor);
+
+
+                        body.find("#hid_platform_id").val(res.data.platformId);
+                        body.find("#hid_top_level_id").val(res.data.top_level_id);
+                        body.find("#hid_sec_level_id").val(res.data.sec_level_id);
+
                         form.render();
-                        console.log("form.render()");
                     });
                 }
                 setTimeout(function(){
@@ -122,7 +175,7 @@ layui.use(['form','layer','laydate','table','laytpl','layRequest'],function(){
             //layui.layer.full(index);
         })
     }
-    $(".addNews_btn").click(function(){
+    $("#add_btn").click(function(){
         addNews();
     })
 
