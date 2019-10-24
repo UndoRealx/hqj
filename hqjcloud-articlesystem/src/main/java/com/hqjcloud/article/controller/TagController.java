@@ -18,11 +18,13 @@ import org.springframework.web.bind.annotation.*;
  */
 @Controller
 @RequestMapping(value = "/tag") //配置返回值 application/json
-
 public class TagController {
     @Autowired
     private TagService tagService;
 
+    @RequestMapping("/*")
+    public void toHtml(){
+    }
 
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
@@ -35,7 +37,7 @@ public class TagController {
     @RequestMapping(value = "/modify", method = RequestMethod.PUT)
     public  ApiResultEntity modify(@RequestBody Tag data)
     {
-        tagService.add(data);
+        tagService.modify(data);
         return ApiResultEntity.successResult(StateCode.success.get());
     }
 
