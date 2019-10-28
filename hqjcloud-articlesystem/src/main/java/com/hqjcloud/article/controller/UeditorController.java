@@ -48,7 +48,7 @@ public class UeditorController {
     public  ReturnUploadImage multiUpload(HttpServletRequest request) throws  IOException {
         MultipartFile file = ((MultipartHttpServletRequest) request).getFile("file");
         Date now=new Date();
-        String filePath = "D:/Upload/" + TimeUtil.dateToString(now)+"/";
+        String filePath = "D:/Upload/" + TimeUtil.dateFormat(now)+"/";
         File upload = new File(filePath);
         if (!upload.exists()) {
             upload.mkdirs();
@@ -73,8 +73,8 @@ public class UeditorController {
         ReturnUploadImage rui = new ReturnUploadImage();
         if (dest != null) {
             rui.setState("SUCCESS");
-            rui.setUrl(TimeUtil.dateToString(now)+"/"+ newFileName);
-            rui.setThumbnailUrl(TimeUtil.dateToString(now)+"/"+new File(listThumbnail.get(0)).getName());
+            rui.setUrl(TimeUtil.dateFormat(now)+"/"+ newFileName);
+            rui.setThumbnailUrl(TimeUtil.dateFormat(now)+"/"+new File(listThumbnail.get(0)).getName());
             rui.setTitle("上传成功!");
             rui.setOriginal(fileName);
         }

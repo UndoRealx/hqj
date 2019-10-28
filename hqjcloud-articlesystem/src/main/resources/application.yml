@@ -4,6 +4,12 @@ server:
     context-path: /
 
 spring:
+  http:
+    encoding:
+      force-response: true
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
   devtools:
     restart:
       additional-paths: src/main/java,src/main/resources

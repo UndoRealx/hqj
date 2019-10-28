@@ -1,7 +1,6 @@
 package com.hqjcloud.article.service;
 
 import com.hqjcloud.article.beans.Platform;
-import com.hqjcloud.article.beans.PlatformExample;
 import com.hqjcloud.article.common.ApiResultEntity;
 
 import java.util.List;
@@ -30,7 +29,7 @@ public interface PlatformService {
 
     public List<Platform> getAll();
 
-    public ApiResultEntity queryPageListByExample(PlatformExample example, int page, int size);
+    public ApiResultEntity queryPageListByExample(String key, int page, int size);
 
 
     public Platform getByName(String name);

@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @ProjectName: hqjcloud
@@ -52,11 +53,13 @@ public class PlatformServiceImpl implements PlatformService {
     }
 
     @Override
-    public ApiResultEntity queryPageListByExample(PlatformExample example, int page, int size) {
+    public ApiResultEntity queryPageListByExample(String key, int page, int size) {
         PageHelper.startPage(page, size, true);// 设置分页参数
         // 查询数据
-        List<Platform> lists = mapper.selectByExample(example);
-        PageInfo<Platform> pageInfo = new PageInfo<Platform>(lists);
+        List<Map> lists = mapper.getByPage(key);
+        PageInfo<Map> pageInfo = new PageInfo<Map>(lists);
+
+
 
         return ApiResultEntity.returnResult(StateCode.success.get(), PageUtil.returnPageList(pageInfo, lists));
     }

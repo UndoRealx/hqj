@@ -4,6 +4,7 @@ package com.hqjcloud.article.common.util;
 import com.hqjcloud.article.common.BasePageList;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @ProjectName: hqjcloud
@@ -34,6 +35,15 @@ public class PageUtil {
         pageList.setPageSize(pageInfo.getPageSize());
         pageList.setTotal(pageInfo.getTotal());
         pageList.setList(newList);
+        return pageList;
+    }
+
+    public static BasePageList returnPageList(com.github.pagehelper.PageInfo pageInfo, Map map) {
+        BasePageList pageList = new BasePageList();
+        pageList.setPageNum(pageInfo.getPageNum());
+        pageList.setPageSize(pageInfo.getPageSize());
+        pageList.setTotal(pageInfo.getTotal());
+        pageList.setList(map);
         return pageList;
     }
 }
