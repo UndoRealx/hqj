@@ -71,7 +71,7 @@ public class ArticleServiceImpl implements ArticleService {
         Article entity = (Article) req;
         entity.setModifyTime(TimeUtil.GetDate());
         if (req.getPubTimes() != null && req.getPubTimes().trim().isEmpty() == false) {
-            entity.setPubTime(TimeUtil.dateToLong(TimeUtil.stringToDate1(req.getPubTimes())));
+            entity.setPubTime(TimeUtil.dateToLong(TimeUtil.ConvertToDateTime(req.getPubTimes())));
         }
         if(entity.getArtStatus()!= ArtStatusEnum.TimingPub.get())
         {

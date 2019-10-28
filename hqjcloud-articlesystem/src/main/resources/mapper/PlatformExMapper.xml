@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hqjcloud.article.mapper.PlatformExMapper">
-
+    <sql id="Field">
+        longid,
+        platform_name as platformName,
+        from_unixtime(addtime,'%Y-%m-%d %H:%i:%S') AS addtime,
+        from_unixtime(modifytime,'%Y-%m-%d %H:%i:%S') AS modifytime
+    </sql>
+    <select id="getByPage" parameterType="java.lang.String"  resultType="map">
+        SELECT
+        <include refid="Field"></include>
+        FROM
+          hqj_platform
+        where 1=1
+        <if test="key != null">
+            and platform_name LIKE CONCAT('%',#{key},'%')
+        </if>
+        ORDER BY addtime DESC
+    </select>
 </mapper>

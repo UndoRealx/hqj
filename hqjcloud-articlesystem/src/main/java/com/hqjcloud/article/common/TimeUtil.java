@@ -18,9 +18,14 @@ import java.util.Date;
  */
 public class TimeUtil {
 
-    public  final  static  String pattern="yyyy-MM-dd HH:mm:ss";
+    /** 时间格式(yyyy-MM-dd HH:mm:ss) */
+    public  final  static  String DATE_TIME_PATTERN="yyyy-MM-dd HH:mm:ss";
 
-    public  final  static  String shortPattern="yyyy-MM-dd";
+    /** 时间格式(yyyy-MM-dd) */
+    public  final  static  String DATE_PATTERN="yyyy-MM-dd";
+
+    /** 时间格式(HH:mm:ss) */
+    public  final  static  String TIME_PATTERN="HH:mm:ss";
 
 
     /**
@@ -35,16 +40,18 @@ public class TimeUtil {
         return new Date().getTime() / 1000;
     }
 
-    /**
-     * Date 类型转化为 String 类型
-     *
-     * @param date
-     * @return yyyy-MM-dd HH:mm:ss 格式的时间
-     */
-    public static String dateToStringEx(Date date) {
 
-        SimpleDateFormat sdf = new SimpleDateFormat(pattern);
-        return sdf.format(date);
+    public static String dateTimeFormat(Date date) {
+           return dateFormatByPattern(date,DATE_TIME_PATTERN);
+    }
+
+    private  static  String dateFormatByPattern(Date date,String pattern)
+    {
+        if(date != null){
+            SimpleDateFormat df = new SimpleDateFormat(pattern);
+            return df.format(date);
+        }
+        return null;
     }
 
     /**
@@ -53,54 +60,10 @@ public class TimeUtil {
      * @param date
      * @return yyyy-MM-dd 格式的时间
      */
-    public static String dateToString(Date date) {
-        SimpleDateFormat sdf = new SimpleDateFormat(shortPattern);
+    public static String dateFormat(Date date) {
+        SimpleDateFormat sdf = new SimpleDateFormat(DATE_PATTERN);
         return sdf.format(date);
     }
-
-    /**
-     * String 类型转化为 Date 类型
-     *
-     * @param strTime    String 类型时间
-     * @param formatType 时间格式
-     * @return Date 类型的时间
-     * @throws ParseException
-     */
-    public static Date stringToDate(String strTime, String formatType) throws ParseException {
-        SimpleDateFormat formatter = new SimpleDateFormat(formatType);
-        Date date = null;
-        date = formatter.parse(strTime);
-        return date;
-    }
-
-    /**
-     * String 类型数据转化为 Date 类型数据
-     *
-     * @param strTime String 类型时间
-     * @return Date 类型时间，转换后忽略时分秒
-     * @throws ParseException
-     */
-    public static Date stringToDate(String strTime) throws ParseException {
-        SimpleDateFormat formatter = new SimpleDateFormat(shortPattern);
-        Date date = null;
-        date = formatter.parse(strTime);
-        return date;
-    }
-
-    /**
-     * String 类型转化为 Date 类型
-     *
-     * @param strTime String 类型时间
-     * @return Date 类型时间，转化后保存时分秒
-     * @throws ParseException
-     */
-    public static Date stringToDate1(String strTime) throws ParseException {
-        SimpleDateFormat formatter = new SimpleDateFormat(pattern);
-        Date date = null;
-        date = formatter.parse(strTime);
-        return date;
-    }
-
 
     /**
      * 获取时分秒
@@ -108,11 +71,64 @@ public class TimeUtil {
      * @param date
      * @return HH:mm:ss 格式的时分秒
      */
-    public static String getTimeShort(Date date) {
-        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss");
+    public static String timeFormat(Date date) {
+        SimpleDateFormat formatter = new SimpleDateFormat(TIME_PATTERN);
         String dateString = formatter.format(date);
         return dateString;
     }
+
+    /**
+     * String 类型转化为 Date 类型
+     *
+     * @param strTime    String 类型时间
+     * @param pattern 时间格式
+     * @return Date 类型的时间
+     * @throws ParseException
+     */
+    public static Date ConvertToDate(String strTime, String pattern) throws ParseException {
+        if (strTime.isEmpty()){
+            return null;
+        }
+        SimpleDateFormat fmt = new SimpleDateFormat(pattern);
+        return fmt.parse(strTime);
+    }
+
+    /**
+     * String 类型数据转化为 yyyy-MM-dd 格式的时间
+     *
+     * @param strTime String 类型时间
+     * @return Date 类型时间，转换后忽略时分秒
+     * @throws ParseException
+     */
+    public static Date ConvertToDate(String strTime) throws ParseException {
+        return ConvertToDate(strTime,DATE_PATTERN);
+    }
+
+    /**
+     * String 类型数据转化为(yyyy-MM-dd HH:mm:ss) 格式的时间
+     *
+     * @param strTime String 类型时间
+     * @return Date 类型时间，转化后保存时分秒
+     * @throws ParseException
+     */
+    public static Date ConvertToDateTime(String strTime) throws ParseException {
+        return ConvertToDate(strTime,DATE_TIME_PATTERN);
+    }
+
+
+    /**
+    *@Description String 类型数据转化为 HH:mm:ss 格式的时间
+    *@Param  * @param strTime
+    *@Return java.util.Date
+    *@Author lic
+    *@Date 2019/10/25
+    *@Time 16:53
+    */
+    public static Date ConvertToTime(String strTime) throws ParseException {
+        return ConvertToDate(strTime,TIME_PATTERN);
+    }
+
+
 
     /**
      * Date 类型转化为 Long 类型
@@ -129,9 +145,27 @@ public class TimeUtil {
         } catch (Exception e) {
             return 0L;
         }
-
     }
 
+
+    /**
+    *@Description  Long时间转 字符串 格式字定义
+    *@Param  * @param time
+ * @param pattern
+    *@Return java.lang.String
+    *@Author lic
+    *@Date 2019/10/25
+    *@Time 17:04
+    */
+    public  static  String longToString(Long time,String pattern)
+    {
+        Date date=longToDate(time);
+        if(null==date)
+        {
+            return  null;
+        }
+        return  dateFormatByPattern(date,pattern);
+    }
     /**
      * Long 类型转化为 String 类型
      *

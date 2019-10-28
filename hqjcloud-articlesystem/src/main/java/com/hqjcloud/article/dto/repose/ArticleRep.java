@@ -25,7 +25,7 @@ public class ArticleRep extends Article {
         {
             return "";
         }
-        return TimeUtil.dateToString(TimeUtil.longToDate(getAddTime()));
+        return TimeUtil.longToString(getAddTime(),TimeUtil.DATE_TIME_PATTERN);
     }
 
 
@@ -37,7 +37,7 @@ public class ArticleRep extends Article {
         {
             return "";
         }
-        return TimeUtil.dateToString(TimeUtil.longToDate(getModifyTime()));
+        return TimeUtil.longToString(getModifyTime(),TimeUtil.DATE_TIME_PATTERN);
     }
 
 
@@ -50,7 +50,7 @@ public class ArticleRep extends Article {
         {
             return "";
         }
-        return TimeUtil.dateToString(TimeUtil.longToDate(getPubTime()));
+        return TimeUtil.longToString(getPubTime(),TimeUtil.DATE_TIME_PATTERN);
     }
 
 

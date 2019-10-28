@@ -137,6 +137,6 @@ public class PlatformController {
         {
             criteria.andPlatformNameLike(key);
         }
-        return platformService.queryPageListByExample(example,page,size);
+        return platformService.queryPageListByExample(key,page,size);
     }
 }

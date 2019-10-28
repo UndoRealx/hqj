@@ -3,6 +3,10 @@ package com.hqjcloud.article.mapper;
 import com.hqjcloud.article.beans.Platform;
 import com.hqjcloud.article.common.BaseMapper;
 import com.hqjcloud.article.mapper.base.PlatformMapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * @ProjectName: hqjcloud
@@ -18,4 +22,5 @@ import com.hqjcloud.article.mapper.base.PlatformMapper;
  */
 public interface PlatformExMapper extends PlatformMapper, BaseMapper<Platform> {
 
+    public List<Map> getByPage(@Param("key")String key);
 }

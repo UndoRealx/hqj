@@ -224,7 +224,7 @@ public class ArticleController {
         copyMap.putAll(map);
         copyMap.put("top_level_id",0);
         copyMap.put("sec_level_id",0);
-        copyMap.put("pubTimes",TimeUtil.dateToStringEx(TimeUtil.longToDate(article.getPubTime())));
+        copyMap.put("pubTimes",TimeUtil.dateTimeFormat(TimeUtil.longToDate(article.getPubTime())));
         if(article.getArtLevelId()!=null)
         {
 

@@ -1,7 +1,5 @@
 package com.hqjcloud.article.common;
 
-import java.util.List;
-
 /**
  * @ProjectName: hqjcloud
  * @Package: com.hqjcloud.data
@@ -16,16 +14,16 @@ import java.util.List;
  */
 public class BasePageList<T> {
 
-    private List<T> list;
+    private Object list;
     private int pageNum;
     private int pageSize;
     private long total;
 
-    public List<T> getList() {
+    public  Object getList() {
         return list;
     }
 
-    public void setList(List<T> list) {
+    public void setList(Object list) {
         this.list = list;
     }
 

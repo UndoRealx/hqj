@@ -25,7 +25,7 @@ public class ArticleClassRep extends ArticleClass {
         {
             return "";
         }
-        return TimeUtil.dateToString(TimeUtil.longToDate(getAddTime()));
+        return TimeUtil.dateFormat(TimeUtil.longToDate(getAddTime()));
     }
 
 
