@@ -38,9 +38,9 @@ layui.use(['form','layer','laydate','table','laytpl','layRequest'],function(){
             {type: "checkbox", fixed:"left", width:50},
             {field: 'longid', title: 'ID', width:60, align:"center"},
             {field: 'platformName', title: '平台名称', width:250},
-            {field: 'levelName', title: '栏目名称', width:250},
+            {field: 'levelname', title: '栏目名称', width:250},
             {field: 'parentLevelName', title: '上级栏目', width:250},
-            {field: 'levelStatus', title: '是否启用', align:'center', templet:function(d){
+            {field: 'levelstatus', title: '是否启用', align:'center', templet:function(d){
 
                     return '<input type="checkbox" name="levelStatus" value='+d.longid+' lay-filter="checkStatus"  '+(d.levelStatus==1?'checked':'')+'    lay-skin="switch" lay-text="是|否" '+d.levelStatus+'>'
                 }},
