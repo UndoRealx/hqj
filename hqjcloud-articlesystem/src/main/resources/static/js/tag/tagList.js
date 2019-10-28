@@ -37,9 +37,9 @@ layui.use(['form','layer','laydate','table','laytpl','layRequest'],function(){
         cols : [[
             {type: "checkbox", fixed:"left", width:50},
             {field: 'longid', title: 'ID', width:60, align:"center"},
-            {field: 'tagName', title: '标签名称', width:250},
-            {field: 'addTime', title: '添加时间', align:'center'},
-            {field: 'tagStatus', title: '标签状态',  align:'center'},
+            {field: 'tagname', title: '标签名称', width:250},
+            {field: 'addtime', title: '添加时间', align:'center'},
+            {field: 'tagstatus', title: '标签状态',  align:'center'},
             {title: '操作', width:170, templet:'#tagListBar',fixed:"right",align:"center"}
         ]]
     });

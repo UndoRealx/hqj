@@ -196,6 +196,25 @@ layui.use(['form','layer','laydate','upload','layRequest'],function(){
     }
     loadData();
 
+
+    // 回显图片
+    function changImg(e){
+         for (var i = 0; i < e.target.files.length; i++) {
+             var file = e.target.files.item(i);
+                if (!(/^image\/.*$/i.test(file.type))) {
+                    continue; //不是图片 就跳出这一次循环
+                  }
+                console.log("sdadas"+ file);
+            //实例化FileReader API
+            var freader = new FileReader();
+            freader.readAsDataURL(file);
+            freader.onload = function(e) {
+             $("#artimage").attr("src",e.target.result);
+             }
+           }
+    }
+
+
     //是否置顶
     form.on('switch(istop)', function(data){
         var chk=data.elem.checked;

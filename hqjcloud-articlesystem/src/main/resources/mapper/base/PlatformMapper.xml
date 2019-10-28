@@ -131,6 +131,7 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
+
   <insert id="insert" parameterType="com.hqjcloud.article.beans.Platform">
     <!--
       WARNING - @mbg.generated
@@ -144,6 +145,7 @@
     values (#{platformName,jdbcType=VARCHAR}, #{addtime,jdbcType=BIGINT}, #{modifytime,jdbcType=BIGINT}
       )
   </insert>
+
   <insert id="insertSelective" parameterType="com.hqjcloud.article.beans.Platform">
     <!--
       WARNING - @mbg.generated

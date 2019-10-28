@@ -112,13 +112,18 @@ public class TagController {
      */
     @ResponseBody
     @GetMapping(value = "/getByPage")
-    public ApiResultEntity getByPage(@RequestParam(required = false,defaultValue = "1") Integer page,
+    public ApiResultEntity getByPage(@RequestParam(required = false,defaultValue = "") String key,
+                                     @RequestParam(required = false,defaultValue = "1") Integer page,
                                      @RequestParam(required = false,defaultValue = "15") Integer size)
     {
         TagExample example = new TagExample();
         TagExample.Criteria criteria = example.createCriteria();
         example.setOrderByClause("longid desc");
-        return tagService.queryPageListByExample(example,page,size);
+        if(key!=null&&key.trim().isEmpty()==false)
+        {
+            criteria.andTagNameLike(key);
+        }
+        return tagService.queryPageList(key,page,size);
     }
 
 

@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @ProjectName: hqjcloud
@@ -50,6 +51,15 @@ public class TagServiceImpl implements TagService {
     @Override
     public Tag getById(Long longid) {
         return mapper.selectByPrimaryKey(longid);
+    }
+
+    @Override
+    public ApiResultEntity queryPageList(String key, int page, int size) {
+        PageHelper.startPage(page, size, true);// 设置分页参数
+        // 查询数据
+        List<Map> lists = mapper.getByPage(key);
+        PageInfo<Map> pageInfo=new PageInfo<Map>(lists);
+        return ApiResultEntity.returnResult(StateCode.success.get(), PageUtil.returnPageList(pageInfo,lists));
     }
 
     @Override

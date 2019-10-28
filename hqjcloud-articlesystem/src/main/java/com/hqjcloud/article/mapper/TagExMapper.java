@@ -3,6 +3,10 @@ package com.hqjcloud.article.mapper;
 import com.hqjcloud.article.beans.Tag;
 import com.hqjcloud.article.common.BaseMapper;
 import com.hqjcloud.article.mapper.base.TagMapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -19,4 +23,5 @@ import com.hqjcloud.article.mapper.base.TagMapper;
  */
 public interface TagExMapper extends TagMapper, BaseMapper<Tag> {
 
+    public List<Map> getByPage(@Param("key")String key);
 }

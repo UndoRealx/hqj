@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hqjcloud.article.mapper.TagExMapper">
+    <sql id="Field">
+        longid,
+        tag_name AS tagname,
+        from_unixtime(add_time,'%Y-%m-%d %H:%i:%S') AS addtime,
+        tag_status AS tagstatus
+    </sql>
+    <select id="getByPage" parameterType="java.lang.String" resultType="map">
+        SELECT
+        <include refid="Field"/>
+        FROM
+            hqj_tag
+        where 1=1
+        <if test="key != null">
+            and tag_name LIKE CONCAT('%',#{key},'%')
+        </if>
+        ORDER BY add_time DESC
+    </select>
+</mapper>
