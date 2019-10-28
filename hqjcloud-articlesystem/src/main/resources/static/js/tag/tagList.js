@@ -37,9 +37,13 @@ layui.use(['form','layer','laydate','table','laytpl','layRequest'],function(){
         cols : [[
             {type: "checkbox", fixed:"left", width:50},
             {field: 'longid', title: 'ID', width:60, align:"center"},
-            {field: 'tagname', title: '标签名称', width:250},
+            {field: 'tagname', title: '名称', width:250},
             {field: 'addtime', title: '添加时间', align:'center'},
-            {field: 'tagstatus', title: '标签状态',  align:'center'},
+            // {field: 'tagstatus', title: '状态',  align:'center'},
+            {field: 'tagstatus', title: '是否启用', align:'center', templet:function(d){
+
+                    return '<input type="checkbox" name="tagStatus" value='+d.longid+' lay-filter="checkStatus"  '+(d.tagStatus==1?'checked':'')+'    lay-skin="switch" lay-text="是|否" '+d.tagStatus+'>'
+                }},
             {title: '操作', width:170, templet:'#tagListBar',fixed:"right",align:"center"}
         ]]
     });
@@ -78,7 +82,8 @@ layui.use(['form','layer','laydate','table','laytpl','layRequest'],function(){
                         body.find("#longid").val(edit.longid);
                         body.find("#tagName").val(res.data.tagName);
                         body.find("#addTime").val(res.data.addTime);
-                        body.find("#tagStatus").val(res.data.tagStatus);
+                        body.find("#status").val(res.data.tagStatus);
+                        body.find("#open").prop("checked",res.data.tagStatus==1?true:false);
                         form.render();
                     });
                 }

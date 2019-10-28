@@ -22,7 +22,8 @@ layui.use(['form','layer','layRequest'],function(){
                 longid : $("#longid").val(),
                 tagName : $("#tagName").val(),
                 addTime : $("#addTime").val(),
-                tagStatus : $("#tagStatus").val()
+                tagStatus : $("#status").val()
+                // tagstatus : $("#status").val()
                 /*status : $("#status").val()*/
             };
 
