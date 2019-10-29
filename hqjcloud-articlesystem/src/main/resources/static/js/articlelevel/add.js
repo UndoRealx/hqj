@@ -70,10 +70,10 @@ layui.use(['form','layer','layRequest'],function(){
         var postdata=
             {
                 longid : $("#longid").val(),
-                levelName : $("#levelName").val(),
+                levelname : $("#levelName").val(),
                 platformId:$("#platform_id").val(),
                 levelParentid:$("#top_level_id").val(),
-                levelStatus : $("#status").val()
+                levelstatus : $("#status").val()
             };
 
         console.log(postdata);

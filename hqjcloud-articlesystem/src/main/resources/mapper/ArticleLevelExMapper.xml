@@ -2,4 +2,31 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hqjcloud.article.mapper.ArticleLevelExMapper">
 
+    <sql id="Field">
+         al.longid AS id ,
+         platform_name AS platformname,
+         level_name AS levelname,
+         level_parentId AS parentid,
+         level_status AS levelstatus,
+         from_unixtime(al.addtime, '%Y-%m-%d %H:%i:%S') AS addtime,
+         from_unixtime(al.modifytime, '%Y-%m-%d %H:%i:%S') AS modifytime,
+         platform_id
+    </sql>
+
+    <select id="getByPage" resultType="java.util.Map">
+        SELECT
+--             p.platform_name AS platformname,
+            <include refid="Field"/>
+        FROM
+            hqj_platform p
+        LEFT JOIN
+            hqj_article_level  al
+        on
+            p.longid = al.platform_id
+        where 1=1
+        <if test="key != null">
+            and level_name LIKE CONCAT('%',#{key},'%')
+        </if>
+        ORDER BY addtime DESC
+    </select>
 </mapper>

@@ -3,6 +3,10 @@ package com.hqjcloud.article.mapper;
 import com.hqjcloud.article.beans.ArticleLevel;
 import com.hqjcloud.article.common.BaseMapper;
 import com.hqjcloud.article.mapper.base.ArticleLevelMapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * @ProjectName: hqjcloud
@@ -18,4 +22,6 @@ import com.hqjcloud.article.mapper.base.ArticleLevelMapper;
  */
 
 public interface ArticleLevelExMapper extends ArticleLevelMapper, BaseMapper<ArticleLevel> {
+
+    public List<Map> getByPage(@Param("key")String key);
 }

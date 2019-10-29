@@ -36,8 +36,8 @@ layui.use(['form','layer','laydate','table','laytpl','layRequest'],function(){
         },
         cols : [[
             {type: "checkbox", fixed:"left", width:50},
-            {field: 'longid', title: 'ID', width:60, align:"center"},
-            {field: 'platformName', title: '平台名称', width:250},
+            {field: 'id', title: 'ID', width:60, align:"center"},
+            {field: 'platformname', title: '平台名称', width:250},
             {field: 'levelname', title: '栏目名称', width:250},
             {field: 'parentLevelName', title: '上级栏目', width:250},
             {field: 'levelstatus', title: '是否启用', align:'center', templet:function(d){
@@ -93,10 +93,10 @@ layui.use(['form','layer','laydate','table','laytpl','layRequest'],function(){
                     req.get("/articlelevel/info",{longid:edit.longid},function (res) {
                         console.log(res.data);
                         body.find("#longid").val(edit.longid);
-                        body.find("#levelName").val(res.data.levelName);
+                        body.find("#levelName").val(res.data.levelname);
                         body.find("#hid_platform_Id").val(res.data.platformId);
                         body.find("#hid_levelparent_Id").val(res.data.levelParentid);
-                        body.find("#status").val(res.data.levelStatus);
+                        body.find("#status").val(res.data.levelstatus);
                         body.find("#open").prop("checked",res.data.levelStatus==1?true:false);
                         form.render();
                     });

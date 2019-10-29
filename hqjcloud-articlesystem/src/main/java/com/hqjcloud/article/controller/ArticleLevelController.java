@@ -211,7 +211,7 @@ public class ArticleLevelController {
         {
             criteria.andLevelNameLike(key);
         }
-        return articleLevelService.queryPageListByExample(example,page,size);
+        return articleLevelService.queryPageList(key,page,size);
     }
 
     
