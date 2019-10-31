@@ -34,6 +34,7 @@ public interface ArticleLevelService {
 
     public ApiResultEntity queryPageListByExample(ArticleLevelExample example, int page, int size);
 
+    public ApiResultEntity queryPageList(String key,int page, int size);
 
     public List<ArticleLevel> list(Long platformId, Long parentId);
 }

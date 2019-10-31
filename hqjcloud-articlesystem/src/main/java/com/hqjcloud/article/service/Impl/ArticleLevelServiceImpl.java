@@ -1,8 +1,12 @@
 package com.hqjcloud.article.service.Impl;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.hqjcloud.article.beans.*;
+import com.hqjcloud.article.beans.ArticleLevel;
+import com.hqjcloud.article.beans.ArticleLevelExample;
+import com.hqjcloud.article.beans.Platform;
 import com.hqjcloud.article.common.ApiResultEntity;
 import com.hqjcloud.article.common.enums.StateCode;
 import com.hqjcloud.article.common.util.PageUtil;
@@ -17,6 +21,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -113,6 +118,46 @@ public class ArticleLevelServiceImpl implements ArticleLevelService {
         }
 
         return ApiResultEntity.returnResult(StateCode.success.get(), PageUtil.returnPageList(pageInfo, list));
+    }
+
+    @Override
+    public ApiResultEntity queryPageList(String key, int page, int size) {
+        PageHelper.startPage(page, size, true);// 设置分页参数
+        // 查询数据
+        List<Map> lists = mapper.getByPage(key);
+        PageInfo<Map> pageInfo = new PageInfo<Map>(lists);
+        System.out.println("文章栏目"+pageInfo.getList().toString());
+
+        List<ArticleLevelRep>  list=new ArrayList<ArticleLevelRep>();
+
+        for (Object bean : pageInfo.getList()) {
+
+//        for (Map bean : pageInfo.getList()) {
+            ArticleLevelRep item = new ArticleLevelRep();
+
+            ArticleLevelRep articleLevelRep = JSONObject.parseObject(JSON.toJSONString(bean), ArticleLevelRep.class);
+            BeanUtils.copyProperties(articleLevelRep, item);
+            item.setPlatformName("");
+            item.setParentLevelName("-----");
+            if(item.getPlatformId()!=null&&item.getPlatformId()>0L) {
+                Platform platform=platformService.getById(item.getPlatformId());
+                if(null!=platform)
+                {
+                    item.setPlatformName(platform.getPlatformName());
+                }
+            }
+            if(item.getLevelParentid()!=null&&item.getLevelParentid()>0L)
+            {
+                ArticleLevel articleLevel=getById(item.getLevelParentid());
+                if(null!=articleLevel)
+                {
+                    item.setParentLevelName(articleLevel.getLevelName());
+                }
+            }
+            list.add(item);
+        }
+        System.out.println("文言"+lists.toString());
+        return ApiResultEntity.returnResult(StateCode.success.get(), PageUtil.returnPageList(pageInfo, lists));
     }
 
     @Override

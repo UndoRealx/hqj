@@ -39,10 +39,22 @@ spring:
     multipart:
       max-file-size: 50Mb #单个文件大小
       max-request-size: 100Mb #即总上传的数据大小
+
+##freemarker
+  freemarker:
+    cache: false
+    charset: UTF-8
+    check-template-location: true
+    content-type: text/html
+    enabled: true
+    suffix: .html
+    template-loader-path: classpath:/templates
+
 mybatis:
   config-location: classpath:mybatis-com.oauth.server.config.xml
   mapper-locations: classpath:mapper/*.xml,mapper/**/*.xml
   type-aliases-package: com.hqjcloud.article.beans
+
 #pagehelper分页插件
 pagehelper:
   helperDialect: mysql

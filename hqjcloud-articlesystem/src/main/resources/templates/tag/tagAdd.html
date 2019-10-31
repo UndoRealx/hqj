@@ -21,18 +21,19 @@
 <!--    </div>-->
 
     <div class="layui-form-item">
-        <label class="layui-form-label">标签名称</label>
+        <label class="layui-form-label">名称</label>
         <div class="layui-input-block">
             <input type="text" name="tagName" id="tagName" required lay-verify="required" autocomplete="off"  style="width: 200px;" placeholder="请输入标签名称" class="layui-input">
         </div>
     </div>
-    <!--
-        <div class="layui-form-item">
-            <label class="layui-form-label">是否启用</label>
-            <div class="layui-input-block sEnable">
-                <input type="checkbox" checked="" id="open" name="open" lay-skin="switch" lay-filter="switchEnable"  lay-text="启用|禁用">
-            </div>
-        </div>-->
+
+    <div class="layui-form-item">
+        <label class="layui-form-label"></label>
+        <div class="layui-input-block sEnable">
+            <input type="hidden" name="tagstatu" id="tagstatu" value="0"  >
+            <input type="checkbox" checked="" id="open" name="open" lay-skin="switch" lay-filter="switchEnable"  lay-text="启用|禁用">
+        </div>
+    </div>
 
     <div class="layui-form-item">
         <div class="layui-input-block">
@@ -41,7 +42,7 @@
         </div>
     </div>
     <input  type="hidden" id="longid" name="longid" value="0">
-    <!--    <input  type="hidden" id="status" name="status" value="1">-->
+    <input  type="hidden" id="status" name="status" value="1">
     <input  type="hidden" id="hid_tag_Id" name="hid_tag_Id" value="0">
 </form>
 
