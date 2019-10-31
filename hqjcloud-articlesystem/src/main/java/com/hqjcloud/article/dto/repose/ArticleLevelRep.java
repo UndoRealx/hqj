@@ -1,6 +1,7 @@
 package com.hqjcloud.article.dto.repose;
 
 import com.hqjcloud.article.beans.ArticleLevel;
+import com.hqjcloud.article.common.TimeUtil;
 
 /**
  * @ProjectName: hqjcloud
@@ -34,5 +35,17 @@ public class ArticleLevelRep extends ArticleLevel {
 
     public void setParentLevelName(String parentLevelName) {
         this.parentLevelName = parentLevelName;
+    }
+
+    private String  addtimes;
+
+    public String getAddtimes() {
+        return TimeUtil.longToString(getAddtime()*1000,TimeUtil.DATE_TIME_PATTERN);
+    }
+
+    private String modifytimes;
+
+    public String getModifytimes() {
+        return TimeUtil.longToString(getModifytime()*1000,TimeUtil.DATE_TIME_PATTERN);
     }
 }

@@ -15,7 +15,7 @@ import java.util.List;
 
 /**
  * @ProjectName: hqjcloud
- * @Package: com.hqjcloud.upms.config
+ * @Package: com.hqjcloud.upms.com.oauth.server.config
  * @ClassName: CustomUserDetailsService
  * @Description:
  * @Author: lic

@@ -24,7 +24,7 @@ import java.io.PrintWriter;
  */
 @Controller
 public class ServerController {
-@RequestMapping(value="/config")
+@RequestMapping(value="/com.oauth.server.config")
     public void config(HttpServletRequest request, HttpServletResponse response) {
         response.setContentType("application/json");
         String rootPath = ClassUtils.getDefaultClassLoader().getResource("").getPath() + "static/ueditor/jsp";
@@ -39,7 +39,7 @@ public class ServerController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    //return "redirect:static/ueditor/jsp/config.json";
+    //return "redirect:static/ueditor/jsp/com.oauth.server.config.json";
     }
 
 

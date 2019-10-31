@@ -1,5 +1,6 @@
 package com.hqjcloud.upms.controller;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -35,5 +36,12 @@ public class ProductController {
             currentUser=principl.toString();
         }
         return   " some product info,currentUser is: "+currentUser;
+    }
+
+    @RequestMapping("/info")
+    @ResponseBody
+    @PreAuthorize("isAnonymous()")
+    public String test(){
+         return  "1-9";
     }
 }

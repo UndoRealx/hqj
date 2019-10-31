@@ -5,9 +5,6 @@ server:
 security:
   basic:
     enabled: false
-  user:
-    name: admin
-    password: admin
 
 spring:
   devtools:
@@ -21,7 +18,7 @@ spring:
     username: root
     password: wuqian
 mybatis:
-  config-location: classpath:mybatis-config.xml
+  config-location: classpath:mybatis-com.oauth.server.config.xml
   mapper-locations: classpath:mapper/*.xml,mapper/**/*.xml
   type-aliases-package: com.hqjcloud.upms.beans
 #pagehelper分页插件
@@ -30,3 +27,8 @@ pagehelper:
   reasonable: true
   supportMethodsArguments: true
   params: count=countSql
+
+jwt:
+  secret: secret
+  expiration: 7200000
+  token: Authorization

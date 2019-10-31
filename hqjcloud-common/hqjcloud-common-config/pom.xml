@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>hqjcloud-common-config</artifactId>
+    <artifactId>hqjcloud-common-com.oauth.server.config</artifactId>
     <description>公共配置包</description>
 
 </project>

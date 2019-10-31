@@ -44,8 +44,8 @@ layui.use(['form','layer','laydate','table','laytpl','layRequest'],function(){
 
                     return '<input type="checkbox" name="levelStatus" value='+d.longid+' lay-filter="checkStatus"  '+(d.levelStatus==1?'checked':'')+'    lay-skin="switch" lay-text="是|否" '+d.levelStatus+'>'
                 }},
-            {field: 'addtime', title: '添加时间', align:'center'},
-            {field: 'modifytime', title: '修改时间',  align:'center'},
+            {field: 'addtimes', title: '添加时间', align:'center'},
+            {field: 'modifytimes', title: '修改时间',  align:'center'},
 
             {title: '操作', width:170, templet:'#ListBar',fixed:"right",align:"center"}
         ]]
@@ -64,7 +64,7 @@ layui.use(['form','layer','laydate','table','laytpl','layRequest'],function(){
 
     //搜索【此功能需要后台配合，所以暂时没有动态效果演示】
     $(".search_btn").on("click",function(){
-        if($(".searchVal").val() != ''){
+        /*if($(".searchVal").val() != ''){*/
             table.reload("ListTable",{
                 page: {
                     curr: 1 //重新从第 1 页开始
@@ -73,9 +73,9 @@ layui.use(['form','layer','laydate','table','laytpl','layRequest'],function(){
                     key: $(".searchVal").val()  //搜索的关键字
                 }
             })
-        }else{
+       /* }else{
             layer.msg("请输入搜索的内容");
-        }
+        }*/
     });
 
 

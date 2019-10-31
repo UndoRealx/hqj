@@ -1,10 +1,8 @@
 package com.hqjcloud.upms.controller;
 
-import com.hqjcloud.upms.beans.Token;
 import com.hqjcloud.upms.common.MD5Util;
-import com.hqjcloud.upms.common.TokenProvider;
-import com.hqjcloud.upms.common.lichenglicheng;
-import com.hqjcloud.upms.config.CustomUserDetailsService;
+import com.hqjcloud.upms.security.JwtTokenUtil;
+import com.hqjcloud.upms.security.JwtUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -40,13 +38,12 @@ public class AppController {
 
 
     @Autowired
-    private TokenProvider tokenProvider;
+    private JwtTokenUtil tokenProvider;
+
+
 
     @Autowired
-    private lichenglicheng sanba;
-
-    @Autowired
-    private CustomUserDetailsService userDetailsService;
+    private JwtUserDetailsService userDetailsService;
 
 
     @Autowired
@@ -82,7 +79,7 @@ public class AppController {
 
     @RequestMapping(value = "/authenticate",method = RequestMethod.GET)
     @ResponseBody
-    public Token authorize(@RequestParam String username, @RequestParam String password)
+    public String authorize(@RequestParam String username, @RequestParam String password)
     {
 
         // 1 创建UsernamePasswordAuthenticationToken
@@ -98,15 +95,9 @@ public class AppController {
         UserDetails details=this.userDetailsService.loadUserByUsername(username);
 
         //5 生成自定义的token
-        return  tokenProvider.createToken(details);
+        return  tokenProvider.generateToken(details);
 
     }
-    @RequestMapping(value = "/hi",method = RequestMethod.GET)
-    @ResponseBody
-    public String hi()
-    {
-       return sanba.test();
 
-    }
 
 }

@@ -88,9 +88,6 @@ public class ArticleLevelServiceImpl implements ArticleLevelService {
 
         List<ArticleLevelRep>  list=new ArrayList<ArticleLevelRep>();
 
-
-
-
         for (ArticleLevel bean : pageInfo.getList()) {
             ArticleLevelRep item = new ArticleLevelRep();
             BeanUtils.copyProperties(bean, item);

@@ -4,7 +4,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
  * @ProjectName: hqjcloud
- * @Package: com.hqjcloud.upms.config
+ * @Package: com.hqjcloud.upms.com.oauth.server.config
  * @ClassName: MyPasswordEncoder
  * @Description:
  * @Author: lic

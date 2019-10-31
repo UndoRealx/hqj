@@ -14,7 +14,7 @@ security:
       accessTokenUri: ${auth-server}/oauth/token
       userAuthorizationUri: ${auth-server}/oauth/authorize
     resource:
-      userInfoUri: ${auth-server}/user
+      userInfoUri: ${auth-server}/user  #配置userinfo的url地址#
 spring:
   thymeleaf:
     cache: false

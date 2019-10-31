@@ -176,6 +176,7 @@ public class ArticleLevelController {
             return  ApiResultEntity.returnResult(StateCode.success.get());
         }
         articleLevel.setLevelStatus(Byte.parseByte(String.valueOf(status)));
+        articleLevel.setModifytime(TimeUtil.GetDate());
         articleLevelService.modify(articleLevel);
         return ApiResultEntity.successResult(articleLevel);
     }

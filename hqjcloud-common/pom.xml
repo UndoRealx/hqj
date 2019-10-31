@@ -14,7 +14,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>hqjcloud-common-base</module>
-        <module>hqjcloud-common-config</module>
+        <module>hqjcloud-common-com.oauth.server.config</module>
         <module>hqjcloud-common-util</module>
         <module>hqjcloud-common-core</module>
         <module>hqjcloud-common-data</module>

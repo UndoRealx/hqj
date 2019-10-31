@@ -1,1 +1,4 @@
 com\hqjcloud\data\BaseMapper.class
+com\hqjcloud\data\BasePageList.class
+com\hqjcloud\data\BaseService.class
+com\hqjcloud\data\util\PageUtil.class
