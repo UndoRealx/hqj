@@ -51,15 +51,15 @@ layui.use(['form','layer','laydate','table','laytpl','layRequest'],function(){
         ]]
     });
 
-    //是否置顶
-    form.on('switch(checkStatus)', function(data){
-        var chk=data.elem.checked;
-        var data={longid:data.value,status:chk?1:0};
-        req.post("/articlelevel/doStatus",data,function (res) {
-            console.log("执行成功！");
-            layer.msg("操作成功!");
-        });
-    })
+    // //是否置顶
+    // form.on('switch(checkStatus)', function(data){
+    //     var chk=data.elem.checked;
+    //     var data={longid:data.value,status:chk?1:0};
+    //     req.post("/articlelevel/doStatus",data,function (res) {
+    //         console.log("执行成功！");
+    //         layer.msg("操作成功!");
+    //     });
+    // })
 
 
     //搜索【此功能需要后台配合，所以暂时没有动态效果演示】
@@ -79,7 +79,7 @@ layui.use(['form','layer','laydate','table','laytpl','layRequest'],function(){
     });
 
 
-
+    //添加文章栏目
     function add(edit){
         var title=edit==null?"添加栏目":"修改栏目";
         var index = layui.layer.open({
@@ -96,8 +96,11 @@ layui.use(['form','layer','laydate','table','laytpl','layRequest'],function(){
                         body.find("#levelName").val(res.data.levelname);
                         body.find("#hid_platform_Id").val(res.data.platformId);
                         body.find("#hid_levelparent_Id").val(res.data.levelParentid);
-                        body.find("#status").val(res.data.levelstatus);
+                        body.find("#status").val(res.data.levelStatus);
                         body.find("#open").prop("checked",res.data.levelStatus==1?true:false);
+                        if (res.data.levelStatus == 1){
+                            body.find("#")
+                        }
                         form.render();
                     });
                 }

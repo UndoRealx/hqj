@@ -73,7 +73,7 @@ layui.use(['form','layer','layRequest'],function(){
                 levelname : $("#levelName").val(),
                 platformId:$("#platform_id").val(),
                 levelParentid:$("#top_level_id").val(),
-                levelstatus : $("#status").val()
+                levelStatus : $("#levelstatu").val()
             };
 
         console.log(postdata);
