@@ -29,4 +29,10 @@ public class ClientServiceImpl implements IClientService{
    {
        return  clientExMapper.selectByPrimaryKey(clientId);
    }
+
+    @Override
+    public boolean Save(Client client)
+    {
+        return  clientExMapper.insertSelective(client)>0;
+    }
 }

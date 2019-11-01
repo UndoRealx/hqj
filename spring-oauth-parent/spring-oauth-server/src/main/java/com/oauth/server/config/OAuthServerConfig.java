@@ -1,5 +1,6 @@
 package com.oauth.server.config;
 
+import com.oauth.server.common.BootClientDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -34,6 +35,8 @@ public class OAuthServerConfig extends AuthorizationServerConfigurerAdapter {
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
+    @Autowired
+    private BootClientDetailsService clientDetailsService;
 
     @Override
     public void configure(final AuthorizationServerSecurityConfigurer oauthServer) throws Exception {
@@ -45,15 +48,16 @@ public class OAuthServerConfig extends AuthorizationServerConfigurerAdapter {
     @Override
     public void configure(final ClientDetailsServiceConfigurer clients) throws Exception {
         //String secret = passwordEncoder.encode("123");
+        clients.withClientDetails(clientDetailsService);
         //客户端存储信息存储于内存中
-        clients.inMemory()
+      /*  clients.inMemory()
                 .withClient("client") //客户端  clientId, 可以类比为用户名
                 .secret(passwordEncoder.encode("secret")) //客户端 secret ， 可以类比为密码
                 .authorizedGrantTypes("authorization_code")	// 授权类型，这里选择授权码
                 .scopes("user_info") // 授权范围
                 //.autoApprove(true) // 自动认证
                 .redirectUris("http://localhost:8882/login","http://localhost:8883/login")	// 跳转uri
-                .accessTokenValiditySeconds(10); // 超时时间，10s
+                .accessTokenValiditySeconds(10); // 超时时间，10s*/
     }
 
     @Override

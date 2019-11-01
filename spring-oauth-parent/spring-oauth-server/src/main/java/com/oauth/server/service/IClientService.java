@@ -17,4 +17,6 @@ import org.apache.ibatis.annotations.Param;
  */
 public interface IClientService {
     Client findClientByClientId(@Param("id") String clientId);
+
+    boolean Save(Client client);
 }
