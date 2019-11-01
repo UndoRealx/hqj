@@ -1,7 +1,7 @@
 package com.oauth.server;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 
 /**
  * @ProjectName: hqjcloud
@@ -16,7 +16,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
  * @Version: 1.0
  */
 @SpringBootApplication
-@EnableResourceServer
+@MapperScan(basePackages = "com.oauth.server.mapper")
 public class OAuthServerApplication{
 
     public static void main(String[] args) {

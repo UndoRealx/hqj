@@ -2,10 +2,8 @@ package com.hqjcloud.upms.mapper.base;
 
 import com.hqjcloud.upms.beans.Role;
 import com.hqjcloud.upms.beans.RoleExample;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
-
+import org.apache.ibatis.annotations.Param;
 
 public interface RoleMapper {
     /**

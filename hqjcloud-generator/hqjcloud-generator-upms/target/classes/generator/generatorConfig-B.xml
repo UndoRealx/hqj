@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
-    <properties resource="com.oauth.server.config.properties"/>
+    <properties resource="config.properties"/>
     <!-- 数据库驱动 -->
     <context id="DB2Tables"  targetRuntime="MyBatis3">
         <commentGenerator>
@@ -72,6 +72,9 @@
             <generatedKey column="longid" sqlStatement="Mysql" identity="true"/>
         </table>
 
+        <table  tableName="hqj_client" domainObjectName="Client" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
+            <generatedKey column="longid" sqlStatement="Mysql" identity="true"/>
+        </table>
      <!--   <table  tableName="sys_log" domainObjectName="SysLog" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
             <generatedKey column="longid" sqlStatement="Mysql" identity="true"/>
         </table>

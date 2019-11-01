@@ -51,7 +51,7 @@ spring:
     template-loader-path: classpath:/templates
 
 mybatis:
-  config-location: classpath:mybatis-com.oauth.server.config.xml
+  config-location: classpath:mybatis-config.xml
   mapper-locations: classpath:mapper/*.xml,mapper/**/*.xml
   type-aliases-package: com.hqjcloud.article.beans
 

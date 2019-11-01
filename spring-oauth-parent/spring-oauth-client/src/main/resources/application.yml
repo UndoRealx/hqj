@@ -11,10 +11,12 @@ security:
     client:
       clientId: SampleClientId
       clientSecret: secret
-      accessTokenUri: ${auth-server}/oauth/token
-      userAuthorizationUri: ${auth-server}/oauth/authorize
+      accessTokenUri: ${auth-server}/oauth/token #获取token的路径
+      userAuthorizationUri: ${auth-server}/oauth/authorize #用户确认授权路径
     resource:
       userInfoUri: ${auth-server}/user  #配置userinfo的url地址#
+      logout:
+        url: ${auth-server}/revoke-token
 spring:
   thymeleaf:
     cache: false
