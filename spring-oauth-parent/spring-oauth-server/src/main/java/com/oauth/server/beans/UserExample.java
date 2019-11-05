@@ -793,6 +793,126 @@ public class UserExample {
             addCriterion("modifytime not between", value1, value2, "modifytime");
             return (Criteria) this;
         }
+
+        public Criteria andIslockedIsNull() {
+            addCriterion("islocked is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIslockedIsNotNull() {
+            addCriterion("islocked is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIslockedEqualTo(Boolean value) {
+            addCriterion("islocked =", value, "islocked");
+            return (Criteria) this;
+        }
+
+        public Criteria andIslockedNotEqualTo(Boolean value) {
+            addCriterion("islocked <>", value, "islocked");
+            return (Criteria) this;
+        }
+
+        public Criteria andIslockedGreaterThan(Boolean value) {
+            addCriterion("islocked >", value, "islocked");
+            return (Criteria) this;
+        }
+
+        public Criteria andIslockedGreaterThanOrEqualTo(Boolean value) {
+            addCriterion("islocked >=", value, "islocked");
+            return (Criteria) this;
+        }
+
+        public Criteria andIslockedLessThan(Boolean value) {
+            addCriterion("islocked <", value, "islocked");
+            return (Criteria) this;
+        }
+
+        public Criteria andIslockedLessThanOrEqualTo(Boolean value) {
+            addCriterion("islocked <=", value, "islocked");
+            return (Criteria) this;
+        }
+
+        public Criteria andIslockedIn(List<Boolean> values) {
+            addCriterion("islocked in", values, "islocked");
+            return (Criteria) this;
+        }
+
+        public Criteria andIslockedNotIn(List<Boolean> values) {
+            addCriterion("islocked not in", values, "islocked");
+            return (Criteria) this;
+        }
+
+        public Criteria andIslockedBetween(Boolean value1, Boolean value2) {
+            addCriterion("islocked between", value1, value2, "islocked");
+            return (Criteria) this;
+        }
+
+        public Criteria andIslockedNotBetween(Boolean value1, Boolean value2) {
+            addCriterion("islocked not between", value1, value2, "islocked");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsenableIsNull() {
+            addCriterion("isenable is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsenableIsNotNull() {
+            addCriterion("isenable is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsenableEqualTo(Boolean value) {
+            addCriterion("isenable =", value, "isenable");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsenableNotEqualTo(Boolean value) {
+            addCriterion("isenable <>", value, "isenable");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsenableGreaterThan(Boolean value) {
+            addCriterion("isenable >", value, "isenable");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsenableGreaterThanOrEqualTo(Boolean value) {
+            addCriterion("isenable >=", value, "isenable");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsenableLessThan(Boolean value) {
+            addCriterion("isenable <", value, "isenable");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsenableLessThanOrEqualTo(Boolean value) {
+            addCriterion("isenable <=", value, "isenable");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsenableIn(List<Boolean> values) {
+            addCriterion("isenable in", values, "isenable");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsenableNotIn(List<Boolean> values) {
+            addCriterion("isenable not in", values, "isenable");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsenableBetween(Boolean value1, Boolean value2) {
+            addCriterion("isenable between", value1, value2, "isenable");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsenableNotBetween(Boolean value1, Boolean value2) {
+            addCriterion("isenable not between", value1, value2, "isenable");
+            return (Criteria) this;
+        }
     }
 
     /**

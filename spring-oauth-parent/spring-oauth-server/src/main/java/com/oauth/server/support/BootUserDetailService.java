@@ -1,17 +1,20 @@
-package com.oauth.server.common;
+package com.oauth.server.support;
 
+import com.oauth.server.beans.AuthUser;
+import com.oauth.server.beans.User;
 import com.oauth.server.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
-import com.oauth.server.beans.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -32,13 +35,11 @@ import java.util.List;
 @Component
 public class BootUserDetailService implements UserDetailsService {
 
-    @Autowired
-    private BCryptPasswordEncoder passwordEncoder;
 
     @Autowired
     private UserService userService;
 
-    private Logger logger = LoggerFactory.getLogger(getClass());
+
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -54,8 +55,10 @@ public class BootUserDetailService implements UserDetailsService {
         if(entity==null) {
             throw new UsernameNotFoundException("用户名不存在");
         }
-  /*      user.setAuthorities(authorities);*/
-
-        return new org.springframework.security.core.userdetails.User(entity.getUsername(), passwordEncoder.encode(entity.getPassword()), authorities);
+        AuthUser authUser=new AuthUser();
+        BeanUtils.copyProperties(entity,authUser);
+        authUser.setAuthorities(authorities);
+        authUser.setPassword(authUser.getPassword());
+        return authUser;
     }
 }

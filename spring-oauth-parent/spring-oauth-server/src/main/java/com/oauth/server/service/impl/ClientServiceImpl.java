@@ -1,10 +1,13 @@
 package com.oauth.server.service.impl;
 
 import com.oauth.server.beans.Client;
+import com.oauth.server.beans.ClientExample;
 import com.oauth.server.mapper.ClientExMapper;
 import com.oauth.server.service.IClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @ProjectName: hqjcloud
@@ -22,17 +25,21 @@ import org.springframework.stereotype.Service;
 public class ClientServiceImpl implements IClientService{
 
     @Autowired
-    private ClientExMapper clientExMapper;
+    private ClientExMapper mapper;
 
    @Override
    public Client findClientByClientId(String clientId)
    {
-       return  clientExMapper.selectByPrimaryKey(clientId);
+       ClientExample example = new ClientExample();
+       ClientExample.Criteria criteria = example.createCriteria();
+       criteria.andClientidEqualTo(clientId);
+       List<Client> lists = mapper.selectByExample(example);
+       return lists.isEmpty()==false?lists.get(0):null;
    }
 
     @Override
     public boolean Save(Client client)
     {
-        return  clientExMapper.insertSelective(client)>0;
+        return  mapper.insertSelective(client)>0;
     }
 }

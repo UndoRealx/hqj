@@ -1,6 +1,7 @@
-package com.oauth.server.common;
+package com.oauth.server.support.oauth2;
 
 import com.oauth.server.beans.Client;
+import com.oauth.server.common.CommonUtils;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;

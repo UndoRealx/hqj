@@ -1,4 +1,4 @@
-package com.oauth.server.beans;
+package com.oauth.server.dto.response;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -23,4 +23,11 @@ public class SimpleResponse extends BaseResponse {
     }
 
 
+    public Object getItem() {
+        return item;
+    }
+
+    public void setItem(Object item) {
+        this.item = item;
+    }
 }

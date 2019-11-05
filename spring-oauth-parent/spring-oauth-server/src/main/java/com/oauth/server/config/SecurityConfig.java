@@ -1,6 +1,9 @@
 package com.oauth.server.config;
 
-import com.oauth.server.common.BootUserDetailService;
+import com.oauth.server.support.BootLoginFailureHandler;
+import com.oauth.server.support.BootUserDetailService;
+import com.oauth.server.support.properities.BootSecurityProperties;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -30,6 +33,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private BootUserDetailService userDetailService;
+    @Autowired
+    private BootSecurityProperties properties;
+
+    private BootLoginFailureHandler handler;
     /**
     *@Description 让Security 忽略这些url，不做拦截处理
     *@Param  * @param web
@@ -45,6 +52,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/swagger-resources/**", "/v2/api-docs/**",
                         "/swagger-resources/configuration/ui/**", "/swagger-resources/configuration/security/**",
                         "/images/**");
+    }
+
+    public SecurityConfig(BootUserDetailService userDetailService, BootSecurityProperties properties, BootLoginFailureHandler handler) {
+        this.userDetailService = userDetailService;
+        this.properties = properties;
+        this.handler = handler;
     }
 
     @Override
@@ -65,23 +78,38 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.rememberMe().disable();
         http.httpBasic();*/
 
-        http.formLogin().and()
+/*        http.formLogin().and()
                 .requestMatchers()
                 .antMatchers("/login","/oauth/authorize")
                 .and()
                 .authorizeRequests()
                 .anyRequest()
+                .authenticated();*/
+
+        http
+                // 必须配置，不然OAuth2的http配置不生效----不明觉厉
+                .requestMatchers()
+                .antMatchers("/auth/login", properties.getLoginProcessUrl(), "/oauth/authorize")
+                .and()
+                .authorizeRequests()
+                // 自定义页面或处理url是，如果不配置全局允许，浏览器会提示服务器将页面转发多次
+                .antMatchers("/auth/login", properties.getLoginProcessUrl())
+                .permitAll()
+                .anyRequest()
                 .authenticated();
+
+        // 表单登录
+        http.formLogin()
+                // 登录页面
+                .loginPage("/auth/login")
+                // 登录处理url
+                .loginProcessingUrl(properties.getLoginProcessUrl());
 
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         // 配置用户名密码，这里采用内存方式，生产环境需要从数据库获取
-      /*  auth.inMemoryAuthentication()
-                .withUser("admin")
-                .password(passwordEncoder().encode("123"))
-                .roles("USER");*/
         auth.userDetailsService(userDetailService);
     }
 

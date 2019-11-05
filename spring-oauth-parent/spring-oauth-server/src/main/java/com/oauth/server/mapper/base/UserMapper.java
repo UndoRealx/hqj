@@ -1,9 +1,9 @@
 package com.oauth.server.mapper.base;
 
-
 import com.oauth.server.beans.User;
 import com.oauth.server.beans.UserExample;
 import org.apache.ibatis.annotations.Param;
+
 
 import java.util.List;
 

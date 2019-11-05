@@ -1,17 +1,15 @@
 package com.oauth.server.controller;
 
-import com.oauth.server.beans.BaseResponse;
+import com.oauth.server.dto.response.BaseResponse;
 import com.oauth.server.beans.Client;
+import com.oauth.server.dto.response.HttpResponse;
 import com.oauth.server.service.IClientService;
-import com.sun.deploy.net.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.io.Console;
 
 /**
  * @ProjectName: hqjcloud
@@ -40,6 +38,14 @@ public class ClientController {
         client.setClientsecret(passwordEncoder.encode(client.getClientsecret()));
         boolean i = clientService.Save(client);
         return HttpResponse.baseResponse(200);
+    }
+    
+    @PostMapping("/passTest")
+    public  String  Pass(@RequestParam String key)
+    {
+        String  value=passwordEncoder.encode(key);
+        System.out.println(value);
+        return  value;
     }
 
 }
