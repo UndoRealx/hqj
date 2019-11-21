@@ -1,9 +1,6 @@
 package com.oauth.server.config.oauth2;
 
-import com.oauth.server.exception.BootOAuth2WebResponseExceptionTranslator;
 import com.oauth.server.filter.BootBasicAuthenticationFilter;
-
-import com.oauth.server.support.BootUserDetailService;
 import com.oauth.server.support.oauth2.BootClientDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -18,7 +15,6 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.error.WebResponseExceptionTranslator;
 import org.springframework.security.oauth2.provider.token.TokenStore;
-import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore;
 import org.springframework.security.web.AuthenticationEntryPoint;
@@ -27,7 +23,7 @@ import org.springframework.security.web.AuthenticationEntryPoint;
  * @ProjectName: hqjcloud
  * @Package: com.oauth.server.config
  * @ClassName: OAuthServerConfig
- * @Description:
+ * @Description:  开启认证授权中心  都依赖于 security框架 WebSecurityConfigurerAdapter
  * @Author: lic
  * @CreateDate: 2019/10/30 16:58
  * @UpdateUser: 更新者
@@ -94,9 +90,14 @@ public class OAuthServerConfig extends AuthorizationServerConfigurerAdapter {
         // 客户端认证之前的过滤器
         security.addTokenEndpointAuthenticationFilter(filter);
 
-        security.tokenKeyAccess("permitAll()").checkTokenAccess("isAuthenticated()");
+        security.tokenKeyAccess("permitAll()").checkTokenAccess("()");
     }
 
+    /**
+     * 添加用户信息
+     * @param clients
+     * @throws Exception
+     */
     @Override
     public void configure(final ClientDetailsServiceConfigurer clients) throws Exception {
         clients.withClientDetails(clientDetailsService);
